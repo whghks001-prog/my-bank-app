@@ -1,0 +1,115 @@
+.recommend-card {
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+
+  background: white;
+
+  padding: 20px;
+
+  margin-top: 20px;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+
+}
+
+
+.recommend-icon {
+
+  width: 52px;
+
+  height: 52px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #f0f8f3;
+
+  border-radius: 16px;
+
+  font-size: 25px;
+
+  margin-right: 15px;
+
+}
+
+
+.recommend-content {
+
+  flex: 1;
+
+}
+
+
+.recommend-label {
+
+  margin: 0 0 5px;
+
+  font-size: 13px;
+
+  color: #777;
+
+}
+
+
+.recommend-content h3 {
+
+  margin: 0;
+
+  font-size: 18px;
+
+}
+
+
+.recommend-description {
+
+  margin: 7px 0;
+
+  font-size: 13px;
+
+  color: #777;
+
+}
+
+
+.recommend-rate {
+
+  display: inline-block;
+
+  margin-top: 3px;
+
+  padding: 5px 9px;
+
+  background: #eaf6ef;
+
+  color: #00843D;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+}
+
+
+.recommend-arrow {
+
+  font-size: 30px;
+
+  color: #999;
+
+  margin-left: 8px;
+
+}

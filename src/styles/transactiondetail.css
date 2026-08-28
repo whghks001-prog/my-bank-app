@@ -1,0 +1,269 @@
+.transaction-detail-page {
+  min-height: calc(100vh - 40px);
+  padding-bottom: 30px;
+}
+
+
+/* =========================
+   상단
+========================= */
+
+.transaction-detail-header {
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+}
+
+
+.transaction-detail-header h2 {
+  width: 100%;
+
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #222;
+}
+
+
+.transaction-detail-back {
+  position: absolute;
+
+  left: 0;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: white;
+
+  color: #333;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+
+.transaction-detail-back:active {
+  transform:
+    translateY(-50%)
+    scale(0.94);
+}
+
+
+/* =========================
+   금액 영역
+========================= */
+
+.transaction-detail-main {
+  padding: 35px 20px 30px;
+
+  text-align: center;
+}
+
+
+.transaction-detail-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 17px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 21px;
+
+  background: #f0f7f3;
+
+  font-size: 29px;
+}
+
+
+.transaction-detail-title {
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #555;
+}
+
+
+.transaction-detail-amount {
+  margin: 9px 0 8px;
+
+  font-size: 31px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+
+.transaction-detail-amount.minus {
+  color: #222;
+}
+
+
+.transaction-detail-amount.plus {
+  color: #00843D;
+}
+
+
+.transaction-detail-type {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  background: #f3f3f3;
+
+  color: #888;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   상세 정보
+========================= */
+
+.transaction-detail-box {
+  padding: 5px 20px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+.transaction-detail-row {
+  min-height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.transaction-detail-row span {
+  font-size: 13px;
+
+  color: #888;
+
+  flex-shrink: 0;
+}
+
+
+.transaction-detail-row strong {
+  max-width: 65%;
+
+  overflow: hidden;
+
+  text-align: right;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+  font-size: 13px;
+
+  color: #333;
+}
+
+
+.transaction-detail-divider {
+  height: 1px;
+
+  background: #f1f1f1;
+}
+
+
+/* =========================
+   확인 버튼
+========================= */
+
+.transaction-detail-button {
+  width: 100%;
+
+  height: 52px;
+
+  margin-top: 20px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: #00843D;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.transaction-detail-button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   오류 / 빈 화면
+========================= */
+
+.transaction-detail-empty {
+  margin-top: 30px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  text-align: center;
+
+  color: #888;
+
+  font-size: 14px;
+}

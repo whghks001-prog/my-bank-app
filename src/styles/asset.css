@@ -1,0 +1,31 @@
+.asset-bar {
+
+display:flex;
+
+height:18px;
+
+border-radius:20px;
+
+overflow:hidden;
+
+background:#eee;
+
+margin:20px 0;
+
+}
+
+
+
+.balance-bar {
+
+background:#4caf50;
+
+}
+
+
+
+.deposit-bar {
+
+background:#00843D;
+
+}

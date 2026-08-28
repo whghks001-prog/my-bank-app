@@ -1,0 +1,256 @@
+.transaction-page {
+  padding-bottom: 20px;
+}
+
+
+.transaction-title {
+  margin: 5px 0 20px;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  color: #222;
+}
+
+
+/* =========================
+   요약
+========================= */
+
+.transaction-summary {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  padding: 0 4px;
+
+  font-size: 13px;
+
+  color: #888;
+}
+
+
+.transaction-summary strong {
+  color: #333;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   빈 화면
+========================= */
+
+.transaction-empty {
+  padding: 55px 20px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  text-align: center;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+.transaction-empty-icon {
+  width: 60px;
+  height: 60px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #f1f4f2;
+
+  font-size: 27px;
+}
+
+
+.transaction-empty p {
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  color: #444;
+}
+
+
+.transaction-empty span {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  color: #aaa;
+}
+
+
+/* =========================
+   거래 목록
+========================= */
+
+.transaction-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.transaction-card {
+  width: 100%;
+
+  min-height: 78px;
+
+  padding: 14px 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  background: white;
+
+  text-align: left;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.04);
+
+  cursor: pointer;
+
+  transition: 0.15s;
+}
+
+
+.transaction-card:active {
+  transform: scale(0.98);
+
+  background: #fafafa;
+}
+
+
+/* =========================
+   아이콘
+========================= */
+
+.transaction-icon {
+  width: 43px;
+  height: 43px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #f1f7f3;
+
+  font-size: 20px;
+}
+
+
+/* =========================
+   거래 정보
+========================= */
+
+.transaction-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.transaction-info strong {
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+  font-size: 14px;
+
+  color: #333;
+}
+
+
+.transaction-info span {
+  font-size: 11px;
+
+  color: #999;
+}
+
+
+/* =========================
+   금액
+========================= */
+
+.transaction-money {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+}
+
+
+.transaction-money strong {
+  font-size: 15px;
+
+  white-space: nowrap;
+}
+
+
+.transaction-money strong.minus {
+  color: #333;
+}
+
+
+.transaction-money strong.plus {
+  color: #00843D;
+}
+
+
+.transaction-money span {
+  font-size: 10px;
+
+  color: #aaa;
+
+  white-space: nowrap;
+}

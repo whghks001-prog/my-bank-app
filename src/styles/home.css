@@ -1,0 +1,413 @@
+.home-page {
+  padding-bottom: 20px;
+}
+
+
+/* =========================
+   상단
+========================= */
+
+.home-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+
+.home-welcome {
+  margin: 0 0 4px;
+
+  font-size: 13px;
+
+  color: #888;
+}
+
+
+.home-title {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  color: #222;
+}
+
+
+.home-header-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+/* 알림 버튼 */
+
+.home-notification {
+  position: relative;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.home-notification:active {
+  transform: scale(0.95);
+}
+
+
+/* 알림 숫자 */
+
+.home-notification-badge {
+  position: absolute;
+
+  top: -3px;
+  right: -3px;
+
+  min-width: 18px;
+  height: 18px;
+
+  padding: 0 4px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e53935;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* 설정 버튼 */
+
+.home-settings {
+  width: 45px;
+  height: 45px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.home-settings:active {
+  transform: scale(0.95);
+}
+
+
+/* =========================
+   총자산
+========================= */
+
+.home-assets-card {
+  padding: 25px 20px;
+
+  background: #00843D;
+
+  border-radius: 24px;
+
+  color: white;
+
+  box-shadow:
+    0 8px 25px rgba(0, 132, 61, 0.18);
+}
+
+
+.home-assets-label {
+  margin: 0;
+
+  font-size: 14px;
+
+  opacity: 0.85;
+}
+
+
+.home-assets-amount {
+  margin: 8px 0 22px;
+
+  font-size: 32px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+
+.home-assets-line {
+  height: 1px;
+
+  margin-bottom: 17px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+.home-balance-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 10px;
+
+  font-size: 13px;
+}
+
+
+.home-balance-row span {
+  opacity: 0.8;
+}
+
+
+.home-balance-row strong {
+  font-size: 14px;
+}
+
+
+/* =========================
+   섹션 제목
+========================= */
+
+.home-section-title {
+  margin: 28px 0 12px 5px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #333;
+}
+
+
+/* =========================
+   빠른 메뉴
+========================= */
+
+.home-menu-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+
+.home-menu-card {
+  min-height: 105px;
+
+  padding: 18px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 10px;
+
+  color: #333;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.04);
+
+  transition: 0.15s;
+}
+
+
+.home-menu-card:active {
+  transform: scale(0.97);
+}
+
+
+.home-menu-icon {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #f1f7f3;
+
+  font-size: 20px;
+}
+
+
+/* 알림 메뉴 숫자 */
+
+.notification-menu-icon {
+  position: relative;
+}
+
+
+.home-menu-badge {
+  position: absolute;
+
+  top: -5px;
+  right: -5px;
+
+  min-width: 18px;
+  height: 18px;
+
+  padding: 0 4px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e53935;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   등록된 예금
+========================= */
+
+.home-deposit-info {
+  margin-top: 18px;
+
+  padding: 18px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+.home-deposit-info-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #f1f7f3;
+
+  font-size: 20px;
+}
+
+
+.home-deposit-info > div:nth-child(2) {
+  flex: 1;
+}
+
+
+.home-deposit-info p {
+  margin: 0 0 4px;
+
+  font-size: 12px;
+
+  color: #999;
+}
+
+
+.home-deposit-info strong {
+  font-size: 15px;
+
+  color: #333;
+}
+
+
+.home-deposit-info button {
+  padding: 8px 13px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f1f7f3;
+
+  color: #00843D;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.home-deposit-info button:active {
+  transform: scale(0.95);
+}

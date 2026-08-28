@@ -1,0 +1,176 @@
+.deposit-detail-page {
+  padding-bottom: 20px;
+}
+
+
+.deposit-detail-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+
+.deposit-detail-top h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+}
+
+
+.deposit-back {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 14px;
+  background: white;
+  color: #333;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.deposit-back:active {
+  transform: scale(0.95);
+}
+
+
+.deposit-detail-main {
+  background: white;
+  border-radius: 26px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+
+.deposit-detail-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 15px;
+  border-radius: 22px;
+  background: #eaf6ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+
+.deposit-detail-label {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+
+.deposit-detail-main h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: #222;
+}
+
+
+.deposit-detail-status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #eaf6ef;
+  color: #00843D;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.deposit-detail-box {
+  margin-top: 15px;
+  padding: 5px 20px;
+  background: white;
+  border-radius: 22px;
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+
+.deposit-detail-row {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+
+.deposit-detail-row:last-child {
+  border-bottom: none;
+}
+
+
+.deposit-detail-row span {
+  font-size: 13px;
+  color: #888;
+}
+
+
+.deposit-detail-row strong {
+  font-size: 13px;
+  color: #333;
+  text-align: right;
+}
+
+
+.deposit-detail-complete {
+  color: #00843D !important;
+}
+
+
+.deposit-detail-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 16px;
+  border-radius: 18px;
+  background: white;
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+.deposit-detail-info span {
+  font-size: 20px;
+}
+
+
+.deposit-detail-info p {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+}
+
+
+.deposit-detail-button {
+  width: 100%;
+  height: 52px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 16px;
+  background: #00843D;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+.deposit-detail-button:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,319 @@
+.settings-page {
+  padding-bottom: 30px;
+}
+
+
+/* =========================
+   상단
+========================= */
+
+.settings-header {
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+.settings-header h2 {
+  margin: 5px 0 0;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  color: #222;
+}
+
+
+/* =========================
+   섹션
+========================= */
+
+.settings-section {
+  margin-top: 22px;
+}
+
+
+.settings-section-title {
+  margin: 0 0 10px;
+
+  padding-left: 4px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #777;
+}
+
+
+/* =========================
+   카드
+========================= */
+
+.settings-card {
+  padding: 20px;
+
+  background: white;
+
+  border-radius: 21px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+.settings-card h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 750;
+
+  color: #333;
+}
+
+
+.settings-description {
+  margin: 7px 0 17px;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+
+  color: #999;
+}
+
+
+/* =========================
+   입력
+========================= */
+
+.settings-input {
+  width: 100%;
+
+  height: 50px;
+
+  margin-bottom: 9px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e3e3e3;
+
+  border-radius: 14px;
+
+  background: #fafafa;
+
+  outline: none;
+
+  font-size: 14px;
+
+  color: #222;
+}
+
+
+.settings-input:focus {
+  border-color: #00843D;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 132, 61, 0.07);
+}
+
+
+.settings-input::placeholder {
+  color: #aaa;
+}
+
+
+/* =========================
+   비밀번호 변경
+========================= */
+
+.settings-primary-button {
+  width: 100%;
+
+  height: 50px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #00843D;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.settings-primary-button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   메시지
+========================= */
+
+.settings-message {
+  margin: 12px 0 0;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.settings-message.success {
+  color: #00843D;
+}
+
+
+.settings-message.error {
+  color: #e53935;
+}
+
+
+/* =========================
+   로그아웃
+========================= */
+
+.settings-logout-button {
+  width: 100%;
+
+  height: 48px;
+
+  border: 1px solid #e1e1e1;
+
+  border-radius: 14px;
+
+  background: #f8f8f8;
+
+  color: #555;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.settings-logout-button:active {
+  transform: scale(0.98);
+
+  background: #eeeeee;
+}
+
+
+/* =========================
+   데이터 초기화
+========================= */
+
+.settings-danger-button {
+  width: 100%;
+
+  height: 48px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #fff1f1;
+
+  color: #e53935;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.settings-danger-button:active {
+  transform: scale(0.98);
+
+  background: #ffe5e5;
+}
+
+
+/* =========================
+   앱 정보
+========================= */
+
+.settings-info-card {
+  padding: 5px 20px;
+
+  background: white;
+
+  border-radius: 21px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+.settings-info-row {
+  min-height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.settings-info-row span {
+  font-size: 13px;
+
+  color: #888;
+}
+
+
+.settings-info-row strong {
+  font-size: 13px;
+
+  color: #333;
+
+  text-align: right;
+}
+
+
+.settings-info-divider {
+  height: 1px;
+
+  background: #f1f1f1;
+}
+
+
+/* =========================
+   하단
+========================= */
+
+.settings-footer {
+  margin: 30px 0 10px;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  color: #bbb;
+}

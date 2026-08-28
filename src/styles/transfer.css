@@ -1,0 +1,301 @@
+.transfer-page {
+  padding-bottom: 20px;
+}
+
+
+/* =========================
+   상단
+========================= */
+
+.transfer-header {
+  margin-bottom: 20px;
+}
+
+
+.transfer-header h2 {
+  margin: 5px 0 0;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  color: #222;
+}
+
+
+/* =========================
+   잔액 카드
+========================= */
+
+.transfer-balance-card {
+  padding: 22px 20px;
+
+  border-radius: 22px;
+
+  background: #00843D;
+
+  box-shadow:
+    0 8px 20px rgba(0, 132, 61, 0.16);
+
+  color: white;
+}
+
+
+.transfer-balance-card span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+
+  opacity: 0.8;
+}
+
+
+.transfer-balance-card strong {
+  font-size: 26px;
+
+  font-weight: 800;
+}
+
+
+/* =========================
+   입력 영역
+========================= */
+
+.transfer-form {
+  margin-top: 18px;
+
+  padding: 22px 20px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+
+.transfer-label {
+  margin: 0 0 8px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #555;
+}
+
+
+.transfer-form
+.transfer-label:not(:first-child) {
+  margin-top: 20px;
+}
+
+
+.transfer-input {
+  width: 100%;
+
+  height: 52px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e2e2e2;
+
+  border-radius: 15px;
+
+  background: #fafafa;
+
+  font-size: 15px;
+
+  color: #222;
+
+  outline: none;
+}
+
+
+.transfer-input:focus {
+  border-color: #00843D;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(0, 132, 61, 0.08);
+}
+
+
+.transfer-input::placeholder {
+  color: #aaa;
+}
+
+
+/* =========================
+   금액
+========================= */
+
+.transfer-amount-wrap {
+  position: relative;
+}
+
+
+.transfer-amount-input {
+  padding-right: 45px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+.transfer-amount-wrap > span {
+  position: absolute;
+
+  right: 16px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 14px;
+
+  color: #888;
+}
+
+
+/* =========================
+   빠른 금액
+========================= */
+
+.transfer-quick-buttons {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 7px;
+
+  margin-top: 9px;
+}
+
+
+.transfer-quick-buttons button {
+  height: 36px;
+
+  border: 1px solid #e8e8e8;
+
+  border-radius: 10px;
+
+  background: #fafafa;
+
+  color: #666;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.transfer-quick-buttons button:active {
+  transform: scale(0.96);
+
+  background: #f1f7f3;
+
+  border-color: #b9dcc7;
+
+  color: #00843D;
+}
+
+
+/* =========================
+   이체 버튼
+========================= */
+
+.transfer-button {
+  width: 100%;
+
+  height: 54px;
+
+  margin-top: 24px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: #00843D;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+.transfer-button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   결과 메시지
+========================= */
+
+.transfer-message {
+  margin: 14px 0 0;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.transfer-message.success {
+  color: #00843D;
+}
+
+
+.transfer-message.error {
+  color: #e53935;
+}
+
+
+/* =========================
+   안내
+========================= */
+
+.transfer-notice {
+  margin-top: 18px;
+
+  padding: 17px;
+
+  border-radius: 18px;
+
+  background: #f0f4f2;
+}
+
+
+.transfer-notice strong {
+  font-size: 13px;
+
+  color: #555;
+}
+
+
+.transfer-notice p {
+  margin: 7px 0 0;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  color: #888;
+}
