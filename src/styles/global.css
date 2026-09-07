@@ -2,22 +2,15 @@
   box-sizing: border-box;
 }
 
-
-html {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
-  background: #f5f7f6;
+  min-height: 100%;
 }
 
-
 body {
-  margin: 0;
-  padding: 0;
-
-  background: #f5f7f6;
-
-  color: #222;
-
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -27,30 +20,255 @@ body {
     Arial,
     sans-serif;
 
-  -webkit-font-smoothing: antialiased;
+  background: #f5f7f6;
+  color: #222;
 
-  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
+
+/* =========================
+   기본 요소
+   ========================= */
 
 button,
 input {
   font-family: inherit;
 }
 
-
 button {
   -webkit-tap-highlight-color: transparent;
 }
 
-
-input:focus {
+input {
   outline: none;
 }
 
 
-#root {
+/* =========================
+   앱 전체
+   ========================= */
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
   min-height: 100vh;
+  margin: 0 auto;
 
   background: #f5f7f6;
+  color: #222;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================
+   다크모드 앱
+   ========================= */
+
+.app-container.dark {
+  background: #111315;
+  color: #f1f1f1;
+}
+
+
+/* =========================
+   페이지 공통
+   ========================= */
+
+.dark .home-page,
+.dark .transfer-page,
+.dark .transaction-page,
+.dark .deposit-page,
+.dark .notification-page,
+.dark .settings-page {
+  background: #111315;
+  color: #f1f1f1;
+}
+
+
+/* =========================
+   카드 공통
+   ========================= */
+
+.dark .home-assets-card,
+.dark .home-deposit-info,
+.dark .home-menu-card,
+.dark .transfer-balance-card,
+.dark .transfer-form,
+.dark .deposit-box,
+.dark .deposit-card,
+.dark .settings-card,
+.dark .settings-info-card,
+.dark .transaction-card,
+.dark .notification-card {
+  background: #1c2024;
+  color: #f1f1f1;
+  border-color: #2c3136;
+}
+
+
+/* =========================
+   제목 / 설명
+   ========================= */
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark strong {
+  color: #f5f5f5;
+}
+
+.dark p,
+.dark span {
+  color: inherit;
+}
+
+
+/* =========================
+   입력창
+   ========================= */
+
+.dark input,
+.dark textarea,
+.dark select {
+  background: #24292e;
+  color: #f5f5f5;
+  border-color: #3a4046;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #8d949b;
+}
+
+
+/* =========================
+   이체 / 예금 버튼
+   ========================= */
+
+.dark .transfer-button,
+.dark .deposit-button,
+.dark .settings-primary-button {
+  color: white;
+}
+
+
+/* =========================
+   빠른 금액 버튼
+   ========================= */
+
+.dark .transfer-quick-buttons button {
+  background: #292e33;
+  color: #ddd;
+  border-color: #3a4046;
+}
+
+
+/* =========================
+   하단 네비게이션
+   ========================= */
+
+.dark .bottom-nav {
+  background: #181b1e;
+  border-top-color: #2c3136;
+}
+
+.dark .bottom-nav-item {
+  color: #8d949b;
+}
+
+.dark .bottom-nav-item.active {
+  color: #4caf78;
+}
+
+
+/* =========================
+   거래내역
+   ========================= */
+
+.dark .transaction-item,
+.dark .transaction-detail,
+.dark .transaction-empty {
+  color: #f1f1f1;
+}
+
+.dark .transaction-item {
+  border-bottom-color: #2c3136;
+}
+
+
+/* =========================
+   알림
+   ========================= */
+
+.dark .notification-item {
+  background: #1c2024;
+  border-color: #2c3136;
+}
+
+.dark .notification-item.unread {
+  background: #20262a;
+}
+
+
+/* =========================
+   설정
+   ========================= */
+
+.dark .settings-section h3 {
+  color: #f1f1f1;
+}
+
+.dark .settings-item {
+  border-bottom-color: #2c3136;
+}
+
+.dark .settings-description,
+.dark .settings-item-text span {
+  color: #9da4aa;
+}
+
+.dark .settings-info-card div {
+  border-bottom-color: #2c3136;
+}
+
+.dark .settings-info-card span {
+  color: #9da4aa;
+}
+
+
+/* =========================
+   스크롤바
+   ========================= */
+
+.dark ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #111315;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3a4046;
+  border-radius: 10px;
+}
+
+
+/* =========================
+   모바일
+   ========================= */
+
+@media (max-width: 420px) {
+
+  .app-container {
+    max-width: 100%;
+  }
+
 }

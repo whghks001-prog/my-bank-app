@@ -1,154 +1,506 @@
+/* =========================
+   LOGIN PAGE
+========================= */
+
 .login-page {
-  min-height: 100vh;
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  overflow: hidden;
 
   display: flex;
 
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 
-  padding: 25px;
+  background:
+    linear-gradient(
+      180deg,
+      #061a35 0%,
+      #061b38 55%,
+      #06234a 100%
+    );
 
-  box-sizing: border-box;
+  color: white;
 
-  background: #f5f7f6;
-}
-
-
-.login-box {
-  width: 100%;
-
-  max-width: 360px;
-
-  padding: 30px 25px;
-
-  box-sizing: border-box;
-
-  background: white;
-
-  border-radius: 26px;
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-
-.login-logo {
-  width: 60px;
-  height: 60px;
-
-  margin-bottom: 20px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 20px;
-
-  background: #f1f7f3;
-
-  font-size: 30px;
-}
-
-
-.login-title {
-  margin: 0;
-
-  font-size: 25px;
-
-  font-weight: 800;
-
-  color: #222;
-}
-
-
-.login-description {
-  margin: 8px 0 25px;
-
-  font-size: 13px;
-
-  color: #888;
-
-  line-height: 1.5;
-}
-
-
-.login-input {
-  width: 100%;
-
-  height: 52px;
-
-  padding: 0 16px;
-
-  box-sizing: border-box;
-
-  border: 1px solid #e1e1e1;
-
-  border-radius: 15px;
-
-  background: #fafafa;
-
-  font-size: 16px;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    sans-serif;
 
   outline: none;
+
+  z-index: 9999;
+
 }
 
 
-.login-input:focus {
-  border-color: #00843D;
+/* =========================
+   TOP
+========================= */
 
-  background: white;
+.login-top {
 
-  box-shadow:
-    0 0 0 3px rgba(0, 132, 61, 0.08);
+  flex: 1;
+
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding:
+
+    max(
+      55px,
+      env(safe-area-inset-top)
+    )
+
+    25px
+
+    20px;
+
 }
 
 
-.login-button {
-  width: 100%;
+/* =========================
+   BRAND
+========================= */
 
-  height: 52px;
+.login-brand {
 
-  margin-top: 12px;
+  display: flex;
 
-  border: none;
+  align-items: center;
 
-  border-radius: 15px;
+  gap: 12px;
 
-  background: #00843D;
+  margin-top: 20px;
+
+  margin-bottom: 55px;
+
+}
+
+
+.login-brand-icon {
+
+  width: 48px;
+
+  height: 48px;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00b9ff,
+      #0077ff
+    );
 
   color: white;
 
   font-size: 16px;
 
-  font-weight: 700;
+  font-weight: 900;
 
-  cursor: pointer;
+  box-shadow:
+    0 8px 20px
+    rgba(
+      0,
+      130,
+      255,
+      0.25
+    );
+
 }
 
 
-.login-button:active {
-  transform: scale(0.98);
+.login-brand span {
+
+  font-size: 27px;
+
+  font-weight: 800;
+
+  letter-spacing: -1.5px;
+
 }
 
+
+/* =========================
+   TITLE
+========================= */
+
+.login-title {
+
+  margin: 0;
+
+  font-size: 31px;
+
+  font-weight: 800;
+
+  letter-spacing: -1.5px;
+
+  text-align: center;
+
+}
+
+
+.login-subtitle {
+
+  margin:
+
+    12px
+
+    0
+
+    0;
+
+  color: #b9c8dc;
+
+  font-size: 16px;
+
+  letter-spacing: -0.5px;
+
+}
+
+
+/* =========================
+   PIN DOTS
+========================= */
+
+.login-dots {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 17px;
+
+  margin-top: 46px;
+
+}
+
+
+.login-dot {
+
+  width: 15px;
+
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  border: 1.5px solid #b9c7d9;
+
+  box-sizing: border-box;
+
+  transition:
+    all 0.15s ease;
+
+}
+
+
+.login-dot.filled {
+
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  transform: scale(1.05);
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
 
 .login-error {
-  margin: 12px 0 0;
 
-  text-align: center;
+  margin:
 
-  font-size: 13px;
+    18px
 
-  color: #e53935;
+    0
+
+    0;
+
+  color: #ff8e8e;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
 }
 
 
-.login-footer {
-  margin: 22px 0 0;
+/* =========================
+   FACE ID
+========================= */
 
-  text-align: center;
+.login-face-id {
 
-  font-size: 11px;
+  display: flex;
 
-  color: #bbb;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: auto;
+
+  margin-bottom: 8px;
+
+  color: #bdcadd;
+
+  font-size: 15px;
+
+}
+
+
+.face-id-icon {
+
+  width: 32px;
+
+  height: 32px;
+
+  border: 1.5px solid #bdcadd;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 14px;
+
+}
+
+
+/* =========================
+   KEYPAD
+========================= */
+
+.login-keypad {
+
+  flex-shrink: 0;
+
+  height: min(
+    43vh,
+    450px
+  );
+
+  min-height: 320px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #073e91 0%,
+      #07398a 100%
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+  padding:
+
+    18px
+
+    25px
+
+    calc(
+      18px +
+      env(safe-area-inset-bottom)
+    );
+
+  box-sizing: border-box;
+
+}
+
+
+.login-keypad-row {
+
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  align-items: center;
+
+}
+
+
+.login-key {
+
+  height: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 38px;
+
+  font-weight: 400;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  touch-action: manipulation;
+
+}
+
+
+.login-key:active {
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border-radius: 20px;
+
+}
+
+
+.login-key-empty {
+
+  height: 100%;
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+.login-delete {
+
+  justify-self: center;
+
+  width: 78px;
+
+  height: 54px;
+
+  border: none;
+
+  background:
+    #07316f;
+
+  color: white;
+
+  font-size: 38px;
+
+  font-weight: 300;
+
+  border-radius: 14px 5px 5px 14px;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+}
+
+
+.login-delete:active {
+
+  background:
+    #09285a;
+
+}
+
+
+/* =========================
+   SMALL SCREEN
+========================= */
+
+@media (
+  max-height: 700px
+) {
+
+  .login-brand {
+
+    margin-top: 0;
+
+    margin-bottom: 25px;
+
+  }
+
+
+  .login-brand span {
+
+    font-size: 23px;
+
+  }
+
+
+  .login-title {
+
+    font-size: 26px;
+
+  }
+
+
+  .login-dots {
+
+    margin-top: 28px;
+
+  }
+
+
+  .login-face-id {
+
+    margin-bottom: 0;
+
+  }
+
+
+  .login-keypad {
+
+    height: 48vh;
+
+    min-height: 290px;
+
+  }
+
+
+  .login-key {
+
+    font-size: 32px;
+
+  }
+
 }

@@ -1,10 +1,10 @@
 import { useState } from "react";
-
 import "../styles/settings.css";
 
-
 function Settings({
-  setIsLogin
+  setIsLogin,
+  darkMode,
+  setDarkMode
 }) {
 
   const [currentPassword, setCurrentPassword] =
@@ -23,6 +23,12 @@ function Settings({
     useState("");
 
 
+  /*
+    =========================
+    비밀번호 변경
+    =========================
+  */
+
   function changePassword() {
 
     const savedPassword =
@@ -31,39 +37,13 @@ function Settings({
       ) || "1234";
 
 
-    if (!currentPassword) {
-
-      setMessage(
-        "현재 비밀번호를 입력해주세요."
-      );
-
-      setMessageType("error");
-
-      return;
-
-    }
-
-
     if (
       currentPassword !==
       savedPassword
     ) {
 
       setMessage(
-        "현재 비밀번호가 올바르지 않습니다."
-      );
-
-      setMessageType("error");
-
-      return;
-
-    }
-
-
-    if (!newPassword) {
-
-      setMessage(
-        "새 비밀번호를 입력해주세요."
+        "현재 비밀번호가 틀렸습니다."
       );
 
       setMessageType("error");
@@ -78,7 +58,7 @@ function Settings({
     ) {
 
       setMessage(
-        "비밀번호는 4자리 이상 입력해주세요."
+        "새 비밀번호는 4자리 이상 입력해주세요."
       );
 
       setMessageType("error");
@@ -111,9 +91,7 @@ function Settings({
 
 
     setCurrentPassword("");
-
     setNewPassword("");
-
     setConfirmPassword("");
 
 
@@ -126,15 +104,21 @@ function Settings({
   }
 
 
+  /*
+    =========================
+    로그아웃
+    =========================
+  */
+
   function logout() {
 
-    const answer =
+    const result =
       window.confirm(
-        "로그아웃 하시겠습니까?"
+        "로그아웃하시겠습니까?"
       );
 
 
-    if (!answer) {
+    if (!result) {
       return;
     }
 
@@ -144,15 +128,21 @@ function Settings({
   }
 
 
+  /*
+    =========================
+    데이터 초기화
+    =========================
+  */
+
   function resetData() {
 
-    const answer =
+    const result =
       window.confirm(
-        "연습용 앱의 모든 데이터를 초기화할까요?\n\n잔액, 예금, 거래내역, 알림이 모두 삭제됩니다."
+        "모든 테스트 데이터를 삭제하시겠습니까?\n\n잔액, 예금, 거래내역, 알림이 모두 초기화됩니다."
       );
 
 
-    if (!answer) {
+    if (!result) {
       return;
     }
 
@@ -179,78 +169,173 @@ function Settings({
   }
 
 
+  /*
+    =========================
+    다크모드
+    =========================
+  */
+
+  function toggleDarkMode() {
+
+    const nextMode =
+      !darkMode;
+
+
+    setDarkMode(
+      nextMode
+    );
+
+
+    localStorage.setItem(
+      "darkMode",
+      String(nextMode)
+    );
+
+  }
+
+
   return (
 
     <div className="settings-page">
 
 
+      {/* 헤더 */}
+
       <div className="settings-header">
 
         <h2>
-          ⚙️ 설정
+          설정
         </h2>
+
+        <p>
+          앱 환경을 관리할 수 있습니다.
+        </p>
 
       </div>
 
 
-      <div className="settings-section">
+      {/* =========================
+          화면 설정
+      ========================= */}
 
-        <p className="settings-section-title">
+      <section className="settings-section">
+
+        <h3>
+          화면 설정
+        </h3>
+
+
+        <div className="settings-item">
+
+          <div className="settings-item-text">
+
+            <strong>
+              {darkMode
+                ? "☀️ 라이트모드"
+                : "🌙 다크모드"}
+            </strong>
+
+            <span>
+              {darkMode
+                ? "밝은 화면으로 변경합니다."
+                : "어두운 화면으로 변경합니다."}
+            </span>
+
+          </div>
+
+
+          <button
+            type="button"
+            className={
+              darkMode
+                ? "settings-toggle active"
+                : "settings-toggle"
+            }
+            onClick={
+              toggleDarkMode
+            }
+          >
+
+            <span>
+              {darkMode
+                ? "ON"
+                : "OFF"}
+            </span>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================
           보안
-        </p>
+      ========================= */}
+
+      <section className="settings-section">
+
+        <h3>
+          보안
+        </h3>
 
 
         <div className="settings-card">
 
-          <h3>
-            비밀번호 변경
-          </h3>
-
-
-          <p className="settings-description">
-
-            앱 로그인에 사용하는 비밀번호를
-            변경할 수 있습니다.
-
-          </p>
-
+          <label>
+            현재 비밀번호
+          </label>
 
           <input
-            className="settings-input"
             type="password"
+            value={
+              currentPassword
+            }
+            onChange={
+              e =>
+                setCurrentPassword(
+                  e.target.value
+                )
+            }
             placeholder="현재 비밀번호"
-            value={currentPassword}
-            onChange={(e) =>
-              setCurrentPassword(
-                e.target.value
-              )
-            }
           />
 
 
+          <label>
+            새 비밀번호
+          </label>
+
           <input
-            className="settings-input"
             type="password"
+            value={
+              newPassword
+            }
+            onChange={
+              e =>
+                setNewPassword(
+                  e.target.value
+                )
+            }
             placeholder="새 비밀번호"
-            value={newPassword}
-            onChange={(e) =>
-              setNewPassword(
-                e.target.value
-              )
-            }
           />
 
 
+          <label>
+            새 비밀번호 확인
+          </label>
+
           <input
-            className="settings-input"
             type="password"
-            placeholder="새 비밀번호 확인"
-            value={confirmPassword}
-            onChange={(e) =>
-              setConfirmPassword(
-                e.target.value
-              )
+            value={
+              confirmPassword
             }
+            onChange={
+              e =>
+                setConfirmPassword(
+                  e.target.value
+                )
+            }
+            placeholder="새 비밀번호 확인"
           />
 
 
@@ -260,9 +345,7 @@ function Settings({
               changePassword
             }
           >
-
             비밀번호 변경
-
           </button>
 
 
@@ -270,122 +353,110 @@ function Settings({
 
             <p
               className={
-                messageType === "success"
+                messageType ===
+                "success"
                   ? "settings-message success"
                   : "settings-message error"
               }
             >
-
               {message}
-
             </p>
 
           )}
 
         </div>
 
-      </div>
+      </section>
 
 
-      <div className="settings-section">
-
-        <p className="settings-section-title">
+      {/* =========================
           계정
-        </p>
+      ========================= */}
+
+      <section className="settings-section">
+
+        <h3>
+          계정
+        </h3>
 
 
         <div className="settings-card">
 
-          <h3>
-            로그아웃
-          </h3>
-
-
-          <p className="settings-description">
-
-            현재 로그인된 앱에서 로그아웃합니다.
-
-          </p>
-
-
           <button
             className="settings-logout-button"
-            onClick={logout}
+            onClick={
+              logout
+            }
           >
-
             로그아웃
-
           </button>
 
         </div>
 
-      </div>
+      </section>
 
 
-      <div className="settings-section">
-
-        <p className="settings-section-title">
+      {/* =========================
           데이터 관리
-        </p>
+      ========================= */}
+
+      <section className="settings-section">
+
+        <h3>
+          데이터 관리
+        </h3>
 
 
         <div className="settings-card">
 
-          <h3>
-            앱 데이터 초기화
-          </h3>
-
-
           <p className="settings-description">
 
-            연습용으로 저장된 잔액, 예금,
-            거래내역 및 알림을 모두 삭제합니다.
+            현재 저장된 테스트 데이터를
+            모두 삭제하고 초기 상태로
+            되돌립니다.
 
           </p>
 
 
           <button
             className="settings-danger-button"
-            onClick={resetData}
+            onClick={
+              resetData
+            }
           >
-
-            데이터 초기화
-
+            테스트 데이터 초기화
           </button>
 
         </div>
 
-      </div>
+      </section>
 
 
-      <div className="settings-section">
-
-        <p className="settings-section-title">
+      {/* =========================
           앱 정보
-        </p>
+      ========================= */}
+
+      <section className="settings-section">
+
+        <h3>
+          앱 정보
+        </h3>
 
 
         <div className="settings-info-card">
 
-          <div className="settings-info-row">
-
+          <div>
             <span>
-              서비스명
+              앱 이름
             </span>
 
             <strong>
               MG 스마트뱅크
             </strong>
-
           </div>
 
 
-          <div className="settings-info-divider">
-          </div>
-
-
-          <div className="settings-info-row">
-
+          <div>
             <span>
               버전
             </span>
@@ -393,36 +464,29 @@ function Settings({
             <strong>
               1.0.0
             </strong>
-
           </div>
 
 
-          <div className="settings-info-divider">
-          </div>
-
-
-          <div className="settings-info-row">
-
+          <div>
             <span>
-              이용 목적
+              앱 종류
             </span>
 
             <strong>
-              연습용
+              연습용 금융 앱
             </strong>
-
           </div>
 
         </div>
 
+      </section>
+
+
+      <div className="settings-footer">
+
+        MG 스마트뱅크 Practice App
+
       </div>
-
-
-      <p className="settings-footer">
-
-        MG 스마트뱅크 · Practice App
-
-      </p>
 
 
     </div>
@@ -430,6 +494,5 @@ function Settings({
   );
 
 }
-
 
 export default Settings;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Home from "./components/Home";
 import Deposit from "./components/Deposit";
@@ -8,6 +8,7 @@ import TransactionDetail from "./components/TransactionDetail";
 import Transfer from "./components/Transfer";
 import Settings from "./components/Settings";
 import Notification from "./components/Notification";
+import Login from "./components/Login";
 
 import "./styles/global.css";
 import "./styles/bottom-nav.css";
@@ -18,27 +19,60 @@ function App() {
   const [isLogin, setIsLogin] =
     useState(false);
 
-  const [password, setPassword] =
-    useState("");
-
-  const [error, setError] =
-    useState("");
 
   const [page, setPage] =
     useState("home");
 
+
   const [selectedDeposit, setSelectedDeposit] =
     useState(null);
+
 
   const [selectedTransaction, setSelectedTransaction] =
     useState(null);
 
 
+  /*
+    =========================
+    다크모드
+    =========================
+  */
+
+  const [darkMode, setDarkMode] =
+    useState(() => {
+
+      return (
+        localStorage.getItem(
+          "darkMode"
+        ) === "true"
+      );
+
+    });
+
+
+  useEffect(() => {
+
+    document.body.classList.toggle(
+      "dark-mode",
+      darkMode
+    );
+
+  }, [darkMode]);
+
+
+  /*
+    =========================
+    잔액
+    =========================
+  */
+
   const [balance, setBalance] =
     useState(() => {
 
       const saved =
-        localStorage.getItem("balance");
+        localStorage.getItem(
+          "balance"
+        );
 
       return saved
         ? JSON.parse(saved)
@@ -47,11 +81,19 @@ function App() {
     });
 
 
+  /*
+    =========================
+    예금
+    =========================
+  */
+
   const [deposits, setDeposits] =
     useState(() => {
 
       const saved =
-        localStorage.getItem("deposits");
+        localStorage.getItem(
+          "deposits"
+        );
 
       return saved
         ? JSON.parse(saved)
@@ -59,12 +101,20 @@ function App() {
 
     });
 
+
+  /*
+    =========================
+    거래내역
+    =========================
+  */
 
   const [transactions, setTransactions] =
     useState(() => {
 
       const saved =
-        localStorage.getItem("transactions");
+        localStorage.getItem(
+          "transactions"
+        );
 
       return saved
         ? JSON.parse(saved)
@@ -73,11 +123,19 @@ function App() {
     });
 
 
+  /*
+    =========================
+    알림
+    =========================
+  */
+
   const [notifications, setNotifications] =
     useState(() => {
 
       const saved =
-        localStorage.getItem("notifications");
+        localStorage.getItem(
+          "notifications"
+        );
 
       return saved
         ? JSON.parse(saved)
@@ -92,169 +150,88 @@ function App() {
     ).length;
 
 
+  /*
+    =========================
+    총자산
+    =========================
+  */
+
   const totalAssets =
     balance +
     deposits.reduce(
 
       (sum, item) =>
         sum +
-        Number(item.amount || 0),
+        Number(
+          item.amount || 0
+        ),
 
       0
 
     );
 
 
+  /*
+    =========================
+    테스트 잔액
+    =========================
+  */
+
   function addTestBalance() {
 
     const testBalance =
       5000000;
 
-    setBalance(testBalance);
+
+    setBalance(
+      testBalance
+    );
+
 
     localStorage.setItem(
       "balance",
-      JSON.stringify(testBalance)
+      JSON.stringify(
+        testBalance
+      )
     );
 
-    setError("");
+  }
+
+
+  /*
+    =========================
+    로그인 성공
+    =========================
+  */
+
+  function handleLogin() {
+
+    setIsLogin(true);
+
+    setPage("home");
+
+    setSelectedDeposit(null);
+
+    setSelectedTransaction(null);
 
   }
 
 
-  function login() {
-
-    const savedPassword =
-      localStorage.getItem(
-        "appPassword"
-      ) || "1234";
-
-
-    if (
-      password ===
-      savedPassword
-    ) {
-
-      setIsLogin(true);
-
-      setError("");
-
-      setPassword("");
-
-    } else {
-
-      setError(
-        "비밀번호가 틀렸습니다."
-      );
-
-    }
-
-  }
-
+  /*
+    =========================
+    로그인 화면
+    =========================
+  */
 
   if (!isLogin) {
 
     return (
 
-      <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "#f5f7f6"
-        }}
-      >
-
-        <div
-          style={{
-            background: "white",
-            padding: "30px",
-            borderRadius: "20px",
-            width: "90%",
-            maxWidth: "360px",
-            boxSizing: "border-box"
-          }}
-        >
-
-          <h2>
-            🏦 MG 스마트뱅크
-          </h2>
-
-
-          <p>
-            안전한 금융생활을 시작하세요.
-          </p>
-
-
-          <input
-            type="password"
-            placeholder="비밀번호"
-            value={password}
-            onChange={(e) =>
-              setPassword(
-                e.target.value
-              )
-            }
-            onKeyDown={(e) => {
-
-              if (
-                e.key === "Enter"
-              ) {
-
-                login();
-
-              }
-
-            }}
-            style={{
-              width: "100%",
-              padding: "12px",
-              borderRadius: "10px",
-              border: "1px solid #ddd",
-              boxSizing: "border-box"
-            }}
-          />
-
-
-          <button
-            onClick={login}
-            style={{
-              marginTop: "15px",
-              width: "100%",
-              padding: "12px",
-              background: "#00843D",
-              color: "white",
-              border: "none",
-              borderRadius: "12px",
-              fontWeight: "bold",
-              cursor: "pointer"
-            }}
-          >
-
-            로그인
-
-          </button>
-
-
-          {error && (
-
-            <p
-              style={{
-                color: "#e53935",
-                fontSize: "14px"
-              }}
-            >
-
-              {error}
-
-            </p>
-
-          )}
-
-        </div>
-
-      </div>
+      <Login
+        onLogin={
+          handleLogin
+        }
+      />
 
     );
 
@@ -264,17 +241,17 @@ function App() {
   return (
 
     <div
-      style={{
-        maxWidth: "420px",
-        margin: "auto",
-        background: "#f5f7f6",
-        minHeight: "100vh",
-        padding: "20px",
-        paddingBottom: "100px",
-        boxSizing: "border-box"
-      }}
+      className={
+        darkMode
+          ? "app-container dark"
+          : "app-container"
+      }
     >
 
+
+      {/* =========================
+          홈
+      ========================= */}
 
       {page === "home" && (
 
@@ -285,20 +262,30 @@ function App() {
             totalAssets={totalAssets}
             deposits={deposits}
             setPage={setPage}
-            unreadCount={unreadCount}
+            unreadCount={
+              unreadCount
+            }
           />
 
 
           <button
-            onClick={addTestBalance}
+            onClick={
+              addTestBalance
+            }
             style={{
               width: "100%",
               marginTop: "20px",
               padding: "13px",
               border: "none",
               borderRadius: "12px",
-              background: "#eeeeee",
-              color: "#555",
+              background:
+                darkMode
+                  ? "#30343a"
+                  : "#eeeeee",
+              color:
+                darkMode
+                  ? "#dddddd"
+                  : "#555",
               fontWeight: "bold",
               cursor: "pointer"
             }}
@@ -313,36 +300,60 @@ function App() {
       )}
 
 
+      {/* =========================
+          이체
+      ========================= */}
+
       {page === "transfer" && (
 
         <Transfer
           balance={balance}
           setBalance={setBalance}
-          transactions={transactions}
-          setTransactions={setTransactions}
-          notifications={notifications}
-          setNotifications={setNotifications}
+          transactions={
+            transactions
+          }
+          setTransactions={
+            setTransactions
+          }
+          notifications={
+            notifications
+          }
+          setNotifications={
+            setNotifications
+          }
         />
 
       )}
 
+
+      {/* =========================
+          거래내역
+      ========================= */}
 
       {page === "transaction" && (
 
         selectedTransaction ? (
 
           <TransactionDetail
-            transaction={selectedTransaction}
+            transaction={
+              selectedTransaction
+            }
             back={() =>
-              setSelectedTransaction(null)
+              setSelectedTransaction(
+                null
+              )
             }
           />
 
         ) : (
 
           <Transaction
-            transactions={transactions}
-            setTransactions={setTransactions}
+            transactions={
+              transactions
+            }
+            setTransactions={
+              setTransactions
+            }
             setSelectedTransaction={
               setSelectedTransaction
             }
@@ -353,30 +364,52 @@ function App() {
       )}
 
 
+      {/* =========================
+          예금
+      ========================= */}
+
       {page === "deposit" && (
 
         selectedDeposit ? (
 
           <DepositDetail
-            deposit={selectedDeposit}
+            deposit={
+              selectedDeposit
+            }
             back={() =>
-              setSelectedDeposit(null)
+              setSelectedDeposit(
+                null
+              )
             }
           />
 
         ) : (
 
           <Deposit
-            deposits={deposits}
-            setDeposits={setDeposits}
+            deposits={
+              deposits
+            }
+            setDeposits={
+              setDeposits
+            }
             setSelectedDeposit={
               setSelectedDeposit
             }
-            transactions={transactions}
-            setTransactions={setTransactions}
-            notifications={notifications}
-            setNotifications={setNotifications}
-            setBalance={setBalance}
+            transactions={
+              transactions
+            }
+            setTransactions={
+              setTransactions
+            }
+            notifications={
+              notifications
+            }
+            setNotifications={
+              setNotifications
+            }
+            setBalance={
+              setBalance
+            }
           />
 
         )
@@ -384,22 +417,38 @@ function App() {
       )}
 
 
+      {/* =========================
+          알림
+      ========================= */}
+
       {page === "notification" && (
 
         <Notification
-          notifications={notifications}
-          setNotifications={setNotifications}
-          setPage={setPage}
+          notifications={
+            notifications
+          }
+          setNotifications={
+            setNotifications
+          }
+          setPage={
+            setPage
+          }
         />
 
       )}
 
 
+      {/* =========================
+          설정
+      ========================= */}
+
       {page === "settings" && (
 
         <Settings
-          setIsLogin={setIsLogin}
-        />
+  setIsLogin={setIsLogin}
+  darkMode={darkMode}
+  setDarkMode={setDarkMode}
+/>
 
       )}
 
@@ -417,14 +466,19 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
-            setSelectedDeposit(null);
+            setSelectedDeposit(
+              null
+            );
 
-            setSelectedTransaction(null);
+            setSelectedTransaction(
+              null
+            );
 
-            setPage("home");
+            setPage(
+              "home"
+            );
 
           }}
         >
@@ -446,10 +500,11 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
-            setPage("transfer");
+            setPage(
+              "transfer"
+            );
 
           }}
         >
@@ -471,12 +526,15 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
-            setSelectedTransaction(null);
+            setSelectedTransaction(
+              null
+            );
 
-            setPage("transaction");
+            setPage(
+              "transaction"
+            );
 
           }}
         >
@@ -498,12 +556,15 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
-            setSelectedDeposit(null);
+            setSelectedDeposit(
+              null
+            );
 
-            setPage("deposit");
+            setPage(
+              "deposit"
+            );
 
           }}
         >
