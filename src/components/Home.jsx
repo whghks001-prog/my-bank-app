@@ -22,7 +22,7 @@ function Home({
         <div>
 
           <p className="home-welcome">
-            안녕하세요 👋
+            
           </p>
 
           <h2 className="home-title">
