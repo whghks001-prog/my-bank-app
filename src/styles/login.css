@@ -1,513 +1,382 @@
 /* ========================================
-   MG 스마트뱅크 로그인
-======================================== */
-
-.login-page {
-  width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  min-height: 100vh;
-
-  margin: 0 auto;
-  padding: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  background: #ffffff;
-  color: #222222;
-
-  overflow: hidden;
-
-  outline: none;
-
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-
-/* ========================================
-   상단 흰색 영역
-======================================== */
-
-.login-top {
-  height: 56%;
-  min-height: 500px;
-
-  padding: 55px 25px 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  background: #ffffff;
-
-  text-align: center;
-
-  flex-shrink: 0;
-}
-
-
-/* ========================================
-   MG 스마트뱅크 로고
-======================================== */
-
-.login-brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 12px;
-
-  margin-top: 15px;
-  margin-bottom: 55px;
-
-  color: #222222;
-
-  font-size: 23px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-
-.login-brand-icon {
-  width: 50px;
-  height: 50px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 15px;
-
-  background: #00843D;
-  color: #ffffff;
-
-  font-size: 16px;
-  font-weight: 800;
-
-  box-shadow:
-    0 4px 10px rgba(0, 132, 61, 0.15);
-}
-
-
-/* ========================================
-   PIN 제목
-======================================== */
-
-.login-title {
-  margin: 0;
-
-  color: #20252a;
-
-  font-size: 28px;
-  font-weight: 700;
-
-  letter-spacing: -1.2px;
-}
-
-
-.login-subtitle {
-  margin: 13px 0 0;
-
-  color: #70777d;
-
-  font-size: 16px;
-  font-weight: 400;
-
-  letter-spacing: -0.5px;
-}
-
-
-/* ========================================
-   PIN 점
-======================================== */
-
-.login-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 18px;
-
-  margin-top: 42px;
-}
-
-
-.login-dot {
-  width: 15px;
-  height: 15px;
-
-  border-radius: 50%;
-
-  background: #dfe4e1;
-
-  transition:
-    background 0.15s ease,
-    transform 0.15s ease;
-}
-
-
-.login-dot.filled {
-  background: #00843D;
-
-  transform: scale(1.05);
-}
-
-
-/* ========================================
-   오류 메시지
-======================================== */
-
-.login-error {
-  margin: 16px 0 0;
-
-  color: #e53935;
-
-  font-size: 13px;
-}
-
-
-/* ========================================
-   Face ID
-======================================== */
-
-.login-face-id {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 12px;
-
-  margin-top: auto;
-  margin-bottom: 18px;
-
-  color: #00843D;
-
-  font-size: 16px;
-  font-weight: 500;
-
-  letter-spacing: -0.5px;
-}
-
-
-.face-id-icon {
-  width: 30px;
-  height: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 2px solid #00843D;
-  border-radius: 9px;
-
-  color: #00843D;
-
-  font-size: 14px;
-}
-
-
-/* ========================================
-   초록색 숫자 입력 영역
-======================================== */
-
-.login-keypad {
-  flex: 1;
-
-  width: 100%;
-
-  padding:
-    42px
-    28px
-    55px;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: space-between;
-
-  background: #00843D;
-
-  box-sizing: border-box;
-}
-
-
-/* ========================================
-   숫자 행
-======================================== */
-
-.login-keypad-row {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  align-items: center;
-
-  gap: 10px;
-}
-
-
-/* ========================================
-   숫자 버튼
-======================================== */
-
-.login-key {
-  width: 100%;
-  height: 72px;
-
-  padding: 0;
-
-  border: none;
-  border-radius: 0;
-
-  background: transparent;
-
-  color: #ffffff;
-
-  font-size: 29px;
-  font-weight: 500;
-
-  cursor: pointer;
-
-  -webkit-tap-highlight-color: transparent;
-
-  touch-action: manipulation;
-
-  transition:
-    transform 0.08s ease,
-    opacity 0.08s ease;
-}
-
-
-.login-key:active {
-  transform: scale(0.88);
-
-  opacity: 0.65;
-}
-
-
-/* ========================================
-   마지막 줄 빈 공간
-======================================== */
-
-.login-key-empty {
-  width: 100%;
-  height: 72px;
-}
-
-
-/* ========================================
-   삭제 버튼
-======================================== */
-
-.login-delete {
-  width: 100%;
-  height: 54px;
-
-  padding: 0;
-
-  border: none;
-
-  border-radius: 8px;
-
-  background: rgba(0, 70, 35, 0.55);
-
-  color: #ffffff;
-
-  font-size: 34px;
-  font-weight: 300;
-  line-height: 1;
-
-  cursor: pointer;
-
-  -webkit-tap-highlight-color: transparent;
-
-  touch-action: manipulation;
-
-  transition:
-    transform 0.08s ease,
-    background 0.08s ease;
-}
-
-
-.login-delete:active {
-  background: rgba(0, 50, 25, 0.75);
-
-  transform: scale(0.92);
-}
-
-
-/* ========================================
-   모바일 화면
-======================================== */
-
-@media (max-width: 420px) {
-
-  .login-page {
-    max-width: 100%;
-  }
-
-
-  .login-top {
-    height: 56%;
-
-    min-height: 0;
-
-    padding:
-      42px
-      20px
-      15px;
-  }
-
-
-  .login-brand {
-    margin-top: 5px;
-    margin-bottom: 42px;
-
-    font-size: 21px;
-  }
-
-
-  .login-brand-icon {
-    width: 44px;
-    height: 44px;
-
-    border-radius: 13px;
-
-    font-size: 14px;
-  }
-
-
-  .login-title {
-    font-size: 26px;
-  }
-
-
-  .login-subtitle {
-    font-size: 15px;
-  }
-
-
-  .login-dots {
-    gap: 16px;
-
-    margin-top: 36px;
-  }
-
-
-  .login-dot {
-    width: 14px;
-    height: 14px;
-  }
-
-
-  .login-face-id {
-    margin-bottom: 8px;
-
-    font-size: 15px;
-  }
-
-
-  .login-keypad {
-    padding:
-      28px
-      20px
-      35px;
-  }
-
-
-  .login-key {
-    height: 65px;
-
-    font-size: 28px;
-  }
-
-
-  .login-key-empty {
-    height: 65px;
-  }
-
-
-  .login-delete {
-    height: 50px;
-  }
-
-}
-
-
-/* ========================================
-   작은 아이폰 화면
-======================================== */
-
-@media (max-height: 700px) {
-
-  .login-top {
-    padding-top: 25px;
-  }
-
-
-  .login-brand {
-    margin-bottom: 25px;
-  }
-
-
-  .login-dots {
-    margin-top: 25px;
-  }
-
-
-  .login-keypad {
-    padding-top: 18px;
-    padding-bottom: 22px;
-  }
-
-
-  .login-key {
-    height: 52px;
-  }
-
-
-  .login-key-empty {
-    height: 52px;
-  }
-
-
-  .login-delete {
-    height: 44px;
-  }
-
-}
-/* ========================================
-   아이폰 화면 양쪽 여백 제거
+MG 스마트뱅크 로그인
 ======================================== */
 
 html,
 body,
 #root {
-  width: 100%;
-  min-width: 100%;
-  margin: 0;
-  padding: 0;
+width: 100%;
+min-width: 100%;
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+html {
+-webkit-text-size-adjust: 100%;
 }
 
 body {
-  overflow-x: hidden;
+overflow-x: hidden;
+background: #ffffff;
 }
 
-.login-page {
-  width: 100%;
-  max-width: none;
-  min-width: 100%;
-  margin: 0;
+* {
   box-sizing: border-box;
+  }
+
+.login-page {
+width: 100%;
+max-width: none;
+min-width: 100%;
+height: 100vh;
+min-height: 100vh;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+background: #ffffff;
+color: #222222;
+overflow: hidden;
+outline: none;
+user-select: none;
+-webkit-user-select: none;
+}
+
+/* ========================================
+상단 흰색 영역
+======================================== */
+
+.login-top {
+height: 56%;
+min-height: 500px;
+padding: 55px 25px 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: #ffffff;
+text-align: center;
+flex-shrink: 0;
+}
+
+/* ========================================
+MG 스마트뱅크 로고
+======================================== */
+
+.login-brand {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin-top: 15px;
+margin-bottom: 55px;
+color: #222222;
+font-size: 23px;
+font-weight: 700;
+letter-spacing: -1px;
+}
+
+.login-brand-icon {
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 15px;
+background: #00843D;
+color: #ffffff;
+font-size: 16px;
+font-weight: 800;
+box-shadow:
+0 4px 10px rgba(0, 132, 61, 0.15);
+}
+
+/* ========================================
+PIN 제목
+======================================== */
+
+.login-title {
+margin: 0;
+color: #20252a;
+font-size: 28px;
+font-weight: 700;
+letter-spacing: -1.2px;
+}
+
+.login-subtitle {
+margin: 13px 0 0;
+color: #70777d;
+font-size: 16px;
+font-weight: 400;
+letter-spacing: -0.5px;
+}
+
+/* ========================================
+PIN 점
+======================================== */
+
+.login-dots {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 18px;
+margin-top: 42px;
+}
+
+.login-dot {
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #dfe4e1;
+transition:
+background 0.15s ease,
+transform 0.15s ease;
+}
+
+.login-dot.filled {
+background: #00843D;
+transform: scale(1.05);
+}
+
+/* ========================================
+오류 메시지
+======================================== */
+
+.login-error {
+margin: 16px 0 0;
+color: #e53935;
+font-size: 13px;
+}
+
+/* ========================================
+Face ID
+======================================== */
+
+.login-face-id {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin-top: auto;
+margin-bottom: 18px;
+color: #00843D;
+font-size: 16px;
+font-weight: 500;
+letter-spacing: -0.5px;
+}
+
+.face-id-icon {
+width: 30px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid #00843D;
+border-radius: 9px;
+color: #00843D;
+font-size: 14px;
+}
+
+/* ========================================
+초록색 숫자 입력 영역
+======================================== */
+
+.login-keypad {
+flex: 1;
+width: 100%;
+min-width: 100%;
+padding: 42px 28px 55px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background: #00843D;
+box-sizing: border-box;
+}
+
+/* ========================================
+숫자 행
+======================================== */
+
+.login-keypad-row {
+width: 100%;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+align-items: center;
+gap: 10px;
+}
+
+/* ========================================
+숫자 버튼
+======================================== */
+
+.login-key {
+width: 100%;
+height: 72px;
+padding: 0;
+border: none;
+border-radius: 0;
+background: transparent;
+color: #ffffff;
+font-size: 29px;
+font-weight: 500;
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+touch-action: manipulation;
+transition:
+transform 0.08s ease,
+opacity 0.08s ease;
+}
+
+.login-key:active {
+transform: scale(0.88);
+opacity: 0.65;
+}
+
+/* ========================================
+마지막 줄 빈 공간
+======================================== */
+
+.login-key-empty {
+width: 100%;
+height: 72px;
+}
+
+/* ========================================
+삭제 버튼
+======================================== */
+
+.login-delete {
+width: 100%;
+height: 54px;
+padding: 0;
+border: none;
+border-radius: 8px;
+background: rgba(0, 70, 35, 0.55);
+color: #ffffff;
+font-size: 34px;
+font-weight: 300;
+line-height: 1;
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+touch-action: manipulation;
+transition:
+transform 0.08s ease,
+background 0.08s ease;
+}
+
+.login-delete:active {
+background: rgba(0, 50, 25, 0.75);
+transform: scale(0.92);
+}
+
+/* ========================================
+모바일 화면
+======================================== */
+
+@media (max-width: 420px) {
+
+.login-page {
+width: 100%;
+max-width: none;
+min-width: 100%;
+margin: 0;
+}
+
+.login-top {
+width: 100%;
+height: 56%;
+min-height: 0;
+padding: 42px 20px 15px;
+}
+
+.login-brand {
+margin-top: 5px;
+margin-bottom: 42px;
+font-size: 21px;
+}
+
+.login-brand-icon {
+width: 44px;
+height: 44px;
+border-radius: 13px;
+font-size: 14px;
+}
+
+.login-title {
+font-size: 26px;
+}
+
+.login-subtitle {
+font-size: 15px;
+}
+
+.login-dots {
+gap: 16px;
+margin-top: 36px;
+}
+
+.login-dot {
+width: 14px;
+height: 14px;
+}
+
+.login-face-id {
+margin-bottom: 8px;
+font-size: 15px;
 }
 
 .login-keypad {
-  width: 100%;
-  min-width: 100%;
-  box-sizing: border-box;
+width: 100%;
+min-width: 100%;
+padding: 28px 20px 35px;
+}
+
+.login-key {
+height: 65px;
+font-size: 28px;
+}
+
+.login-key-empty {
+height: 65px;
+}
+
+.login-delete {
+height: 50px;
+}
+}
+
+/* ========================================
+작은 아이폰 화면
+======================================== */
+
+@media (max-height: 700px) {
+
+.login-top {
+padding-top: 25px;
+}
+
+.login-brand {
+margin-bottom: 25px;
+}
+
+.login-dots {
+margin-top: 25px;
+}
+
+.login-keypad {
+padding-top: 18px;
+padding-bottom: 22px;
+}
+
+.login-key {
+height: 52px;
+}
+
+.login-key-empty {
+height: 52px;
+}
+
+.login-delete {
+height: 44px;
+}
 }
