@@ -1,17 +1,32 @@
 import { useState } from "react";
 import "../styles/deposit.css";
 
-
 function Deposit({
-  deposits = [],
+  deposits,
   setDeposits,
   setSelectedDeposit,
-  transactions = [],
+  transactions,
   setTransactions,
-  notifications = [],
+  notifications,
   setNotifications,
   setBalance
 }) {
+
+  /*
+    =========================
+    가입 화면 여부
+    =========================
+  */
+
+  const [showSignup, setShowSignup] =
+    useState(false);
+
+
+  /*
+    =========================
+    입력값
+    =========================
+  */
 
   const [amount, setAmount] =
     useState("");
@@ -19,9 +34,19 @@ function Deposit({
   const [date, setDate] =
     useState("");
 
+
   const [message, setMessage] =
     useState("");
 
+  const [messageType, setMessageType] =
+    useState("");
+
+
+  /*
+    =========================
+    예금 가입
+    =========================
+  */
 
   function addDeposit() {
 
@@ -35,6 +60,8 @@ function Deposit({
         "예치할 금액을 입력해주세요."
       );
 
+      setMessageType("error");
+
       return;
 
     }
@@ -46,45 +73,57 @@ function Deposit({
         "예치 날짜를 선택해주세요."
       );
 
+      setMessageType("error");
+
       return;
 
     }
+
+
+    const savedBalance =
+      localStorage.getItem(
+        "balance"
+      );
 
 
     const currentBalance =
-      Number(
-        localStorage.getItem(
-          "balance"
-        ) || 0
-      );
+      savedBalance
+        ? JSON.parse(savedBalance)
+        : 5000000;
 
 
-    if (money > currentBalance) {
+    if (
+      money >
+      currentBalance
+    ) {
 
       setMessage(
-        "입출금 계좌 잔액이 부족합니다."
+        "현재 잔액이 부족합니다."
       );
+
+      setMessageType("error");
 
       return;
 
     }
 
 
+    /*
+      새로운 예금
+    */
+
     const newDeposit = {
 
-      id:
-        Date.now(),
+      id: Date.now(),
 
-      amount:
-        money,
+      amount: money,
 
-      date:
-        date
+      date: date
 
     };
 
 
-    const updatedDeposits = [
+    const newDeposits = [
 
       newDeposit,
 
@@ -94,17 +133,21 @@ function Deposit({
 
 
     setDeposits(
-      updatedDeposits
+      newDeposits
     );
 
 
     localStorage.setItem(
       "deposits",
       JSON.stringify(
-        updatedDeposits
+        newDeposits
       )
     );
 
+
+    /*
+      잔액 차감
+    */
 
     const newBalance =
       currentBalance -
@@ -124,10 +167,13 @@ function Deposit({
     );
 
 
+    /*
+      거래내역 생성
+    */
+
     const newTransaction = {
 
-      id:
-        Date.now() + 1,
+      id: Date.now() + 1,
 
       title:
         "예금 가입",
@@ -139,9 +185,9 @@ function Deposit({
         -money,
 
       date:
-        new Date()
-          .toISOString()
-          .substring(0, 10),
+        new Date().toLocaleDateString(
+          "ko-KR"
+        ),
 
       afterBalance:
         newBalance
@@ -149,7 +195,7 @@ function Deposit({
     };
 
 
-    const updatedTransactions = [
+    const newTransactions = [
 
       newTransaction,
 
@@ -159,17 +205,21 @@ function Deposit({
 
 
     setTransactions(
-      updatedTransactions
+      newTransactions
     );
 
 
     localStorage.setItem(
       "transactions",
       JSON.stringify(
-        updatedTransactions
+        newTransactions
       )
     );
 
+
+    /*
+      알림 생성
+    */
 
     const newNotification = {
 
@@ -183,24 +233,20 @@ function Deposit({
         "예금 가입 완료",
 
       message:
-        money.toLocaleString() +
-        "원이 예금으로 등록되었습니다.",
+        `${money.toLocaleString()}원이 예금으로 등록되었습니다.`,
 
       date:
-        new Date().toLocaleString(
+        new Date().toLocaleDateString(
           "ko-KR"
         ),
 
       read:
-        false,
-
-      type:
-        "deposit"
+        false
 
     };
 
 
-    const updatedNotifications = [
+    const newNotifications = [
 
       newNotification,
 
@@ -210,28 +256,57 @@ function Deposit({
 
 
     setNotifications(
-      updatedNotifications
+      newNotifications
     );
 
 
     localStorage.setItem(
       "notifications",
       JSON.stringify(
-        updatedNotifications
+        newNotifications
       )
     );
 
+
+    /*
+      입력 초기화
+    */
 
     setAmount("");
 
     setDate("");
 
     setMessage(
-      "예금이 정상적으로 등록되었습니다."
+      "예금 가입이 완료되었습니다."
     );
+
+    setMessageType(
+      "success"
+    );
+
+
+    /*
+      잠시 후 목록으로 이동
+    */
+
+    setTimeout(() => {
+
+      setShowSignup(false);
+
+      setMessage("");
+
+      setMessageType("");
+
+    }, 1000);
 
   }
 
+
+  /*
+    =========================
+    예금 삭제
+    =========================
+  */
 
   function deleteDeposit(id) {
 
@@ -243,26 +318,22 @@ function Deposit({
 
 
     if (!target) {
-
       return;
-
     }
 
 
-    const answer =
+    const result =
       window.confirm(
-        "이 예금을 삭제할까요?\n예치 금액은 입출금 잔액으로 다시 반환됩니다."
+        `${Number(target.amount).toLocaleString()}원 예금을 삭제하시겠습니까?`
       );
 
 
-    if (!answer) {
-
+    if (!result) {
       return;
-
     }
 
 
-    const updatedDeposits =
+    const newDeposits =
       deposits.filter(
         item =>
           item.id !== id
@@ -270,35 +341,38 @@ function Deposit({
 
 
     setDeposits(
-      updatedDeposits
+      newDeposits
     );
 
 
     localStorage.setItem(
       "deposits",
       JSON.stringify(
-        updatedDeposits
+        newDeposits
       )
     );
 
 
+    /*
+      삭제한 예금 금액을
+      잔액으로 반환
+    */
+
+    const savedBalance =
+      localStorage.getItem(
+        "balance"
+      );
+
+
     const currentBalance =
-      Number(
-        localStorage.getItem(
-          "balance"
-        ) || 0
-      );
-
-
-    const returnedAmount =
-      Number(
-        target.amount || 0
-      );
+      savedBalance
+        ? JSON.parse(savedBalance)
+        : 0;
 
 
     const newBalance =
       currentBalance +
-      returnedAmount;
+      Number(target.amount);
 
 
     setBalance(
@@ -314,192 +388,196 @@ function Deposit({
     );
 
 
-    /* =========================
-       예금 삭제 거래내역
-    ========================= */
-
-    const deleteTransaction = {
-
-      id:
-        Date.now(),
-
-      title:
-        "예금 해지",
-
-      type:
-        "해지",
-
-      amount:
-        returnedAmount,
-
-      date:
-        new Date()
-          .toISOString()
-          .substring(0, 10),
-
-      afterBalance:
-        newBalance
-
-    };
-
-
-    const updatedTransactions = [
-
-      deleteTransaction,
-
-      ...transactions
-
-    ];
-
-
-    setTransactions(
-      updatedTransactions
-    );
-
-
-    localStorage.setItem(
-      "transactions",
-      JSON.stringify(
-        updatedTransactions
-      )
-    );
-
-
-    /* =========================
-       예금 삭제 알림
-    ========================= */
-
-    const deleteNotification = {
-
-      id:
-        Date.now() + 1,
-
-      icon:
-        "💰",
-
-      title:
-        "예금 해지 완료",
-
-      message:
-        returnedAmount.toLocaleString() +
-        "원이 입출금 계좌로 반환되었습니다.",
-
-      date:
-        new Date().toLocaleString(
-          "ko-KR"
-        ),
-
-      read:
-        false,
-
-      type:
-        "deposit"
-
-    };
-
-
-    const updatedNotifications = [
-
-      deleteNotification,
-
-      ...notifications
-
-    ];
-
-
-    setNotifications(
-      updatedNotifications
-    );
-
-
-    localStorage.setItem(
-      "notifications",
-      JSON.stringify(
-        updatedNotifications
-      )
-    );
-
-
     setMessage(
-      "예금이 삭제되고 금액이 반환되었습니다."
+      "예금이 삭제되었습니다."
+    );
+
+    setMessageType(
+      "success"
     );
 
   }
 
 
-  return (
+  /*
+    =========================
+    가입 화면
+    =========================
+  */
 
-    <div>
+  if (showSignup) {
 
-      <h2 className="deposit-title">
-        💰 예금
-      </h2>
+    return (
 
+      <div className="deposit-page">
 
-      <div className="deposit-box">
+        <div className="deposit-header">
 
+          <button
+            className="deposit-back-button"
+            onClick={() => {
 
-        <p className="deposit-label">
-          예치할 금액
-        </p>
+              setShowSignup(false);
 
+              setMessage("");
 
-        <input
-          className="deposit-input"
-          type="number"
-          value={amount}
-          onChange={(e) =>
-            setAmount(
-              e.target.value
-            )
-          }
-          placeholder="예치 금액 입력"
-        />
+              setMessageType("");
 
+            }}
+          >
+            ←
+          </button>
 
-        <p className="deposit-label">
-          예치 날짜
-        </p>
+          <div>
 
+            <h2>
+              예금 상품 가입
+            </h2>
 
-        <input
-          className="deposit-input"
-          type="date"
-          value={date}
-          onChange={(e) =>
-            setDate(
-              e.target.value
-            )
-          }
-        />
+            <p>
+              원하는 금액을 예금으로 등록하세요.
+            </p>
+
+          </div>
+
+        </div>
 
 
-        <button
-          className="deposit-button"
-          onClick={addDeposit}
-        >
+        <div className="deposit-box">
 
-          예금 등록
+          <div className="deposit-product-icon">
+            💰
+          </div>
 
-        </button>
+          <h3 className="deposit-product-title">
+            일반 예금
+          </h3>
 
-
-        {message && (
-
-          <p className="deposit-message">
-
-            {message}
-
+          <p className="deposit-product-description">
+            자유롭게 금액과 날짜를 설정할 수 있는
+            연습용 예금 상품입니다.
           </p>
 
-        )}
 
+          <label className="deposit-label">
+            예치 금액
+          </label>
+
+
+          <div className="deposit-amount-wrap">
+
+            <input
+              className="deposit-input"
+              type="number"
+              inputMode="numeric"
+              placeholder="예치할 금액"
+              value={amount}
+              onChange={e =>
+                setAmount(
+                  e.target.value
+                )
+              }
+            />
+
+            <span>
+              원
+            </span>
+
+          </div>
+
+
+          <label className="deposit-label">
+            예치 날짜
+          </label>
+
+
+          <input
+            className="deposit-input"
+            type="date"
+            value={date}
+            onChange={e =>
+              setDate(
+                e.target.value
+              )
+            }
+          />
+
+
+          <button
+            className="deposit-button"
+            onClick={
+              addDeposit
+            }
+          >
+            상품 가입하기
+          </button>
+
+
+          {message && (
+
+            <p
+              className={
+                messageType ===
+                "success"
+                  ? "deposit-message success"
+                  : "deposit-message error"
+              }
+            >
+              {message}
+            </p>
+
+          )}
+
+        </div>
+
+
+        <div className="deposit-notice">
+
+          💡 예치한 금액은 현재 잔액에서
+          차감되며, 실제 금융거래는 발생하지 않습니다.
+
+        </div>
+
+      </div>
+
+    );
+
+  }
+
+
+  /*
+    =========================
+    등록된 예금 목록
+    =========================
+  */
+
+  return (
+
+    <div className="deposit-page">
+
+
+      {/* 헤더 */}
+
+      <div className="deposit-header">
+
+        <div>
+
+          <h2>
+            내 예금
+          </h2>
+
+          <p>
+            등록된 예금 상품을 확인하세요.
+          </p>
+
+        </div>
 
       </div>
 
 
-      <div className="deposit-list">
+      {/* 등록된 예금 */}
 
+      <div className="deposit-list">
 
         <h3 className="deposit-list-title">
           등록된 예금
@@ -510,8 +588,17 @@ function Deposit({
 
           <div className="deposit-empty">
 
-            <p>
+            <div className="deposit-empty-icon">
+              💰
+            </div>
+
+            <strong>
               등록된 예금이 없습니다.
+            </strong>
+
+            <p>
+              아래 상품가입하기 버튼을 눌러
+              예금을 등록해보세요.
             </p>
 
           </div>
@@ -519,53 +606,53 @@ function Deposit({
         ) : (
 
           deposits.map(
-            (item) => (
+            deposit => (
 
               <div
                 className="deposit-card"
-                key={item.id}
+                key={
+                  deposit.id
+                }
               >
-
 
                 <div
                   className="deposit-card-content"
                   onClick={() =>
                     setSelectedDeposit(
-                      item
+                      deposit
                     )
                   }
                 >
 
-
                   <div className="deposit-card-header">
 
-                    <span className="deposit-card-title">
-                      예금
-                    </span>
+                    <div>
+
+                      <div className="deposit-card-title">
+                        💰 일반 예금
+                      </div>
+
+                      <div className="deposit-card-date">
+                        예치일&nbsp;
+                        {deposit.date}
+                      </div>
+
+                    </div>
+
+
+                    <div className="deposit-card-amount">
+
+                      {Number(
+                        deposit.amount
+                      ).toLocaleString()}
+
+                      <span>
+                        원
+                      </span>
+
+                    </div>
 
                   </div>
-
-
-                  <div className="deposit-card-amount">
-
-                    ₩{" "}
-
-                    {Number(
-                      item.amount || 0
-                    ).toLocaleString()}
-
-                  </div>
-
-
-                  <div className="deposit-card-date">
-
-                    예치일:{" "}
-
-                    {item.date ||
-                      "날짜 정보 없음"}
-
-                  </div>
-
 
                 </div>
 
@@ -574,24 +661,55 @@ function Deposit({
                   className="deposit-delete"
                   onClick={() =>
                     deleteDeposit(
-                      item.id
+                      deposit.id
                     )
                   }
                 >
-
                   삭제
-
                 </button>
-
 
               </div>
 
             )
-
           )
 
         )}
 
+      </div>
+
+
+      {/* =========================
+          상품가입하기
+      ========================= */}
+
+      <button
+        className="deposit-product-button"
+        onClick={() => {
+
+          setShowSignup(true);
+
+          setMessage("");
+
+          setMessageType("");
+
+        }}
+      >
+
+        <span className="deposit-product-button-icon">
+          ＋
+        </span>
+
+        <span>
+          상품가입하기
+        </span>
+
+      </button>
+
+
+      <div className="deposit-notice">
+
+        💡 이 앱은 실제 금융거래가 아닌
+        연습용 금융 앱입니다.
 
       </div>
 
