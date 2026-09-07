@@ -481,3 +481,33 @@
   }
 
 }
+/* ========================================
+   아이폰 화면 양쪽 여백 제거
+======================================== */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.login-page {
+  width: 100%;
+  max-width: none;
+  min-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.login-keypad {
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
