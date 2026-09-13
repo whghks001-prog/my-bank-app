@@ -574,7 +574,7 @@ function App() {
           </span>
 
           <span className="bottom-nav-label">
-            예금
+            상품
           </span>
 
         </button>
