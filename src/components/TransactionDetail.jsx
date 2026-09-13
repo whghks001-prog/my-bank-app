@@ -3,7 +3,9 @@ import "../styles/transactiondetail.css";
 
 function TransactionDetail({
   transaction,
-  back
+  back,
+  transactions,
+  setTransactions
 }) {
 
   if (!transaction) {
@@ -38,6 +40,48 @@ function TransactionDetail({
 
   const isMinus =
     amount < 0;
+
+
+  /* =========================
+     거래내역 삭제
+  ========================= */
+
+  function deleteTransaction() {
+
+    const confirmDelete =
+      window.confirm(
+        "이 거래내역을 삭제하시겠습니까?"
+      );
+
+
+    if (!confirmDelete) {
+      return;
+    }
+
+
+    const updatedTransactions =
+      transactions.filter(
+        item =>
+          item.id !== transaction.id
+      );
+
+
+    setTransactions(
+      updatedTransactions
+    );
+
+
+    localStorage.setItem(
+      "transactions",
+      JSON.stringify(
+        updatedTransactions
+      )
+    );
+
+
+    back();
+
+  }
 
 
   return (
@@ -240,10 +284,24 @@ function TransactionDetail({
 
 
       {/* =========================
+          거래내역 삭제
+      ========================= */}
+
+      <button
+        type="button"
+        className="transaction-detail-delete-button"
+        onClick={deleteTransaction}
+      >
+        거래내역 삭제
+      </button>
+
+
+      {/* =========================
           확인 버튼
       ========================= */}
 
       <button
+        type="button"
         className="transaction-detail-button"
         onClick={back}
       >

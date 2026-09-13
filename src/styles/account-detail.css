@@ -1,0 +1,187 @@
+.account-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 18px 100px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.account-detail-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  margin-bottom: 18px;
+}
+
+.account-detail-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.account-detail-back {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #f5f5f5;
+  color: #222222;
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-detail-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 26px 22px;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.account-detail-label {
+  margin: 0 0 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #777777;
+}
+
+.account-detail-number {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #222222;
+
+  letter-spacing: 0.2px;
+}
+
+.account-detail-balance {
+  margin: 22px 0 0;
+
+  font-size: 30px;
+  font-weight: 800;
+
+  color: #222222;
+}
+
+.account-detail-section {
+  margin-top: 30px;
+}
+
+.account-detail-section h3 {
+  margin: 0 0 15px;
+
+  font-size: 19px;
+  font-weight: 700;
+
+  color: #222222;
+}
+
+.account-detail-list {
+  width: 100%;
+}
+
+.account-detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 2px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.account-detail-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.account-detail-item-left strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.account-detail-item-left span {
+  font-size: 13px;
+  color: #999999;
+}
+
+.account-detail-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.account-detail-item-right strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.account-detail-item-right span {
+  font-size: 12px;
+  color: #999999;
+}
+
+.account-income {
+  color: #222222;
+}
+
+.account-expense {
+  color: #555555;
+}
+
+.account-detail-empty {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  font-size: 14px;
+  color: #999999;
+
+  border-radius: 16px;
+  background: #f8f8f8;
+}
+
+@media (max-width: 420px) {
+  .account-detail-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .account-detail-card {
+    padding: 24px 20px;
+  }
+
+  .account-detail-balance {
+    font-size: 28px;
+  }
+}

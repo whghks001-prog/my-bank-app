@@ -12,28 +12,23 @@ function Deposit({
   setBalance
 }) {
 
-  /*
-    =========================
-    가입 화면 여부
-    =========================
-  */
+  /* =========================
+     가입 화면 여부
+  ========================= */
 
   const [showSignup, setShowSignup] =
     useState(false);
 
 
-  /*
-    =========================
-    입력값
-    =========================
-  */
+  /* =========================
+     입력값
+  ========================= */
 
   const [amount, setAmount] =
     useState("");
 
   const [date, setDate] =
     useState("");
-
 
   const [message, setMessage] =
     useState("");
@@ -42,11 +37,9 @@ function Deposit({
     useState("");
 
 
-  /*
-    =========================
-    예금 가입
-    =========================
-  */
+  /* =========================
+     예금 가입
+  ========================= */
 
   function addDeposit() {
 
@@ -63,7 +56,6 @@ function Deposit({
       setMessageType("error");
 
       return;
-
     }
 
 
@@ -76,26 +68,24 @@ function Deposit({
       setMessageType("error");
 
       return;
-
     }
 
 
+    /* =========================
+       현재 잔액 확인
+    ========================= */
+
     const savedBalance =
-      localStorage.getItem(
-        "balance"
-      );
+      localStorage.getItem("balance");
 
 
     const currentBalance =
-      savedBalance
-        ? JSON.parse(savedBalance)
+      savedBalance !== null
+        ? Number(savedBalance)
         : 5000000;
 
 
-    if (
-      money >
-      currentBalance
-    ) {
+    if (money > currentBalance) {
 
       setMessage(
         "현재 잔액이 부족합니다."
@@ -104,13 +94,12 @@ function Deposit({
       setMessageType("error");
 
       return;
-
     }
 
 
-    /*
-      새로운 예금
-    */
+    /* =========================
+       새로운 예금 생성
+    ========================= */
 
     const newDeposit = {
 
@@ -145,13 +134,12 @@ function Deposit({
     );
 
 
-    /*
-      잔액 차감
-    */
+    /* =========================
+       입출금 잔액 차감
+    ========================= */
 
     const newBalance =
-      currentBalance -
-      money;
+      currentBalance - money;
 
 
     setBalance(
@@ -167,30 +155,26 @@ function Deposit({
     );
 
 
-    /*
-      거래내역 생성
-    */
+    /* =========================
+       거래내역 생성
+    ========================= */
 
     const newTransaction = {
 
       id: Date.now() + 1,
 
-      title:
-        "예금 가입",
+      title: "예금 가입",
 
-      type:
-        "예치",
+      type: "예치",
 
-      amount:
-        -money,
+      amount: -money,
 
       date:
         new Date().toLocaleDateString(
           "ko-KR"
         ),
 
-      afterBalance:
-        newBalance
+      afterBalance: newBalance
 
     };
 
@@ -217,20 +201,17 @@ function Deposit({
     );
 
 
-    /*
-      알림 생성
-    */
+    /* =========================
+       알림 생성
+    ========================= */
 
     const newNotification = {
 
-      id:
-        Date.now() + 2,
+      id: Date.now() + 2,
 
-      icon:
-        "💰",
+      icon: "💰",
 
-      title:
-        "예금 가입 완료",
+      title: "예금 가입 완료",
 
       message:
         `${money.toLocaleString()}원이 예금으로 등록되었습니다.`,
@@ -240,8 +221,7 @@ function Deposit({
           "ko-KR"
         ),
 
-      read:
-        false
+      read: false
 
     };
 
@@ -268,9 +248,9 @@ function Deposit({
     );
 
 
-    /*
-      입력 초기화
-    */
+    /* =========================
+       입력 초기화
+    ========================= */
 
     setAmount("");
 
@@ -285,9 +265,9 @@ function Deposit({
     );
 
 
-    /*
-      잠시 후 목록으로 이동
-    */
+    /* =========================
+       잠시 후 목록으로 이동
+    ========================= */
 
     setTimeout(() => {
 
@@ -298,15 +278,12 @@ function Deposit({
       setMessageType("");
 
     }, 1000);
-
   }
 
 
-  /*
-    =========================
-    예금 삭제
-    =========================
-  */
+  /* =========================
+     예금 삭제 / 해지
+  ========================= */
 
   function deleteDeposit(id) {
 
@@ -322,9 +299,13 @@ function Deposit({
     }
 
 
+    const targetAmount =
+      Number(target.amount || 0);
+
+
     const result =
       window.confirm(
-        `${Number(target.amount).toLocaleString()}원 예금을 삭제하시겠습니까?`
+        `${targetAmount.toLocaleString()}원 예금을 해지하시겠습니까?\n\n해지한 금액은 입출금통장으로 반환됩니다.`
       );
 
 
@@ -332,6 +313,10 @@ function Deposit({
       return;
     }
 
+
+    /* =========================
+       예금 목록에서 삭제
+    ========================= */
 
     const newDeposits =
       deposits.filter(
@@ -353,10 +338,9 @@ function Deposit({
     );
 
 
-    /*
-      삭제한 예금 금액을
-      잔액으로 반환
-    */
+    /* =========================
+       현재 잔액 확인
+    ========================= */
 
     const savedBalance =
       localStorage.getItem(
@@ -365,14 +349,18 @@ function Deposit({
 
 
     const currentBalance =
-      savedBalance
-        ? JSON.parse(savedBalance)
+      savedBalance !== null
+        ? Number(savedBalance)
         : 0;
 
 
+    /* =========================
+       예금 금액 반환
+    ========================= */
+
     const newBalance =
       currentBalance +
-      Number(target.amount);
+      targetAmount;
 
 
     setBalance(
@@ -388,8 +376,105 @@ function Deposit({
     );
 
 
+    /* =========================
+       해지 거래내역 생성
+    ========================= */
+
+    const newTransaction = {
+
+      id: Date.now(),
+
+      title: "예금 해지",
+
+      type: "입금",
+
+      amount: targetAmount,
+
+      date:
+        new Date().toLocaleDateString(
+          "ko-KR"
+        ),
+
+      afterBalance: newBalance
+
+    };
+
+
+    const newTransactions = [
+
+      newTransaction,
+
+      ...transactions
+
+    ];
+
+
+    setTransactions(
+      newTransactions
+    );
+
+
+    localStorage.setItem(
+      "transactions",
+      JSON.stringify(
+        newTransactions
+      )
+    );
+
+
+    /* =========================
+       해지 알림
+    ========================= */
+
+    const newNotification = {
+
+      id: Date.now() + 1,
+
+      icon: "💰",
+
+      title: "예금 해지 완료",
+
+      message:
+        `${targetAmount.toLocaleString()}원이 입출금통장으로 반환되었습니다.`,
+
+      date:
+        new Date().toLocaleDateString(
+          "ko-KR"
+        ),
+
+      read: false
+
+    };
+
+
+    const newNotifications = [
+
+      newNotification,
+
+      ...notifications
+
+    ];
+
+
+    setNotifications(
+      newNotifications
+    );
+
+
+    localStorage.setItem(
+      "notifications",
+      JSON.stringify(
+        newNotifications
+      )
+    );
+
+
+    /* =========================
+       완료 메시지
+    ========================= */
+
     setMessage(
-      "예금이 삭제되었습니다."
+      "예금이 해지되고 금액이 반환되었습니다."
     );
 
     setMessageType(
@@ -399,11 +484,9 @@ function Deposit({
   }
 
 
-  /*
-    =========================
-    가입 화면
-    =========================
-  */
+  /* =========================
+     가입 화면
+  ========================= */
 
   if (showSignup) {
 
@@ -505,9 +588,7 @@ function Deposit({
 
           <button
             className="deposit-button"
-            onClick={
-              addDeposit
-            }
+            onClick={addDeposit}
           >
             상품 가입하기
           </button>
@@ -517,8 +598,7 @@ function Deposit({
 
             <p
               className={
-                messageType ===
-                "success"
+                messageType === "success"
                   ? "deposit-message success"
                   : "deposit-message error"
               }
@@ -541,22 +621,17 @@ function Deposit({
       </div>
 
     );
-
   }
 
 
-  /*
-    =========================
-    등록된 예금 목록
-    =========================
-  */
+  /* =========================
+     등록된 예금 목록
+  ========================= */
 
   return (
 
     <div className="deposit-page">
 
-
-      {/* 헤더 */}
 
       <div className="deposit-header">
 
@@ -574,8 +649,6 @@ function Deposit({
 
       </div>
 
-
-      {/* 등록된 예금 */}
 
       <div className="deposit-list">
 
@@ -610,9 +683,7 @@ function Deposit({
 
               <div
                 className="deposit-card"
-                key={
-                  deposit.id
-                }
+                key={deposit.id}
               >
 
                 <div
@@ -665,7 +736,7 @@ function Deposit({
                     )
                   }
                 >
-                  삭제
+                  해지
                 </button>
 
               </div>
@@ -717,7 +788,6 @@ function Deposit({
     </div>
 
   );
-
 }
 
 

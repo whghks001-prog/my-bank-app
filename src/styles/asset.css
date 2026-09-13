@@ -1,31 +1,659 @@
-.asset-bar {
+```css
+/* =========================
+   자산 페이지
+========================= */
 
-display:flex;
+.asset-page {
+  width: 100%;
+  box-sizing: border-box;
 
-height:18px;
-
-border-radius:20px;
-
-overflow:hidden;
-
-background:#eee;
-
-margin:20px 0;
-
+  padding: 24px 20px 120px;
 }
 
 
+/* =========================
+   상단 헤더
+========================= */
 
-.balance-bar {
+.asset-header {
+  margin-bottom: 20px;
+}
 
-background:#4caf50;
+.asset-header h2 {
+  margin: 0;
 
+  font-size: 24px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
 }
 
 
+/* =========================
+   총자산
+========================= */
 
-.deposit-bar {
+.asset-total-card {
+  width: 100%;
+  box-sizing: border-box;
 
-background:#00843D;
+  padding: 27px 23px;
 
+  margin-bottom: 30px;
+
+  border-radius: 21px;
+
+  background: linear-gradient(
+    135deg,
+    #00843d,
+    #006f34
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(
+      0,
+      132,
+      61,
+      0.18
+    );
 }
+
+
+.asset-total-label {
+  margin: 0 0 9px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  opacity: 0.82;
+}
+
+
+.asset-total-amount {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+
+  word-break: break-all;
+}
+
+
+/* =========================
+   내 계좌
+========================= */
+
+.asset-section {
+  width: 100%;
+}
+
+
+.asset-section-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+
+.asset-section-header h3 {
+  margin: 0;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  letter-spacing: -0.4px;
+}
+
+
+.asset-account-count {
+  color: #999999;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   계좌 카드
+========================= */
+
+.asset-account-card {
+  width: 100%;
+  min-height: 92px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 17px;
+
+  margin-bottom: 11px;
+
+  border: 1px solid #eeeeee;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 14px rgba(
+      0,
+      0,
+      0,
+      0.04
+    );
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.asset-account-card:hover {
+  transform: translateY(-1px);
+
+  border-color: #d9e9df;
+
+  box-shadow:
+    0 6px 18px rgba(
+      0,
+      0,
+      0,
+      0.07
+    );
+}
+
+
+.asset-account-card:active {
+  transform: scale(0.985);
+}
+
+
+/* =========================
+   계좌 아이콘
+========================= */
+
+.asset-account-icon {
+  width: 46px;
+  height: 46px;
+
+  min-width: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #eef8f2;
+
+  font-size: 22px;
+}
+
+
+.deposit-icon {
+  background: #f3f7ee;
+}
+
+
+/* =========================
+   계좌 정보
+========================= */
+
+.asset-account-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.asset-account-name {
+  color: #222222;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.asset-account-number {
+  color: #888888;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.asset-account-date {
+  color: #aaaaaa;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   계좌 잔액
+========================= */
+
+.asset-account-balance {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+}
+
+
+.asset-account-balance strong {
+  color: #222222;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+.asset-account-balance span {
+  color: #999999;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   상품 가입하기
+========================= */
+
+.asset-product-button {
+  width: 100%;
+
+  min-height: 72px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 14px 16px;
+
+  margin-top: 5px;
+
+  border: 1px solid #dfeee5;
+  border-radius: 17px;
+
+  background: #f7fbf8;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.asset-product-button:hover {
+  background: #f0f8f3;
+
+  border-color: #cce3d5;
+}
+
+
+.asset-product-button:active {
+  transform: scale(0.985);
+}
+
+
+.asset-product-icon {
+  width: 40px;
+  height: 40px;
+
+  min-width: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #00843d;
+
+  color: #ffffff;
+
+  font-size: 23px;
+
+  font-weight: 400;
+}
+
+
+.asset-product-text {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.asset-product-text strong {
+  color: #222222;
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+
+.asset-product-text small {
+  color: #888888;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.asset-product-arrow {
+  color: #999999;
+
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   자산 안내
+========================= */
+
+.asset-notice {
+  margin-top: 25px;
+
+  padding: 17px;
+
+  border-radius: 15px;
+
+  background: #f6f6f6;
+
+  color: #777777;
+}
+
+
+.asset-notice strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #555555;
+
+  font-size: 13px;
+}
+
+
+.asset-notice p {
+  margin: 5px 0;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   다크 모드
+========================= */
+
+.dark .asset-header h2 {
+  color: #ffffff;
+}
+
+
+.dark .asset-total-card {
+  box-shadow:
+    0 8px 24px rgba(
+      0,
+      0,
+      0,
+      0.3
+    );
+}
+
+
+.dark .asset-section-header h3 {
+  color: #ffffff;
+}
+
+
+.dark .asset-account-count {
+  color: #888888;
+}
+
+
+.dark .asset-account-card {
+  background: #202428;
+
+  border-color: #30343a;
+
+  box-shadow:
+    0 3px 14px rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
+}
+
+
+.dark .asset-account-icon {
+  background: #29352e;
+}
+
+
+.dark .asset-account-name {
+  color: #ffffff;
+}
+
+
+.dark .asset-account-number {
+  color: #999999;
+}
+
+
+.dark .asset-account-date {
+  color: #777777;
+}
+
+
+.dark .asset-account-balance strong {
+  color: #ffffff;
+}
+
+
+.dark .asset-account-balance span {
+  color: #999999;
+}
+
+
+.dark .deposit-icon {
+  background: #30372f;
+}
+
+
+/* =========================
+   다크 모드
+   상품 가입
+========================= */
+
+.dark .asset-product-button {
+  background: #202d25;
+
+  border-color: #304338;
+}
+
+
+.dark .asset-product-button:hover {
+  background: #26352c;
+
+  border-color: #3b5545;
+}
+
+
+.dark .asset-product-text strong {
+  color: #ffffff;
+}
+
+
+.dark .asset-product-text small {
+  color: #999999;
+}
+
+
+.dark .asset-product-arrow {
+  color: #888888;
+}
+
+
+/* =========================
+   다크 모드
+   안내
+========================= */
+
+.dark .asset-notice {
+  background: #25282c;
+
+  color: #999999;
+}
+
+
+.dark .asset-notice strong {
+  color: #cccccc;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 420px) {
+
+  .asset-page {
+    padding-left: 16px;
+    padding-right: 16px;
+
+    padding-top: 20px;
+    padding-bottom: 120px;
+  }
+
+
+  .asset-total-card {
+    padding: 23px 19px;
+
+    border-radius: 19px;
+  }
+
+
+  .asset-total-amount {
+    font-size: 28px;
+  }
+
+
+  .asset-account-card {
+    min-height: 88px;
+
+    padding: 15px;
+
+    gap: 10px;
+  }
+
+
+  .asset-account-icon {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    font-size: 21px;
+  }
+
+
+  .asset-account-name {
+    font-size: 14px;
+  }
+
+
+  .asset-account-balance strong {
+    font-size: 14px;
+  }
+
+
+  .asset-product-button {
+    min-height: 68px;
+
+    padding: 13px 14px;
+  }
+
+
+  .asset-product-icon {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    font-size: 21px;
+  }
+}
+```

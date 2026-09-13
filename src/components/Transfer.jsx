@@ -412,16 +412,12 @@ function Transfer({
       <div className="transfer-notice">
 
         <strong>
-          이체 안내
         </strong>
 
         <p>
-          • 현재 앱은 연습용으로 제작된
-          가상 금융 앱입니다.
         </p>
 
         <p>
-          • 실제 계좌로 돈이 이체되지는 않습니다.
         </p>
 
       </div>

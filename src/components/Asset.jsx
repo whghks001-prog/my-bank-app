@@ -1,205 +1,132 @@
 import "../styles/asset.css";
 
-
 function Asset({
+  balance = 0,
+  deposits = [],
+  setPage,
+  setSelectedDeposit
+}) {
 
-balance,
+  function formatMoney(value) {
+    return Number(value || 0).toLocaleString("ko-KR");
+  }
 
-deposits
+  const accountCount = 1 + deposits.length;
 
-}){
+  return (
+    <div className="asset-page">
 
+      <section className="asset-section">
 
-const depositTotal = deposits.reduce(
+        <div className="asset-section-header">
 
-(sum,item)=>
+          <h3>
+            내 계좌
+          </h3>
 
-sum + Number(item.amount),
+          <span className="asset-account-count">
+            {accountCount}개
+          </span>
 
-0
+        </div>
 
-);
+        <button
+          type="button"
+          className="asset-account-card"
+          onClick={() => {
+            setPage("account-detail");
+          }}
+        >
 
+          <div className="asset-account-icon">
+            🏦
+          </div>
 
+          <div className="asset-account-info">
 
-const total = balance + depositTotal;
+            <strong className="asset-account-name">
+              MG 입출금통장
+            </strong>
 
+            <span className="asset-account-number">
+              900-331-1862131
+            </span>
 
+          </div>
 
-const balancePercent = total === 0
+          <div className="asset-account-balance">
 
-? 0
+            <strong>
+              {formatMoney(balance)}원
+            </strong>
 
-: Math.round(
+            <span>
+              입출금
+            </span>
 
-(balance / total) * 100
+          </div>
 
-);
+        </button>
 
+        {deposits.map((deposit, index) => (
 
+          <button
+            type="button"
+            className="asset-account-card"
+            key={deposit.id || index}
+            onClick={() => {
 
-const depositPercent = total === 0
+              if (setSelectedDeposit) {
+                setSelectedDeposit(deposit);
+              }
 
-? 0
+              setPage("deposit");
 
-: Math.round(
+            }}
+          >
 
-(depositTotal / total) * 100
+            <div className="asset-account-icon deposit-icon">
+              💰
+            </div>
 
-);
+            <div className="asset-account-info">
 
+              <strong className="asset-account-name">
+                MG 정기예금
+              </strong>
 
+              <span className="asset-account-number">
+                예금 {index + 1}
+              </span>
 
-return(
+              {deposit.date && (
+                <span className="asset-account-date">
+                  예치일 {deposit.date}
+                </span>
+              )}
 
-<div className="asset-container">
+            </div>
 
+            <div className="asset-account-balance">
 
-<h3>
+              <strong>
+                {formatMoney(deposit.amount)}원
+              </strong>
 
-📊 자산 현황
+              <span>
+                예금
+              </span>
 
-</h3>
+            </div>
 
+          </button>
 
+        ))}
 
+      </section>
 
-<div className="asset-total">
-
-
-<p>
-
-총 자산
-
-</p>
-
-
-<h2>
-
-₩ {total.toLocaleString()}
-
-</h2>
-
-
-</div>
-
-
-
-
-
-<div className="asset-bar">
-
-
-<div
-
-className="balance-bar"
-
-style={{
-
-width:`${balancePercent}%`
-
-}}
-
->
-
-</div>
-
-
-
-<div
-
-className="deposit-bar"
-
-style={{
-
-width:`${depositPercent}%`
-
-}}
-
->
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div className="asset-item">
-
-
-<div>
-
-<p>
-입출금
-</p>
-
-
-<strong>
-
-₩ {balance.toLocaleString()}
-
-</strong>
-
-
-</div>
-
-
-
-<span>
-
-{balancePercent}%
-
-</span>
-
-
-</div>
-
-
-
-
-
-
-<div className="asset-item">
-
-
-<div>
-
-<p>
-예금
-</p>
-
-
-<strong>
-
-₩ {depositTotal.toLocaleString()}
-
-</strong>
-
-
-</div>
-
-
-
-<span>
-
-{depositPercent}%
-
-</span>
-
-
-</div>
-
-
-
-
-</div>
-
-)
-
+    </div>
+  );
 }
-
 
 export default Asset;

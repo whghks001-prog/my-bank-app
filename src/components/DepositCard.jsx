@@ -1,73 +1,66 @@
-function DepositCard({deposit,onDelete}){
+function DepositCard({
+deposit,
+onDelete,
+onClick
+}){
 
 
-  const days = Math.ceil(
-    (new Date(deposit.endDate) -
-    new Date(deposit.startDate))
-    /
-    (1000*60*60*24)
-  );
+return(
+
+<div
+
+onClick={onClick}
+
+style={{
+background:"white",
+padding:"20px",
+borderRadius:"20px",
+marginBottom:"15px",
+cursor:"pointer"
+}}
+
+>
 
 
-  const interest = Math.floor(
-    Number(deposit.amount)
-    *
-    (Number(deposit.rate)/100)
-    *
-    (days/365)
-  );
+<h2>
+🏦 {deposit.name}
+</h2>
 
 
-  return(
-
-    <div style={{
-      background:"white",
-      padding:"20px",
-      borderRadius:"20px",
-      marginBottom:"15px"
-    }}>
+<h3>
+₩ {Number(deposit.amount).toLocaleString()}
+</h3>
 
 
-      <h2>
-        🏦 {deposit.name}
-      </h2>
+<p>
+금리 : {deposit.rate}%
+</p>
 
 
-      <h3>
-        ₩ {Number(deposit.amount).toLocaleString()}
-      </h3>
+<p>
+만기일 : {deposit.endDate}
+</p>
 
 
-      <p>
-        금리 : {deposit.rate}%
-      </p>
+<button
+
+onClick={(e)=>{
+
+e.stopPropagation();
+
+onDelete(deposit.id);
+
+}}
+
+>
+예금 해지
+</button>
 
 
-      <p>
-        가입일 : {deposit.startDate}
-      </p>
+</div>
 
+)
 
-      <p>
-        만기일 : {deposit.endDate}
-      </p>
-
-
-      <h3>
-        예상이자 ₩ {interest.toLocaleString()}
-      </h3>
-
-
-      <button
-        onClick={()=>onDelete(deposit.id)}
-      >
-        예금 해지
-      </button>
-
-
-    </div>
-
-  )
 
 }
 
