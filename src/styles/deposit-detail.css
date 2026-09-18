@@ -4,14 +4,23 @@
 ======================================== */
 
 .deposit-detail-page {
+
   width: 100%;
+
   max-width: 520px;
+
   min-height: 100vh;
+
   margin: 0 auto;
+
   padding: 0 20px 40px;
+
   box-sizing: border-box;
-  background: #f7f8fa;
-  color: #222;
+
+  background: #151c24;
+
+  color: #edf1f5;
+
 }
 
 
@@ -20,30 +29,53 @@
 ======================================== */
 
 .deposit-detail-top {
+
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   height: 64px;
+
 }
 
 
 .deposit-detail-top h2 {
+
   margin: 0;
+
   font-size: 20px;
+
   font-weight: 700;
+
+  color: #f3f6fa;
+
 }
 
 
 .deposit-back {
+
   width: 40px;
+
   height: 40px;
+
   padding: 0;
+
   border: none;
+
   border-radius: 50%;
+
   background: transparent;
+
+  color: #edf1f5;
+
   font-size: 27px;
+
   line-height: 1;
+
   cursor: pointer;
+
 }
 
 
@@ -52,41 +84,64 @@
 ======================================== */
 
 .deposit-detail-card {
+
   width: 100%;
+
   box-sizing: border-box;
+
   padding: 27px 24px 25px;
-  background: #ffffff;
+
+  background: #202936;
+
   border-radius: 22px;
+
   box-shadow:
-    0 4px 18px rgba(0, 0, 0, 0.05);
+
+    0 4px 18px rgba(0, 0, 0, 0.20);
+
 }
 
 
 /* 계좌번호 */
 
 .deposit-detail-account-label {
+
   margin-bottom: 7px;
+
   font-size: 13px;
-  color: #888;
+
+  color: #8d98a8;
+
 }
 
 
 .deposit-detail-account-number {
+
   font-size: 16px;
+
   font-weight: 600;
+
   letter-spacing: 0.3px;
-  color: #333;
+
+  color: #cbd3dc;
+
 }
 
 
 /* 금액 */
 
 .deposit-detail-amount {
+
   margin-top: 25px;
+
   font-size: 31px;
+
   font-weight: 800;
+
   letter-spacing: -1px;
-  color: #111;
+
+  color: #f3f6fa;
+
 }
 
 
@@ -95,18 +150,28 @@
 ======================================== */
 
 .deposit-detail-summary {
+
   display: flex;
+
   align-items: center;
+
   gap: 8px;
+
   margin-top: 10px;
+
   font-size: 15px;
+
   font-weight: 600;
-  color: #555;
+
+  color: #cbd3dc;
+
 }
 
 
 .deposit-detail-dot {
-  color: #aaa;
+
+  color: #687586;
+
 }
 
 
@@ -115,44 +180,71 @@
 ======================================== */
 
 .deposit-detail-progress-area {
+
   margin-top: 30px;
+
 }
 
 
 .deposit-detail-progress-date {
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   margin-bottom: 9px;
+
   font-size: 12px;
-  color: #777;
+
+  color: #8d98a8;
+
 }
 
 
 .deposit-detail-progress-bar {
+
   position: relative;
+
   width: 100%;
+
   height: 9px;
+
   overflow: hidden;
+
   border-radius: 999px;
-  background: #e8eaed;
+
+  background: #303a47;
+
 }
 
 
 .deposit-detail-progress-fill {
+
   height: 100%;
+
   min-width: 0;
+
   border-radius: 999px;
-  background: #16834b;
+
+  background: #315a8a;
+
   transition: width 0.5s ease;
+
 }
 
 
 .deposit-detail-progress-percent {
+
   margin-top: 7px;
+
   text-align: right;
+
   font-size: 11px;
-  color: #999;
+
+  color: #8d98a8;
+
 }
 
 
@@ -161,73 +253,124 @@
 ======================================== */
 
 .deposit-detail-history {
+
   margin-top: 25px;
+
 }
 
 
 .deposit-detail-history h3 {
+
   margin: 0 0 13px;
+
   font-size: 18px;
+
   font-weight: 700;
+
+  color: #e9edf2;
+
 }
 
 
 .deposit-history-card {
+
   display: flex;
+
   align-items: center;
+
   width: 100%;
+
   min-height: 76px;
+
   padding: 15px 16px;
+
   box-sizing: border-box;
-  background: #ffffff;
+
+  background: #202936;
+
   border-radius: 18px;
+
   box-shadow:
-    0 3px 14px rgba(0, 0, 0, 0.04);
+
+    0 3px 14px rgba(0, 0, 0, 0.18);
+
 }
 
 
 .deposit-history-icon {
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   flex-shrink: 0;
+
   width: 42px;
+
   height: 42px;
+
   margin-right: 12px;
+
   border-radius: 14px;
-  background: #eef8f2;
+
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
+
   font-size: 20px;
+
 }
 
 
 .deposit-history-info {
+
   display: flex;
+
   flex-direction: column;
+
   gap: 4px;
+
   min-width: 0;
+
 }
 
 
 .deposit-history-info strong {
+
   font-size: 14px;
+
   font-weight: 700;
-  color: #222;
+
+  color: #edf1f5;
+
 }
 
 
 .deposit-history-info span {
+
   font-size: 12px;
-  color: #999;
+
+  color: #8d98a8;
+
 }
 
 
 .deposit-history-amount {
+
   margin-left: auto;
+
   padding-left: 12px;
+
   font-size: 14px;
+
   font-weight: 700;
-  color: #16834b;
+
+  color: #5f8fbd;
+
   white-space: nowrap;
+
 }
 
 
@@ -236,28 +379,45 @@
 ======================================== */
 
 .deposit-detail-info {
+
   display: flex;
+
   align-items: flex-start;
+
   gap: 9px;
+
   margin-top: 18px;
+
   padding: 15px 16px;
+
   box-sizing: border-box;
+
   border-radius: 15px;
-  background: #eef8f2;
+
+  background: rgba(49, 90, 138, 0.14);
+
 }
 
 
 .deposit-detail-info span {
+
   flex-shrink: 0;
+
   font-size: 15px;
+
 }
 
 
 .deposit-detail-info p {
+
   margin: 0;
+
   font-size: 12px;
+
   line-height: 1.55;
-  color: #666;
+
+  color: #aeb8c4;
+
 }
 
 
@@ -266,29 +426,45 @@
 ======================================== */
 
 .deposit-detail-button {
+
   width: 100%;
+
   height: 52px;
+
   margin-top: 18px;
+
   border: none;
+
   border-radius: 15px;
-  background: #eeeeee;
-  color: #555;
+
+  background: #2a323d;
+
+  color: #cbd3dc;
+
   font-size: 15px;
+
   font-weight: 700;
+
   cursor: pointer;
+
   transition:
     background 0.2s ease,
     transform 0.1s ease;
+
 }
 
 
 .deposit-detail-button:hover {
-  background: #e4e4e4;
+
+  background: #343e4b;
+
 }
 
 
 .deposit-detail-button:active {
+
   transform: scale(0.98);
+
 }
 
 
@@ -299,24 +475,34 @@
 @media (max-width: 480px) {
 
   .deposit-detail-page {
+
     padding-left: 16px;
+
     padding-right: 16px;
+
   }
 
 
   .deposit-detail-card {
+
     padding: 24px 20px;
+
     border-radius: 20px;
+
   }
 
 
   .deposit-detail-amount {
+
     font-size: 28px;
+
   }
 
 
   .deposit-detail-summary {
+
     font-size: 14px;
+
   }
 
 }
@@ -327,57 +513,86 @@
 ======================================== */
 
 .dark-mode .deposit-detail-page {
-  background: #111;
-  color: #f5f5f5;
+
+  background: #151c24;
+
+  color: #edf1f5;
+
 }
 
 
 .dark-mode .deposit-detail-card,
+
 .dark-mode .deposit-history-card {
-  background: #1c1c1c;
+
+  background: #202936;
+
   box-shadow: none;
+
 }
 
 
 .dark-mode .deposit-detail-top h2,
+
 .dark-mode .deposit-detail-amount,
+
 .dark-mode .deposit-detail-history h3,
+
 .dark-mode .deposit-history-info strong {
-  color: #f5f5f5;
+
+  color: #edf1f5;
+
 }
 
 
 .dark-mode .deposit-detail-account-number {
-  color: #ddd;
+
+  color: #cbd3dc;
+
 }
 
 
 .dark-mode .deposit-detail-summary {
-  color: #ccc;
+
+  color: #cbd3dc;
+
 }
 
 
 .dark-mode .deposit-detail-progress-bar {
-  background: #333;
+
+  background: #303a47;
+
 }
 
 
 .dark-mode .deposit-detail-info {
-  background: #1b3025;
+
+  background: rgba(49, 90, 138, 0.14);
+
 }
 
 
 .dark-mode .deposit-detail-info p {
-  color: #bbb;
+
+  color: #aeb8c4;
+
 }
 
 
 .dark-mode .deposit-detail-button {
-  background: #2a2a2a;
-  color: #ddd;
+
+  background: #2a323d;
+
+  color: #cbd3dc;
+
 }
 
 
 .dark-mode .deposit-history-icon {
-  background: #20382a;
+
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
+
 }

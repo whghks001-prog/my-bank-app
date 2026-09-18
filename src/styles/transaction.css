@@ -1,3 +1,7 @@
+/* =========================
+   거래내역 페이지
+========================= */
+
 .transaction-page {
 
   padding-bottom: 20px;
@@ -17,7 +21,7 @@
 
   font-weight: 800;
 
-  color: #222;
+  color: #f3f6fa;
 
 }
 
@@ -40,14 +44,14 @@
 
   font-size: 13px;
 
-  color: #888;
+  color: #8d98a8;
 
 }
 
 
 .transaction-summary strong {
 
-  color: #333;
+  color: #cbd3dc;
 
   font-size: 13px;
 
@@ -62,14 +66,15 @@
 
   padding: 55px 20px;
 
-  background: white;
+  background: #202936;
 
   border-radius: 22px;
 
   text-align: center;
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.04);
+
+    0 5px 15px rgba(0, 0, 0, 0.20);
 
 }
 
@@ -90,7 +95,9 @@
 
   border-radius: 20px;
 
-  background: #f1f4f2;
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
 
   font-size: 27px;
 
@@ -105,7 +112,7 @@
 
   font-weight: 700;
 
-  color: #444;
+  color: #e9edf2;
 
 }
 
@@ -120,7 +127,7 @@
 
   line-height: 1.5;
 
-  color: #aaa;
+  color: #8d98a8;
 
 }
 
@@ -158,12 +165,13 @@
 
   border-radius: 18px;
 
-  background: white;
+  background: #202936;
 
   text-align: left;
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.04);
+
+    0 5px 15px rgba(0, 0, 0, 0.20);
 
   cursor: pointer;
 
@@ -176,7 +184,7 @@
 
   transform: scale(0.98);
 
-  background: #fafafa;
+  background: #252f3b;
 
 }
 
@@ -201,7 +209,9 @@
 
   border-radius: 15px;
 
-  background: #f1f7f3;
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
 
   font-size: 20px;
 
@@ -237,7 +247,7 @@
 
   font-size: 14px;
 
-  color: #333;
+  color: #edf1f5;
 
 }
 
@@ -246,7 +256,7 @@
 
   font-size: 11px;
 
-  color: #999;
+  color: #8d98a8;
 
 }
 
@@ -281,14 +291,14 @@
 
 .transaction-money strong.minus {
 
-  color: #333;
+  color: #edf1f5;
 
 }
 
 
 .transaction-money strong.plus {
 
-  color: #00843D;
+  color: #5f8fbd;
 
 }
 
@@ -297,7 +307,7 @@
 
   font-size: 10px;
 
-  color: #aaa;
+  color: #687586;
 
   white-space: nowrap;
 
@@ -324,13 +334,13 @@
 
   justify-content: center;
 
-  border: 1px solid #e1e7e3;
+  border: 1px solid #34404d;
 
   border-radius: 17px;
 
-  background: #ffffff;
+  background: #202936;
 
-  color: #00843D;
+  color: #5f8fbd;
 
   font-size: 14px;
 
@@ -339,7 +349,8 @@
   cursor: pointer;
 
   box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.035);
+
+    0 4px 12px rgba(0, 0, 0, 0.15);
 
   transition:
     transform 0.15s ease,
@@ -353,9 +364,9 @@
 
   transform: scale(0.98);
 
-  background: #f4f8f5;
+  background: #252f3b;
 
-  border-color: #cfdcd4;
+  border-color: #3d5f82;
 
 }
 
@@ -368,9 +379,9 @@
 
   .transaction-month-button:hover {
 
-    background: #f8fbf9;
+    background: #252f3b;
 
-    border-color: #cfdcd4;
+    border-color: #3d5f82;
 
   }
 

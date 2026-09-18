@@ -20,19 +20,16 @@ body {
     Arial,
     sans-serif;
 
-  background: #f5f7f6;
-  color: #222;
+  /* 전체 배경 */
+  background: #161617;
+  color: #f5f5f5;
 
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
 }
 
-
-/* =========================
-   기본 요소
-   ========================= */
-
+/* 기본 요소 */
 button,
 input {
   font-family: inherit;
@@ -46,39 +43,175 @@ input {
   outline: none;
 }
 
-
-/* =========================
-   앱 전체
-   ========================= */
-
+/* 앱 전체 */
 .app-container {
   width: 100%;
   max-width: 420px;
   min-height: 100vh;
   margin: 0 auto;
 
-  background: #f5f7f6;
-  color: #222;
+  background: #161617;
+  color: #f5f5f5;
 
   transition:
     background-color 0.25s ease,
     color 0.25s ease;
 }
 
+/* 페이지 공통 */
+.home-page,
+.transfer-page,
+.transaction-page,
+.deposit-page,
+.notification-page,
+.settings-page {
+  background: #161617;
+  color: #f5f5f5;
+}
 
-/* =========================
-   다크모드 앱
-   ========================= */
+/* 카드 공통 */
+.home-assets-card,
+.home-deposit-info,
+.home-menu-card,
+.transfer-balance-card,
+.transfer-form,
+.deposit-box,
+.deposit-card,
+.settings-card,
+.settings-info-card,
+.transaction-card,
+.notification-card {
+  color: #f5f5f5;
+}
 
-.app-container.dark {
-  background: #111315;
+/* 제목 / 설명 */
+h1,
+h2,
+h3,
+h4,
+strong {
+  color: #f5f5f5;
+}
+
+p,
+span {
+  color: inherit;
+}
+
+/* 입력창 */
+input,
+textarea,
+select {
+  background: #24282d;
+  color: #f5f5f5;
+  border-color: #3a4148;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8f969e;
+}
+
+/* 메인 임팩트 컬러 */
+.transfer-button,
+.deposit-button,
+.settings-primary-button {
+  color: #ffffff;
+}
+
+/* 빠른 금액 버튼 */
+.transfer-quick-buttons button {
+  background: #303840;
+  color: #e5e7ea;
+  border-color: #454e57;
+}
+
+/* 하단 네비게이션 */
+.bottom-nav {
+  background: rgba(22, 22, 23, 0.97);
+  border-top-color: #303237;
+}
+
+.bottom-nav-item {
+  color: #8e9399;
+}
+
+.bottom-nav-item.active {
+  color: #f5f5f5;
+}
+
+/* 거래내역 */
+.transaction-item,
+.transaction-detail,
+.transaction-empty {
   color: #f1f1f1;
 }
 
+.transaction-item {
+  border-bottom-color: #303237;
+}
 
-/* =========================
-   페이지 공통
-   ========================= */
+/* 알림 */
+.notification-item {
+  background: #1d1e20;
+  border-color: #303237;
+}
+
+.notification-item.unread {
+  background: #252b31;
+}
+
+/* 설정 */
+.settings-section h3 {
+  color: #f1f1f1;
+}
+
+.settings-item {
+  border-bottom-color: #303237;
+}
+
+.settings-description,
+.settings-item-text span {
+  color: #9da3aa;
+}
+
+.settings-info-card div {
+  border-bottom-color: #303237;
+}
+
+.settings-info-card span {
+  color: #9da3aa;
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #414850;
+  border-radius: 10px;
+}
+
+/* 모바일 */
+@media (max-width: 420px) {
+  .app-container {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   기존 .dark 클래스와의 호환
+   ========================================= */
+
+.app-container.dark {
+  background: #161617;
+  color: #f5f5f5;
+}
 
 .dark .home-page,
 .dark .transfer-page,
@@ -86,15 +219,11 @@ input {
 .dark .deposit-page,
 .dark .notification-page,
 .dark .settings-page {
-  background: #111315;
-  color: #f1f1f1;
+  background: #161617;
+  color: #f5f5f5;
 }
 
-
-/* =========================
-   카드 공통
-   ========================= */
-
+/* 다크모드 카드 */
 .dark .home-assets-card,
 .dark .home-deposit-info,
 .dark .home-menu-card,
@@ -106,16 +235,12 @@ input {
 .dark .settings-info-card,
 .dark .transaction-card,
 .dark .notification-card {
-  background: #1c2024;
-  color: #f1f1f1;
-  border-color: #2c3136;
+  background: #1d1e20;
+  color: #f5f5f5;
+  border-color: #303237;
 }
 
-
-/* =========================
-   제목 / 설명
-   ========================= */
-
+/* 다크모드 제목 */
 .dark h1,
 .dark h2,
 .dark h3,
@@ -129,69 +254,49 @@ input {
   color: inherit;
 }
 
-
-/* =========================
-   입력창
-   ========================= */
-
+/* 다크모드 입력 */
 .dark input,
 .dark textarea,
 .dark select {
-  background: #24292e;
+  background: #24282d;
   color: #f5f5f5;
-  border-color: #3a4046;
+  border-color: #3a4148;
 }
 
 .dark input::placeholder,
 .dark textarea::placeholder {
-  color: #8d949b;
+  color: #8f969e;
 }
 
-
-/* =========================
-   이체 / 예금 버튼
-   ========================= */
-
+/* 다크모드 버튼 */
 .dark .transfer-button,
 .dark .deposit-button,
 .dark .settings-primary-button {
-  color: white;
+  color: #ffffff;
 }
 
-
-/* =========================
-   빠른 금액 버튼
-   ========================= */
-
+/* 빠른 금액 버튼 */
 .dark .transfer-quick-buttons button {
-  background: #292e33;
-  color: #ddd;
-  border-color: #3a4046;
+  background: #303840;
+  color: #e5e7ea;
+  border-color: #454e57;
 }
 
-
-/* =========================
-   하단 네비게이션
-   ========================= */
-
+/* 하단 네비게이션 */
 .dark .bottom-nav {
-  background: #181b1e;
-  border-top-color: #2c3136;
+  background: rgba(22, 22, 23, 0.97);
+  border-top-color: #303237;
 }
 
 .dark .bottom-nav-item {
-  color: #8d949b;
+  color: #8e9399;
 }
 
 .dark .bottom-nav-item.active {
-  color: #4caf78;
+  color: #ffffff;
 }
 
-
-/* =========================
-   거래내역
-   ========================= */
-
+/* 거래내역 */
 .dark .transaction-item,
 .dark .transaction-detail,
 .dark .transaction-empty {
@@ -199,76 +304,51 @@ input {
 }
 
 .dark .transaction-item {
-  border-bottom-color: #2c3136;
+  border-bottom-color: #303237;
 }
 
-
-/* =========================
-   알림
-   ========================= */
-
+/* 알림 */
 .dark .notification-item {
-  background: #1c2024;
-  border-color: #2c3136;
+  background: #1d1e20;
+  border-color: #303237;
 }
 
 .dark .notification-item.unread {
-  background: #20262a;
+  background: #252b31;
 }
 
-
-/* =========================
-   설정
-   ========================= */
-
+/* 설정 */
 .dark .settings-section h3 {
   color: #f1f1f1;
 }
 
 .dark .settings-item {
-  border-bottom-color: #2c3136;
+  border-bottom-color: #303237;
 }
 
 .dark .settings-description,
 .dark .settings-item-text span {
-  color: #9da4aa;
+  color: #9da3aa;
 }
 
 .dark .settings-info-card div {
-  border-bottom-color: #2c3136;
+  border-bottom-color: #303237;
 }
 
 .dark .settings-info-card span {
-  color: #9da4aa;
+  color: #9da3aa;
 }
 
-
-/* =========================
-   스크롤바
-   ========================= */
-
+/* 스크롤바 */
 .dark ::-webkit-scrollbar {
   width: 6px;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #111315;
+  background: #161617;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #3a4046;
+  background: #414850;
   border-radius: 10px;
-}
-
-
-/* =========================
-   모바일
-   ========================= */
-
-@media (max-width: 420px) {
-
-  .app-container {
-    max-width: 100%;
-  }
-
 }

@@ -1,5 +1,11 @@
+/* =========================
+   설정 페이지
+========================= */
+
 .settings-page {
+
   padding-bottom: 30px;
+
 }
 
 
@@ -8,22 +14,26 @@
 ========================= */
 
 .settings-header {
+
   height: 55px;
 
   display: flex;
 
   align-items: center;
+
 }
 
 
 .settings-header h2 {
+
   margin: 5px 0 0;
 
   font-size: 24px;
 
   font-weight: 800;
 
-  color: #222;
+  color: #f3f6fa;
+
 }
 
 
@@ -32,11 +42,14 @@
 ========================= */
 
 .settings-section {
+
   margin-top: 22px;
+
 }
 
 
 .settings-section-title {
+
   margin: 0 0 10px;
 
   padding-left: 4px;
@@ -45,7 +58,8 @@
 
   font-weight: 700;
 
-  color: #777;
+  color: #8d98a8;
+
 }
 
 
@@ -54,36 +68,43 @@
 ========================= */
 
 .settings-card {
+
   padding: 20px;
 
-  background: white;
+  background: #202936;
 
   border-radius: 21px;
 
   box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.04);
+
+    0 5px 18px rgba(0, 0, 0, 0.20);
+
 }
 
 
 .settings-card h3 {
+
   margin: 0;
 
   font-size: 16px;
 
   font-weight: 750;
 
-  color: #333;
+  color: #edf1f5;
+
 }
 
 
 .settings-description {
+
   margin: 7px 0 17px;
 
   font-size: 12px;
 
   line-height: 1.55;
 
-  color: #999;
+  color: #8d98a8;
+
 }
 
 
@@ -92,6 +113,7 @@
 ========================= */
 
 .settings-input {
+
   width: 100%;
 
   height: 50px;
@@ -102,32 +124,38 @@
 
   box-sizing: border-box;
 
-  border: 1px solid #e3e3e3;
+  border: 1px solid #364251;
 
   border-radius: 14px;
 
-  background: #fafafa;
+  background: #171e27;
 
   outline: none;
 
   font-size: 14px;
 
-  color: #222;
+  color: #edf1f5;
+
 }
 
 
 .settings-input:focus {
-  border-color: #00843D;
 
-  background: white;
+  border-color: #315a8a;
+
+  background: #171e27;
 
   box-shadow:
-    0 0 0 3px rgba(0, 132, 61, 0.07);
+
+    0 0 0 3px rgba(49, 90, 138, 0.18);
+
 }
 
 
 .settings-input::placeholder {
-  color: #aaa;
+
+  color: #687586;
+
 }
 
 
@@ -136,6 +164,7 @@
 ========================= */
 
 .settings-primary-button {
+
   width: 100%;
 
   height: 50px;
@@ -146,20 +175,23 @@
 
   border-radius: 14px;
 
-  background: #00843D;
+  background: #315a8a;
 
-  color: white;
+  color: #f3f6fa;
 
   font-size: 14px;
 
   font-weight: 700;
 
   cursor: pointer;
+
 }
 
 
 .settings-primary-button:active {
+
   transform: scale(0.98);
+
 }
 
 
@@ -168,6 +200,7 @@
 ========================= */
 
 .settings-message {
+
   margin: 12px 0 0;
 
   text-align: center;
@@ -175,16 +208,21 @@
   font-size: 12px;
 
   font-weight: 600;
+
 }
 
 
 .settings-message.success {
-  color: #00843D;
+
+  color: #5f8fbd;
+
 }
 
 
 .settings-message.error {
+
   color: #e53935;
+
 }
 
 
@@ -193,30 +231,34 @@
 ========================= */
 
 .settings-logout-button {
+
   width: 100%;
 
   height: 48px;
 
-  border: 1px solid #e1e1e1;
+  border: 1px solid #34404d;
 
   border-radius: 14px;
 
-  background: #f8f8f8;
+  background: #252f3b;
 
-  color: #555;
+  color: #cbd3dc;
 
   font-size: 14px;
 
   font-weight: 700;
 
   cursor: pointer;
+
 }
 
 
 .settings-logout-button:active {
+
   transform: scale(0.98);
 
-  background: #eeeeee;
+  background: #2d3845;
+
 }
 
 
@@ -225,6 +267,7 @@
 ========================= */
 
 .settings-danger-button {
+
   width: 100%;
 
   height: 48px;
@@ -233,7 +276,7 @@
 
   border-radius: 14px;
 
-  background: #fff1f1;
+  background: rgba(229, 57, 53, 0.12);
 
   color: #e53935;
 
@@ -242,13 +285,16 @@
   font-weight: 700;
 
   cursor: pointer;
+
 }
 
 
 .settings-danger-button:active {
+
   transform: scale(0.98);
 
-  background: #ffe5e5;
+  background: rgba(229, 57, 53, 0.18);
+
 }
 
 
@@ -257,18 +303,22 @@
 ========================= */
 
 .settings-info-card {
+
   padding: 5px 20px;
 
-  background: white;
+  background: #202936;
 
   border-radius: 21px;
 
   box-shadow:
-    0 5px 18px rgba(0, 0, 0, 0.04);
+
+    0 5px 18px rgba(0, 0, 0, 0.20);
+
 }
 
 
 .settings-info-row {
+
   min-height: 52px;
 
   display: flex;
@@ -278,29 +328,36 @@
   justify-content: space-between;
 
   gap: 20px;
+
 }
 
 
 .settings-info-row span {
+
   font-size: 13px;
 
-  color: #888;
+  color: #8d98a8;
+
 }
 
 
 .settings-info-row strong {
+
   font-size: 13px;
 
-  color: #333;
+  color: #edf1f5;
 
   text-align: right;
+
 }
 
 
 .settings-info-divider {
+
   height: 1px;
 
-  background: #f1f1f1;
+  background: #303a47;
+
 }
 
 
@@ -309,11 +366,13 @@
 ========================= */
 
 .settings-footer {
+
   margin: 30px 0 10px;
 
   text-align: center;
 
   font-size: 10px;
 
-  color: #bbb;
+  color: #687586;
+
 }

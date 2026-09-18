@@ -1,11 +1,15 @@
-/* =========================
+ /* =========================
    자산 페이지
 ========================= */
 
 .asset-page {
+
   width: 100%;
+
   box-sizing: border-box;
+
   padding: 24px 20px 120px;
+
 }
 
 
@@ -14,14 +18,23 @@
 ========================= */
 
 .asset-header {
+
   margin-bottom: 20px;
+
 }
 
 .asset-header h2 {
+
   margin: 0;
+
   font-size: 24px;
+
   font-weight: 800;
+
   letter-spacing: -0.5px;
+
+  color: #f3f6fa;
+
 }
 
 
@@ -30,40 +43,61 @@
 ========================= */
 
 .asset-total-card {
+
   width: 100%;
+
   box-sizing: border-box;
+
   padding: 27px 23px;
+
   margin-bottom: 30px;
+
   border-radius: 21px;
+
   background: linear-gradient(
     135deg,
-    #00843d,
-    #006f34
+    #315a8a,
+    #274a72
   );
-  color: #ffffff;
+
+  color: #f3f6fa;
+
   box-shadow:
     0 8px 24px rgba(
-      0,
-      132,
-      61,
-      0.18
+      49,
+      90,
+      138,
+      0.22
     );
+
 }
 
 .asset-total-label {
+
   margin: 0 0 9px;
+
   font-size: 14px;
+
   font-weight: 500;
-  opacity: 0.82;
+
+  opacity: 0.75;
+
 }
 
 .asset-total-amount {
+
   margin: 0;
+
   font-size: 32px;
+
   font-weight: 800;
+
   line-height: 1.2;
+
   letter-spacing: -1px;
+
   word-break: break-all;
+
 }
 
 
@@ -72,27 +106,45 @@
 ========================= */
 
 .asset-section {
+
   width: 100%;
+
 }
 
 .asset-section-header {
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   margin-bottom: 14px;
+
 }
 
 .asset-section-header h3 {
+
   margin: 0;
+
   font-size: 19px;
+
   font-weight: 800;
+
   letter-spacing: -0.4px;
+
+  color: #e9edf2;
+
 }
 
 .asset-account-count {
-  color: #999999;
+
+  color: #8d98a8;
+
   font-size: 12px;
+
   font-weight: 600;
+
 }
 
 
@@ -101,46 +153,68 @@
 ========================= */
 
 .asset-account-card {
+
   width: 100%;
+
   min-height: 92px;
+
   box-sizing: border-box;
+
   display: flex;
+
   align-items: center;
+
   gap: 13px;
+
   padding: 17px;
+
   margin-bottom: 11px;
-  border: 1px solid #eeeeee;
+
+  border: 1px solid #303a47;
+
   border-radius: 18px;
-  background: #ffffff;
+
+  background: #202936;
+
   text-align: left;
+
   cursor: pointer;
+
   box-shadow:
     0 3px 14px rgba(
       0,
       0,
       0,
-      0.04
+      0.20
     );
+
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease,
     border-color 0.15s ease;
+
 }
 
 .asset-account-card:hover {
+
   transform: translateY(-1px);
-  border-color: #d9e9df;
+
+  border-color: #3d5f82;
+
   box-shadow:
     0 6px 18px rgba(
       0,
       0,
       0,
-      0.07
+      0.28
     );
+
 }
 
 .asset-account-card:active {
+
   transform: scale(0.985);
+
 }
 
 
@@ -149,19 +223,35 @@
 ========================= */
 
 .asset-account-icon {
+
   width: 46px;
+
   height: 46px;
+
   min-width: 46px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   border-radius: 14px;
-  background: #eef8f2;
+
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
+
   font-size: 22px;
+
 }
 
 .deposit-icon {
-  background: #f3f7ee;
+
+  background: rgba(49, 90, 138, 0.12);
+
+  color: #5f8fbd;
+
 }
 
 
@@ -170,33 +260,55 @@
 ========================= */
 
 .asset-account-info {
+
   min-width: 0;
+
   flex: 1;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 4px;
+
 }
 
 .asset-account-name {
-  color: #222222;
+
+  color: #edf1f5;
+
   font-size: 15px;
+
   font-weight: 750;
+
   white-space: nowrap;
+
   overflow: hidden;
+
   text-overflow: ellipsis;
+
 }
 
 .asset-account-number {
-  color: #888888;
+
+  color: #8d98a8;
+
   font-size: 12px;
+
   white-space: nowrap;
+
   overflow: hidden;
+
   text-overflow: ellipsis;
+
 }
 
 .asset-account-date {
-  color: #aaaaaa;
+
+  color: #687586;
+
   font-size: 11px;
+
 }
 
 
@@ -205,23 +317,37 @@
 ========================= */
 
 .asset-account-balance {
+
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-end;
+
   gap: 5px;
+
   flex-shrink: 0;
+
 }
 
 .asset-account-balance strong {
-  color: #222222;
+
+  color: #edf1f5;
+
   font-size: 15px;
+
   font-weight: 800;
+
   white-space: nowrap;
+
 }
 
 .asset-account-balance span {
-  color: #999999;
+
+  color: #8d98a8;
+
   font-size: 11px;
+
 }
 
 
@@ -230,75 +356,128 @@
 ========================= */
 
 .asset-product-button {
+
   width: 100%;
+
   min-height: 72px;
+
   box-sizing: border-box;
+
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
   padding: 14px 16px;
+
   margin-top: 5px;
-  border: 1px solid #dfeee5;
+
+  border: 1px solid #334a63;
+
   border-radius: 17px;
-  background: #f7fbf8;
+
+  background: #202b39;
+
   text-align: left;
+
   cursor: pointer;
+
   transition:
     background 0.15s ease,
     transform 0.15s ease,
     border-color 0.15s ease;
+
 }
 
 .asset-product-button:hover {
-  background: #f0f8f3;
-  border-color: #cce3d5;
+
+  background: #263548;
+
+  border-color: #3d5f82;
+
 }
 
 .asset-product-button:active {
+
   transform: scale(0.985);
+
 }
 
 .asset-product-icon {
+
   width: 40px;
+
   height: 40px;
+
   min-width: 40px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   border-radius: 12px;
-  background: #00843d;
-  color: #ffffff;
+
+  background: #315a8a;
+
+  color: #f3f6fa;
+
   font-size: 23px;
+
   font-weight: 400;
+
 }
 
 .asset-product-text {
+
   flex: 1;
+
   min-width: 0;
+
   display: flex;
+
   flex-direction: column;
+
   gap: 4px;
+
 }
 
 .asset-product-text strong {
-  color: #222222;
+
+  color: #edf1f5;
+
   font-size: 14px;
+
   font-weight: 750;
+
 }
 
 .asset-product-text small {
-  color: #888888;
+
+  color: #8d98a8;
+
   font-size: 11px;
+
   line-height: 1.4;
+
   white-space: nowrap;
+
   overflow: hidden;
+
   text-overflow: ellipsis;
+
 }
 
 .asset-product-arrow {
-  color: #999999;
+
+  color: #8d98a8;
+
   font-size: 25px;
+
   line-height: 1;
+
 }
 
 
@@ -307,24 +486,39 @@
 ========================= */
 
 .asset-notice {
+
   margin-top: 25px;
+
   padding: 17px;
+
   border-radius: 15px;
-  background: #f6f6f6;
-  color: #777777;
+
+  background: #202936;
+
+  color: #8d98a8;
+
 }
 
 .asset-notice strong {
+
   display: block;
+
   margin-bottom: 8px;
-  color: #555555;
+
+  color: #cbd3dc;
+
   font-size: 13px;
+
 }
 
 .asset-notice p {
+
   margin: 5px 0;
+
   font-size: 11px;
+
   line-height: 1.6;
+
 }
 
 
@@ -333,10 +527,13 @@
 ========================= */
 
 .dark .asset-header h2 {
-  color: #ffffff;
+
+  color: #f3f6fa;
+
 }
 
 .dark .asset-total-card {
+
   box-shadow:
     0 8px 24px rgba(
       0,
@@ -344,19 +541,27 @@
       0,
       0.3
     );
+
 }
 
 .dark .asset-section-header h3 {
-  color: #ffffff;
+
+  color: #e9edf2;
+
 }
 
 .dark .asset-account-count {
-  color: #888888;
+
+  color: #8d98a8;
+
 }
 
 .dark .asset-account-card {
-  background: #202428;
-  border-color: #30343a;
+
+  background: #202936;
+
+  border-color: #303a47;
+
   box-shadow:
     0 3px 14px rgba(
       0,
@@ -364,34 +569,53 @@
       0,
       0.2
     );
+
 }
 
 .dark .asset-account-icon {
-  background: #29352e;
+
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
+
 }
 
 .dark .asset-account-name {
-  color: #ffffff;
+
+  color: #edf1f5;
+
 }
 
 .dark .asset-account-number {
-  color: #999999;
+
+  color: #8d98a8;
+
 }
 
 .dark .asset-account-date {
-  color: #777777;
+
+  color: #687586;
+
 }
 
 .dark .asset-account-balance strong {
-  color: #ffffff;
+
+  color: #edf1f5;
+
 }
 
 .dark .asset-account-balance span {
-  color: #999999;
+
+  color: #8d98a8;
+
 }
 
 .dark .deposit-icon {
-  background: #30372f;
+
+  background: rgba(49, 90, 138, 0.12);
+
+  color: #5f8fbd;
+
 }
 
 
@@ -401,25 +625,37 @@
 ========================= */
 
 .dark .asset-product-button {
-  background: #202d25;
-  border-color: #304338;
+
+  background: #202b39;
+
+  border-color: #334a63;
+
 }
 
 .dark .asset-product-button:hover {
-  background: #26352c;
-  border-color: #3b5545;
+
+  background: #263548;
+
+  border-color: #3d5f82;
+
 }
 
 .dark .asset-product-text strong {
-  color: #ffffff;
+
+  color: #edf1f5;
+
 }
 
 .dark .asset-product-text small {
-  color: #999999;
+
+  color: #8d98a8;
+
 }
 
 .dark .asset-product-arrow {
-  color: #888888;
+
+  color: #8d98a8;
+
 }
 
 
@@ -429,12 +665,17 @@
 ========================= */
 
 .dark .asset-notice {
-  background: #25282c;
-  color: #999999;
+
+  background: #202936;
+
+  color: #8d98a8;
+
 }
 
 .dark .asset-notice strong {
-  color: #cccccc;
+
+  color: #cbd3dc;
+
 }
 
 
@@ -443,52 +684,85 @@
 ========================= */
 
 @media (max-width: 420px) {
+
   .asset-page {
+
     padding-left: 16px;
+
     padding-right: 16px;
+
     padding-top: 20px;
+
     padding-bottom: 120px;
+
   }
 
   .asset-total-card {
+
     padding: 23px 19px;
+
     border-radius: 19px;
+
   }
 
   .asset-total-amount {
+
     font-size: 28px;
+
   }
 
   .asset-account-card {
+
     min-height: 88px;
+
     padding: 15px;
+
     gap: 10px;
+
   }
 
   .asset-account-icon {
+
     width: 42px;
+
     height: 42px;
+
     min-width: 42px;
+
     font-size: 21px;
+
   }
 
   .asset-account-name {
+
     font-size: 14px;
+
   }
 
   .asset-account-balance strong {
+
     font-size: 14px;
+
   }
 
   .asset-product-button {
+
     min-height: 68px;
+
     padding: 13px 14px;
+
   }
 
   .asset-product-icon {
+
     width: 38px;
+
     height: 38px;
+
     min-width: 38px;
+
     font-size: 21px;
+
   }
+
 }

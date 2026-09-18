@@ -1,96 +1,148 @@
+/* =========================
+   예금 페이지
+========================= */
+
 .deposit-title {
+
   margin: 5px 0 20px;
+
   font-size: 24px;
+
   font-weight: 700;
-  color: #222;
+
+  color: #f3f6fa;
+
 }
 
 .deposit-box {
-  background: white;
+
+  background: #202936;
+
   border-radius: 24px;
+
   padding: 25px 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+
+  box-shadow:
+
+    0 5px 20px rgba(0, 0, 0, 0.20);
+
 }
 
 .deposit-label {
+
   margin: 18px 0 8px;
+
   font-size: 14px;
+
   font-weight: 600;
-  color: #555;
+
+  color: #cbd3dc;
+
 }
 
 .deposit-label:first-child {
+
   margin-top: 0;
+
 }
 
 .deposit-input {
+
   width: 100%;
+
   height: 52px;
+
   padding: 0 16px;
+
   box-sizing: border-box;
 
-  border: 1px solid #e2e2e2;
+  border: 1px solid #364251;
+
   border-radius: 16px;
 
-  background: #fafafa;
+  background: #171e27;
 
   font-size: 16px;
-  color: #222;
+
+  color: #edf1f5;
 
   outline: none;
 
   transition: all 0.2s ease;
+
 }
 
 .deposit-input:focus {
-  border-color: #00843D;
-  background: white;
+
+  border-color: #315a8a;
+
+  background: #171e27;
 
   box-shadow:
-    0 0 0 3px rgba(0, 132, 61, 0.08);
+
+    0 0 0 3px rgba(49, 90, 138, 0.18);
+
 }
 
 .deposit-input::placeholder {
-  color: #aaa;
+
+  color: #687586;
+
 }
+
 
 /* 날짜 입력창 */
 
 .deposit-input[type="date"] {
+
   border-radius: 16px;
+
   appearance: none;
+
   -webkit-appearance: none;
+
 }
+
 
 /* 예금 등록 버튼 */
 
 .deposit-button {
+
   width: 100%;
+
   height: 54px;
 
   margin-top: 25px;
 
   border: none;
+
   border-radius: 16px;
 
-  background: #00843D;
-  color: white;
+  background: #315a8a;
+
+  color: #f3f6fa;
 
   font-size: 16px;
+
   font-weight: 700;
 
   cursor: pointer;
 
   transition: transform 0.15s ease;
+
 }
 
 .deposit-button:active {
+
   transform: scale(0.98);
+
 }
+
 
 /* 안내 메시지 */
 
 .deposit-message {
+
   min-height: 20px;
 
   margin: 15px 0 0;
@@ -98,27 +150,38 @@
   text-align: center;
 
   font-size: 14px;
-  color: #00843D;
+
+  color: #5f8fbd;
+
 }
+
 
 /* 등록된 예금 */
 
 .deposit-list {
+
   margin-top: 25px;
+
 }
 
 .deposit-list-title {
+
   margin: 0 0 12px;
 
   font-size: 18px;
+
   font-weight: 700;
-  color: #222;
+
+  color: #e9edf2;
+
 }
+
 
 /* 예금 카드 */
 
 .deposit-card {
-  background: white;
+
+  background: #202936;
 
   border-radius: 20px;
 
@@ -127,77 +190,108 @@
   margin-bottom: 12px;
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.05);
+
+    0 5px 15px rgba(0, 0, 0, 0.20);
 
   transition: transform 0.15s ease;
+
 }
 
 .deposit-card:active {
+
   transform: scale(0.98);
+
 }
 
 .deposit-card-content {
+
   cursor: pointer;
+
 }
 
 .deposit-card-header {
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
 }
 
 .deposit-card-title {
+
   font-size: 15px;
+
   font-weight: 600;
-  color: #555;
+
+  color: #cbd3dc;
+
 }
 
 .deposit-card-amount {
+
   margin-top: 8px;
 
   font-size: 25px;
+
   font-weight: 700;
 
-  color: #222;
+  color: #edf1f5;
+
 }
 
 .deposit-card-date {
+
   margin-top: 8px;
 
   font-size: 13px;
-  color: #888;
+
+  color: #8d98a8;
+
 }
+
 
 /* 삭제 버튼 */
 
 .deposit-delete {
+
   width: 100%;
+
   height: 42px;
 
   margin-top: 15px;
 
   border: none;
+
   border-radius: 13px;
 
-  background: #f3f3f3;
-  color: #777;
+  background: #2a323d;
+
+  color: #8d98a8;
 
   font-size: 14px;
+
   font-weight: 600;
 
   cursor: pointer;
 
   transition: transform 0.15s ease;
+
 }
 
 .deposit-delete:active {
+
   transform: scale(0.98);
+
 }
+
 
 /* 등록된 예금이 없을 때 */
 
 .deposit-empty {
-  background: white;
+
+  background: #202936;
 
   border-radius: 20px;
 
@@ -205,16 +299,21 @@
 
   text-align: center;
 
-  color: #888;
+  color: #8d98a8;
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.04);
+
+    0 5px 15px rgba(0, 0, 0, 0.18);
+
 }
+
+
 /* =========================
    상품가입하기 버튼
 ========================= */
 
 .deposit-product-button {
+
   width: 100%;
 
   margin-top: 18px;
@@ -222,39 +321,54 @@
   padding: 17px 20px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 8px;
 
   border: none;
+
   border-radius: 14px;
 
-  background: #00843D;
-  color: white;
+  background: #315a8a;
+
+  color: #f3f6fa;
 
   font-size: 16px;
+
   font-weight: 700;
 
   cursor: pointer;
 
   box-shadow:
-    0 5px 12px rgba(0, 132, 61, 0.18);
+
+    0 5px 12px rgba(49, 90, 138, 0.22);
 
   transition:
+
     transform 0.1s ease,
+
     opacity 0.1s ease;
+
 }
 
 .deposit-product-button:active {
+
   transform: scale(0.98);
+
   opacity: 0.85;
+
 }
 
 
 .deposit-product-button-icon {
+
   font-size: 21px;
+
   line-height: 1;
+
 }
 
 
@@ -263,85 +377,111 @@
 ========================= */
 
 .deposit-back-button {
+
   width: 40px;
+
   height: 40px;
 
   margin-right: 12px;
 
   border: none;
+
   border-radius: 12px;
 
-  background: #eeeeee;
-  color: #333333;
+  background: #2a323d;
+
+  color: #edf1f5;
 
   font-size: 22px;
 
   cursor: pointer;
 
   flex-shrink: 0;
+
 }
 
 
 .deposit-product-icon {
+
   width: 58px;
+
   height: 58px;
 
   margin: 0 auto 15px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 18px;
 
-  background: #e8f5ed;
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
 
   font-size: 28px;
+
 }
 
 
 .deposit-product-title {
+
   margin: 0;
 
   text-align: center;
 
   font-size: 21px;
+
+  color: #edf1f5;
+
 }
 
 
 .deposit-product-description {
+
   margin: 9px 0 25px;
 
   text-align: center;
 
-  color: #777;
+  color: #8d98a8;
 
   font-size: 13px;
+
   line-height: 1.6;
+
 }
 
 
 .deposit-amount-wrap {
+
   position: relative;
+
 }
 
 
 .deposit-amount-wrap .deposit-input {
+
   padding-right: 45px;
+
 }
 
 
 .deposit-amount-wrap span {
+
   position: absolute;
 
   right: 15px;
+
   top: 50%;
 
   transform: translateY(-50%);
 
-  color: #777;
+  color: #8d98a8;
 
   font-size: 14px;
+
 }
 
 
@@ -350,27 +490,41 @@
 ========================= */
 
 .dark .deposit-product-button {
-  background: #00843D;
-  color: white;
+
+  background: #315a8a;
+
+  color: #f3f6fa;
+
 }
 
 
 .dark .deposit-back-button {
-  background: #292e33;
-  color: #eeeeee;
+
+  background: #2a323d;
+
+  color: #edf1f5;
+
 }
 
 
 .dark .deposit-product-icon {
-  background: #20372a;
+
+  background: rgba(49, 90, 138, 0.18);
+
+  color: #5f8fbd;
+
 }
 
 
 .dark .deposit-product-description {
-  color: #9da4aa;
+
+  color: #8d98a8;
+
 }
 
 
 .dark .deposit-amount-wrap span {
-  color: #9da4aa;
+
+  color: #8d98a8;
+
 }
