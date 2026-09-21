@@ -18,6 +18,7 @@ body,
   padding: 0;
 
   background: #161617;
+  color: #f5f5f5;
 }
 
 /* =========================================
@@ -34,7 +35,6 @@ body {
     Arial,
     sans-serif;
 
-  /* 전체 배경 */
   background: #161617;
   color: #f5f5f5;
 
@@ -43,6 +43,9 @@ body {
     color 0.25s ease;
 
   overflow-x: hidden;
+
+  /* iPhone 안전 영역까지 배경 유지 */
+  padding-top: env(safe-area-inset-top);
 }
 
 /* =========================================

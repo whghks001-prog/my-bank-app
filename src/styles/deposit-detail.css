@@ -10,6 +10,7 @@
   margin: 0 auto;
   padding: 0 20px 50px;
   box-sizing: border-box;
+
   background: #161617;
   color: #edf1f5;
 }
@@ -21,20 +22,27 @@
 
 .deposit-detail-top {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   height: 72px;
 }
 
 .deposit-detail-top h2 {
   margin: 0;
+
   font-size: 20px;
   font-weight: 700;
-  color: #f3f6fa;
   letter-spacing: -0.5px;
+
+  color: #f3f6fa;
 }
+
+
+/* 뒤로가기 */
 
 .deposit-back {
   position: absolute;
@@ -52,9 +60,10 @@
 
   border: none;
   border-radius: 50%;
-  background: transparent;
 
+  background: transparent;
   color: #edf1f5;
+
   font-size: 27px;
   line-height: 1;
 
@@ -64,18 +73,14 @@
 
 /* ========================================
    예금 메인 영역
-   기존 카드 느낌 제거
 ======================================== */
 
 .deposit-detail-card {
   width: 100%;
+  padding-top: 50px;
   box-sizing: border-box;
 
-  padding: 50px 0 0;
-
   background: transparent;
-  border-radius: 0;
-  box-shadow: none;
 }
 
 
@@ -94,8 +99,6 @@
   display: inline-block;
 
   padding-bottom: 7px;
-
- 
 
   font-size: 17px;
   font-weight: 500;
@@ -153,8 +156,8 @@
 
 .deposit-detail-progress-date {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 
   margin-bottom: 9px;
 
@@ -201,15 +204,11 @@
 
 /* ========================================
    입금내역
-   이미지처럼 별도 영역으로 분리
 ======================================== */
 
 .deposit-detail-history {
-  margin-top: 0px;
-
+  margin-top: 0;
   padding-top: 23px;
-
-  border-top: 0px solid #202936;
 }
 
 
@@ -227,7 +226,7 @@
 
 /* ========================================
    입금내역 카드
-   기존 카드형 → 리스트형
+   리스트형
 ======================================== */
 
 .deposit-history-card {
@@ -236,18 +235,13 @@
 
   width: 100%;
   min-height: 92px;
-
   padding: 18px 0;
 
   box-sizing: border-box;
 
   background: transparent;
 
-  border-radius: 0;
-
   border-top: 1px solid #303a47;
-
-  box-shadow: none;
 }
 
 
@@ -259,18 +253,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
 
   width: 42px;
   height: 42px;
-
   margin-right: 13px;
 
   border-radius: 14px;
 
   background: rgba(49, 90, 138, 0.18);
-
   color: #5f8fbd;
 
   font-size: 20px;
@@ -369,7 +360,6 @@
   border-radius: 15px;
 
   background: #2a323d;
-
   color: #cbd3dc;
 
   font-size: 15px;
@@ -409,6 +399,7 @@
   .deposit-detail-top {
     height: 64px;
   }
+
 
   .deposit-detail-top h2 {
     font-size: 20px;
@@ -501,14 +492,6 @@
   color: #edf1f5;
 }
 
-
-.dark-mode .deposit-detail-card,
-.dark-mode .deposit-history-card {
-  background: transparent;
-  box-shadow: none;
-}
-
-
 .dark-mode .deposit-detail-top h2,
 .dark-mode .deposit-detail-amount,
 .dark-mode .deposit-detail-history h3,
@@ -516,37 +499,27 @@
   color: #edf1f5;
 }
 
-
-.dark-mode .deposit-detail-account-number {
-  color: #cbd3dc;
-}
-
-
+.dark-mode .deposit-detail-account-number,
 .dark-mode .deposit-detail-summary {
   color: #cbd3dc;
 }
-
 
 .dark-mode .deposit-detail-progress-bar {
   background: #303a47;
 }
 
-
 .dark-mode .deposit-detail-info {
   background: rgba(49, 90, 138, 0.14);
 }
-
 
 .dark-mode .deposit-detail-info p {
   color: #aeb8c4;
 }
 
-
 .dark-mode .deposit-detail-button {
   background: #2a323d;
   color: #cbd3dc;
 }
-
 
 .dark-mode .deposit-history-icon {
   background: rgba(49, 90, 138, 0.18);

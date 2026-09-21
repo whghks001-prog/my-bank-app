@@ -1,26 +1,15 @@
 /* ========================================
    MG 스마트뱅크
-
    입출금통장 상세
-   예금 상세 디자인과 동일한 스타일
-======================================== */
-
-
-/* ========================================
-   전체 페이지
 ======================================== */
 
 .account-detail-page {
   width: 100%;
   max-width: 520px;
   min-height: 100vh;
-
   margin: 0 auto;
-
   padding: 0 20px 50px;
-
   box-sizing: border-box;
-
   background: #161617;
   color: #edf1f5;
 }
@@ -32,38 +21,28 @@
 
 .account-detail-header {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 72px;
 }
 
-
 .account-detail-header h2 {
   margin: 0;
-
   font-size: 20px;
   font-weight: 700;
-
   color: #f3f6fa;
-
   letter-spacing: -0.5px;
 }
 
 
-/* ========================================
-   뒤로가기
-======================================== */
+/* 뒤로가기 */
 
 .account-detail-back {
   position: absolute;
-
   left: -4px;
   top: 50%;
-
   transform: translateY(-50%);
 
   display: flex;
@@ -72,14 +51,12 @@
 
   width: 40px;
   height: 40px;
-
   padding: 0;
 
   border: none;
   border-radius: 50%;
 
   background: transparent;
-
   color: #edf1f5;
 
   font-size: 27px;
@@ -91,121 +68,85 @@
 
 /* ========================================
    계좌 메인 영역
-
-   예금 상세와 동일하게
-   카드 느낌 제거
 ======================================== */
 
 .account-detail-card {
   width: 100%;
-
+  padding-top: 50px;
   box-sizing: border-box;
 
-  padding: 50px 0 0;
-
   background: transparent;
-
-  border: none;
-  border-radius: 0;
-
-  box-shadow: none;
 }
 
 
-/* ========================================
-   계좌 정보
-======================================== */
+/* 계좌 정보 */
 
 .account-detail-account {
   position: relative;
-
-  width: 100%;
 }
 
 
-/* ========================================
-   계좌명
-======================================== */
+/* 계좌명 */
 
 .account-detail-name {
-  margin: 7;
-
+  margin: 0;
   font-size: 13px;
   font-weight: 600;
-
   line-height: 1.3;
-
   color: #8d98a8;
-
   letter-spacing: 0.2px;
 }
 
 
-/* ========================================
-   계좌번호
-======================================== */
+/* 계좌번호 */
 
 .account-detail-number {
-  display: inline-block;
-
-  margin-top: 7px;
-
+  display: block;
+  margin: 7px 0 0;
   padding-bottom: 7px;
 
   font-size: 17px;
   font-weight: 500;
-
   letter-spacing: 0.2px;
 
   color: #cbd3dc;
 }
 
 
-/* ========================================
-   복사 버튼
-======================================== */
+/* 복사 버튼 */
 
 .account-detail-copy {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
   width: 22px;
   height: 22px;
-
   padding: 0;
 
   border: none;
-
   background: transparent;
 
   color: #8d98a8;
-
   font-size: 17px;
 
   cursor: pointer;
 }
 
 
-/* ========================================
-   관리
-======================================== */
+/* 관리 */
 
 .account-detail-manage {
   position: absolute;
-
   right: 0;
   top: 4px;
 
   padding: 0 0 3px;
 
   border: none;
-
   border-bottom: 1px solid #8d98a8;
 
   background: transparent;
-
   color: #cbd3dc;
 
   font-size: 15px;
@@ -223,9 +164,7 @@
 
   font-size: 43px;
   font-weight: 800;
-
   line-height: 1.15;
-
   letter-spacing: -2px;
 
   color: #f3f6fa;
@@ -238,33 +177,25 @@
 
 .account-detail-actions {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 16px;
 
   margin-top: 48px;
 }
 
-
 .account-detail-action {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 9px;
 
   height: 50px;
-
   padding: 0;
 
   border: none;
-
   border-radius: 11px;
 
   background: #202936;
-
   color: #5f8fbd;
 
   font-size: 18px;
@@ -277,16 +208,13 @@
     transform 0.1s ease;
 }
 
-
 .account-detail-action:hover {
   background: #2a3442;
 }
 
-
 .account-detail-action:active {
   transform: scale(0.98);
 }
-
 
 .account-detail-action-icon {
   font-size: 22px;
@@ -299,31 +227,22 @@
 
 .account-detail-history {
   width: 100%;
-
   margin-top: 55px;
-
   padding-top: 23px;
-
   box-sizing: border-box;
-
-  border-top: 0 solid #202936;
 
   background: transparent;
 }
 
 
-/* ========================================
-   검색 / 필터
-======================================== */
+/* 검색 / 필터 */
 
 .account-detail-history-top {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
-
   margin-bottom: 18px;
 }
 
@@ -332,21 +251,17 @@
 
 .account-detail-search {
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   width: 40px;
   height: 40px;
-
   padding: 0;
 
   border: none;
-
   background: transparent;
 
   color: #edf1f5;
-
   font-size: 27px;
 
   cursor: pointer;
@@ -357,15 +272,12 @@
 
 .account-detail-filter {
   display: flex;
-
   align-items: center;
-
   gap: 8px;
 
   padding: 0;
 
   border: none;
-
   background: transparent;
 
   color: #cbd3dc;
@@ -376,50 +288,37 @@
   cursor: pointer;
 }
 
-
 .account-detail-filter-arrow {
   font-size: 20px;
-
   color: #8d98a8;
 }
 
 
-/* ========================================
-   거래내역 구분선
-======================================== */
+/* 거래내역 구분선 */
 
 .account-detail-history-divider {
   width: 100%;
-
   height: 1px;
-
   background: #303a47;
 }
 
 
-/* ========================================
-   거래내역
-======================================== */
+/* 거래내역 목록 */
 
 .account-detail-transactions {
   width: 100%;
 }
 
 
-/* ========================================
-   거래내역 한 줄
-======================================== */
+/* 거래내역 한 줄 */
 
 .account-detail-transaction {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
-
   min-height: 86px;
-
   padding: 16px 0;
 
   box-sizing: border-box;
@@ -428,70 +327,49 @@
 }
 
 
-/* ========================================
-   왼쪽 정보
-======================================== */
+/* 거래내역 왼쪽 */
 
 .account-detail-transaction-info {
   display: flex;
-
   flex-direction: column;
-
   gap: 5px;
 
   min-width: 0;
 }
 
-
 .account-detail-transaction-date {
   font-size: 12px;
-
   color: #8d98a8;
 }
 
-
 .account-detail-transaction-name {
   font-size: 15px;
-
   font-weight: 700;
-
   color: #edf1f5;
 }
 
 
-/* ========================================
-   오른쪽 정보
-======================================== */
+/* 거래내역 오른쪽 */
 
 .account-detail-transaction-right {
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-end;
-
   gap: 4px;
 
   padding-left: 12px;
 }
 
-
 .account-detail-transaction-amount {
   font-size: 17px;
-
   font-weight: 700;
-
   color: #5f8fbd;
-
   white-space: nowrap;
 }
 
-
 .account-detail-transaction-balance {
   font-size: 12px;
-
   color: #8d98a8;
-
   white-space: nowrap;
 }
 
@@ -502,9 +380,7 @@
 
 .account-detail-empty {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 
@@ -513,41 +389,27 @@
   text-align: center;
 }
 
-
-/* ========================================
-   빈 상태 아이콘
-======================================== */
-
 .account-detail-empty-icon {
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   width: 70px;
   height: 70px;
-
   margin-bottom: 28px;
 
   border-radius: 18px;
 
   background: #202936;
-
   color: #687586;
 
   font-size: 40px;
 }
 
-
-/* ========================================
-   빈 상태 문구
-======================================== */
-
 .account-detail-empty p {
   margin: 0;
 
   font-size: 17px;
-
   font-weight: 500;
 
   color: #cbd3dc;
@@ -566,143 +428,74 @@
     padding-bottom: 50px;
   }
 
-
-  /* =========================
-     상단
-  ========================= */
-
   .account-detail-header {
     height: 64px;
   }
-
-
-  .account-detail-header h2 {
-    font-size: 20px;
-  }
-
-
-  /* =========================
-     메인
-  ========================= */
 
   .account-detail-card {
     padding-top: 88px;
   }
 
-
-  /* =========================
-     계좌명
-  ========================= */
-
   .account-detail-name {
     font-size: 16px;
   }
-
-
-  /* =========================
-     계좌번호
-  ========================= */
 
   .account-detail-number {
     font-size: 16px;
   }
 
-
-  /* =========================
-     잔액
-  ========================= */
-
   .account-detail-balance {
     margin-top: 29px;
-
     font-size: 39px;
-
     letter-spacing: -2px;
   }
 
-
-  /* =========================
-     버튼
-  ========================= */
-
   .account-detail-actions {
     gap: 14px;
-
     margin-top: 45px;
   }
 
-
   .account-detail-action {
     height: 50px;
-
     border-radius: 11px;
-
     font-size: 17px;
   }
 
-
-  /* =========================
-     거래내역
-  ========================= */
-
   .account-detail-history {
     margin-top: 72px;
-
     padding-top: 26px;
   }
-
-
-  /* =========================
-     검색 / 필터
-  ========================= */
 
   .account-detail-filter {
     font-size: 14px;
   }
 
-
-  /* =========================
-     거래내역
-  ========================= */
-
   .account-detail-transaction {
     min-height: 86px;
-
     padding: 16px 0;
   }
-
 
   .account-detail-transaction-name {
     font-size: 14px;
   }
 
-
   .account-detail-transaction-amount {
     font-size: 16px;
   }
-
-
-  /* =========================
-     빈 화면
-  ========================= */
 
   .account-detail-empty {
     min-height: 400px;
   }
 
-
   .account-detail-empty-icon {
     width: 66px;
     height: 66px;
-
     margin-bottom: 25px;
   }
-
 
   .account-detail-empty p {
     font-size: 16px;
   }
-
 }
 
 
@@ -712,18 +505,8 @@
 
 .dark-mode .account-detail-page {
   background: #151c24;
-
   color: #edf1f5;
 }
-
-
-.dark-mode .account-detail-card,
-.dark-mode .account-detail-history {
-  background: transparent;
-
-  box-shadow: none;
-}
-
 
 .dark-mode .account-detail-header h2,
 .dark-mode .account-detail-balance,
@@ -731,58 +514,45 @@
   color: #edf1f5;
 }
 
-
 .dark-mode .account-detail-back {
   background: transparent;
-
   color: #edf1f5;
 }
-
 
 .dark-mode .account-detail-name {
   color: #edf1f5;
 }
 
-
 .dark-mode .account-detail-number {
   color: #cbd3dc;
 }
 
-
 .dark-mode .account-detail-action {
   background: #202936;
-
   color: #5f8fbd;
 }
-
 
 .dark-mode .account-detail-action:hover {
   background: #2a3442;
 }
 
-
 .dark-mode .account-detail-history-divider {
   background: #303a47;
 }
 
-
 .dark-mode .account-detail-transaction {
   border-bottom-color: #303a47;
 }
-
 
 .dark-mode .account-detail-transaction-date,
 .dark-mode .account-detail-transaction-balance {
   color: #8d98a8;
 }
 
-
 .dark-mode .account-detail-empty-icon {
   background: #202936;
-
   color: #687586;
 }
-
 
 .dark-mode .account-detail-empty p {
   color: #cbd3dc;
