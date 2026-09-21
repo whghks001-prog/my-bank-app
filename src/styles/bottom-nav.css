@@ -2,13 +2,11 @@
   position: fixed;
 
   bottom: 0;
-
   left: 50%;
 
   transform: translateX(-50%);
 
   width: 100%;
-
   max-width: 420px;
 
   height: 76px;
@@ -20,7 +18,6 @@
   display: flex;
 
   justify-content: space-around;
-
   align-items: center;
 
   border-top: 1px solid #3a3f44;
@@ -31,16 +28,21 @@
   z-index: 100;
 
   backdrop-filter: blur(10px);
-
   -webkit-backdrop-filter: blur(10px);
+
+  /* iPhone에서 네비 자체가 바운스되지 않도록 */
+  overscroll-behavior: none;
 }
 
+
+/* =========================================
+   메뉴
+========================================= */
 
 .bottom-nav-item {
   position: relative;
 
   width: 25%;
-
   height: 100%;
 
   display: flex;
@@ -48,7 +50,6 @@
   flex-direction: column;
 
   justify-content: center;
-
   align-items: center;
 
   gap: 5px;
@@ -67,7 +68,10 @@
 }
 
 
-/* 선택된 메뉴 글자 색상 */
+/* =========================================
+   선택된 메뉴 글자 색상
+========================================= */
+
 .bottom-nav-item.active {
   color: #1f3a5f;
 
@@ -75,7 +79,10 @@
 }
 
 
-/* 아이콘 */
+/* =========================================
+   아이콘
+========================================= */
+
 .bottom-nav-icon {
   font-size: 21px;
 
@@ -92,9 +99,11 @@
 }
 
 
-/* 선택된 메뉴 아이콘 */
-.bottom-nav-item.active
-.bottom-nav-icon {
+/* =========================================
+   선택된 메뉴 아이콘
+========================================= */
+
+.bottom-nav-item.active .bottom-nav-icon {
   filter: grayscale(0%);
 
   opacity: 1;
@@ -103,7 +112,10 @@
 }
 
 
-/* 메뉴 글자 */
+/* =========================================
+   메뉴 글자
+========================================= */
+
 .bottom-nav-label {
   font-size: 11px;
 
@@ -113,20 +125,21 @@
 }
 
 
-/* 선택된 메뉴 위쪽 표시 */
+/* =========================================
+   선택된 메뉴 위쪽 표시
+========================================= */
+
 .bottom-nav-item.active::before {
   content: "";
 
   position: absolute;
 
   top: 0;
-
   left: 50%;
 
   transform: translateX(-50%);
 
   width: 30px;
-
   height: 3px;
 
   border-radius:
@@ -136,11 +149,18 @@
 }
 
 
-/* 터치 효과 */
+/* =========================================
+   터치 효과
+========================================= */
+
 .bottom-nav-item:active {
   transform: scale(0.94);
 }
 
+
+/* =========================================
+   모바일
+========================================= */
 
 @media (max-width: 420px) {
 
