@@ -82,7 +82,7 @@ function Deposit({
     const currentBalance =
       savedBalance !== null
         ? Number(savedBalance)
-        : 5000000;
+        : 3000000;
 
 
     if (money > currentBalance) {

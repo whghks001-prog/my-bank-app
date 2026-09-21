@@ -18,25 +18,11 @@ import "./styles/bottom-nav.css";
 
 function App() {
 
-  /* =========================
-     로그인
-  ========================= */
-
   const [isLogin, setIsLogin] =
     useState(false);
 
-
-  /* =========================
-     페이지
-  ========================= */
-
   const [page, setPage] =
     useState("home");
-
-
-  /* =========================
-     선택된 데이터
-  ========================= */
 
   const [selectedDeposit, setSelectedDeposit] =
     useState(null);
@@ -47,23 +33,14 @@ function App() {
   const [accountDetail, setAccountDetail] =
     useState(false);
 
-
-  /* =========================
-     다크모드
-  ========================= */
-
   const [darkMode, setDarkMode] =
     useState(() => {
-
       return (
         localStorage.getItem("darkMode") === "true"
       );
-
     });
 
-
   useEffect(() => {
-
     document.body.classList.toggle(
       "dark-mode",
       darkMode
@@ -73,34 +50,23 @@ function App() {
       "darkMode",
       JSON.stringify(darkMode)
     );
-
   }, [darkMode]);
 
 
   /* =========================
      입출금 잔액
+
+     기본 잔액 = 3,000만원
   ========================= */
 
   const [balance, setBalance] =
-    useState(() => {
-
-      const saved =
-        localStorage.getItem("balance");
-
-      return saved
-        ? JSON.parse(saved)
-        : 5000000;
-
-    });
-
+    useState(30000000);
 
   useEffect(() => {
-
     localStorage.setItem(
       "balance",
       JSON.stringify(balance)
     );
-
   }, [balance]);
 
 
@@ -110,29 +76,29 @@ function App() {
 
   const [deposits, setDeposits] =
     useState(() => {
-
       const saved =
         localStorage.getItem("deposits");
 
       return saved
         ? JSON.parse(saved)
         : [];
-
     });
 
-
   useEffect(() => {
-
     localStorage.setItem(
       "deposits",
       JSON.stringify(deposits)
     );
-
   }, [deposits]);
 
 
   /* =========================
      거래내역
+
+     2026년 6월 25일
+     입출금통장 3,000만원 입금
+     
+     최초 1회만 자동 생성
   ========================= */
 
   const [transactions, setTransactions] =
@@ -141,20 +107,50 @@ function App() {
       const saved =
         localStorage.getItem("transactions");
 
-      return saved
-        ? JSON.parse(saved)
-        : [];
+      const existingTransactions =
+        saved
+          ? JSON.parse(saved)
+          : [];
 
+      const initialDepositExists =
+        existingTransactions.some(
+          item =>
+            item.initialDeposit === true
+        );
+
+      if (!initialDepositExists) {
+
+        const initialTransaction = {
+          id: "initial-balance-2026-06-25",
+          initialDeposit: true,
+
+          type: "입금",
+
+          title: "입금",
+          description: "입출금통장",
+
+          amount: 30000000,
+
+          date: "2026-06-25",
+          createdAt: "2026-06-25T00:00:00",
+
+          balance: 30000000
+        };
+
+        return [
+          initialTransaction,
+          ...existingTransactions
+        ];
+      }
+
+      return existingTransactions;
     });
 
-
   useEffect(() => {
-
     localStorage.setItem(
       "transactions",
       JSON.stringify(transactions)
     );
-
   }, [transactions]);
 
 
@@ -171,33 +167,24 @@ function App() {
       return saved
         ? JSON.parse(saved)
         : [];
-
     });
 
-
   useEffect(() => {
-
     localStorage.setItem(
       "notifications",
       JSON.stringify(notifications)
     );
-
   }, [notifications]);
 
 
   /* =========================
-     읽지 않은 알림 개수
+     총자산
   ========================= */
 
   const unreadCount =
     notifications.filter(
       item => !item.read
     ).length;
-
-
-  /* =========================
-     예금 총액
-  ========================= */
 
   const depositTotal =
     deposits.reduce(
@@ -206,56 +193,35 @@ function App() {
       0
     );
 
-
-  /* =========================
-     총자산
-  ========================= */
-
   const totalAssets =
     Number(balance || 0) +
     depositTotal;
 
 
   /* =========================
-     로그인 처리
+     로그인
   ========================= */
 
   function handleLogin() {
 
     setIsLogin(true);
-
     setPage("home");
-
     setSelectedDeposit(null);
-
     setSelectedTransaction(null);
-
     setAccountDetail(false);
-
   }
 
 
-  /* =========================
-     로그인 전
-  ========================= */
-
   if (!isLogin) {
-
     return (
       <Login
         onLogin={handleLogin}
       />
     );
-
   }
 
 
-  /* =========================
-     앱
-  ========================= */
-
   return (
-
     <div
       className={
         darkMode
@@ -264,13 +230,7 @@ function App() {
       }
     >
 
-
-      {/* =========================
-          홈
-      ========================= */}
-
       {page === "home" && (
-
         <Home
           balance={balance}
           totalAssets={totalAssets}
@@ -278,16 +238,10 @@ function App() {
           setPage={setPage}
           unreadCount={unreadCount}
         />
-
       )}
 
 
-      {/* =========================
-          이체
-      ========================= */}
-
       {page === "transfer" && (
-
         <Transfer
           balance={balance}
           setBalance={setBalance}
@@ -296,31 +250,20 @@ function App() {
           notifications={notifications}
           setNotifications={setNotifications}
         />
-
       )}
 
 
-      {/* =========================
-          거래내역
-      ========================= */}
-
       {page === "transaction" && (
-
         selectedTransaction ? (
-
           <TransactionDetail
             transaction={selectedTransaction}
             transactions={transactions}
             setTransactions={setTransactions}
             back={() => {
-
               setSelectedTransaction(null);
-
             }}
           />
-
         ) : (
-
           <Transaction
             transactions={transactions}
             setTransactions={setTransactions}
@@ -328,18 +271,11 @@ function App() {
               setSelectedTransaction
             }
           />
-
         )
-
       )}
 
 
-      {/* =========================
-          자산
-      ========================= */}
-
       {page === "asset" && (
-
         <Asset
           balance={balance}
           deposits={deposits}
@@ -348,116 +284,69 @@ function App() {
             setSelectedDeposit
           }
         />
-
       )}
 
 
-      {/* =========================
-          입출금통장 상세
-      ========================= */}
-
       {page === "account-detail" && (
-
         <AccountDetail
           balance={balance}
           transactions={transactions}
           back={() => {
-
             setAccountDetail(false);
-
             setPage("asset");
-
           }}
         />
-
       )}
 
 
-      {/* =========================
-          예금
-      ========================= */}
-
       {page === "deposit" && (
-
         selectedDeposit ? (
-
           <DepositDetail
             deposit={selectedDeposit}
-
             back={() => {
-
               setSelectedDeposit(null);
-
               setPage("asset");
-
             }}
-
             deposits={deposits}
-
             setDeposits={setDeposits}
-
             setBalance={setBalance}
-
             transactions={transactions}
-
             setTransactions={setTransactions}
-
             notifications={notifications}
-
             setNotifications={setNotifications}
           />
-
         ) : (
-
           <Deposit
             deposits={deposits}
             setDeposits={setDeposits}
-
             setSelectedDeposit={
               setSelectedDeposit
             }
-
             transactions={transactions}
             setTransactions={setTransactions}
-
             notifications={notifications}
             setNotifications={setNotifications}
-
             setBalance={setBalance}
           />
-
         )
-
       )}
 
 
-      {/* =========================
-          알림
-      ========================= */}
-
       {page === "notification" && (
-
         <Notification
           notifications={notifications}
           setNotifications={setNotifications}
           setPage={setPage}
         />
-
       )}
 
 
-      {/* =========================
-          설정
-      ========================= */}
-
       {page === "settings" && (
-
         <Settings
           setIsLogin={setIsLogin}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-
       )}
 
 
@@ -467,29 +356,21 @@ function App() {
 
       <div className="bottom-nav">
 
-
-        {/* 홈 */}
-
         <button
           className={
             page === "home"
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
             setSelectedDeposit(null);
-
             setSelectedTransaction(null);
-
             setAccountDetail(false);
 
             setPage("home");
-
           }}
         >
-
           <span className="bottom-nav-icon">
             🏠
           </span>
@@ -497,11 +378,8 @@ function App() {
           <span className="bottom-nav-label">
             홈
           </span>
-
         </button>
 
-
-        {/* 이체 */}
 
         <button
           className={
@@ -509,20 +387,15 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
             setSelectedDeposit(null);
-
             setSelectedTransaction(null);
-
             setAccountDetail(false);
 
             setPage("transfer");
-
           }}
         >
-
           <span className="bottom-nav-icon">
             💸
           </span>
@@ -530,11 +403,8 @@ function App() {
           <span className="bottom-nav-label">
             이체
           </span>
-
         </button>
 
-
-        {/* 거래 */}
 
         <button
           className={
@@ -542,20 +412,15 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
             setSelectedDeposit(null);
-
             setSelectedTransaction(null);
-
             setAccountDetail(false);
 
             setPage("transaction");
-
           }}
         >
-
           <span className="bottom-nav-icon">
             💳
           </span>
@@ -563,11 +428,8 @@ function App() {
           <span className="bottom-nav-label">
             거래
           </span>
-
         </button>
 
-
-        {/* 자산 */}
 
         <button
           className={
@@ -577,20 +439,15 @@ function App() {
               ? "bottom-nav-item active"
               : "bottom-nav-item"
           }
-
           onClick={() => {
 
             setSelectedDeposit(null);
-
             setSelectedTransaction(null);
-
             setAccountDetail(false);
 
             setPage("asset");
-
           }}
         >
-
           <span className="bottom-nav-icon">
             💰
           </span>
@@ -598,17 +455,12 @@ function App() {
           <span className="bottom-nav-label">
             자산
           </span>
-
         </button>
-
 
       </div>
 
     </div>
-
   );
-
 }
-
 
 export default App;
