@@ -1,6 +1,5 @@
 import "../styles/account-detail.css";
 
-
 function AccountDetail({
   balance = 0,
   transactions = [],
@@ -12,19 +11,13 @@ function AccountDetail({
   ========================= */
 
   const formatMoney = (value) => {
-
-    return Number(
-      value || 0
-    ).toLocaleString("ko-KR");
-
+    return Number(value || 0).toLocaleString("ko-KR");
   };
 
 
   /* =========================
      입출금통장 거래내역
-     
-     예치 거래도 포함
-     ========================= */
+  ========================= */
 
   const accountTransactions =
     transactions.filter(
@@ -40,7 +33,6 @@ function AccountDetail({
 
     <div className="account-detail-page">
 
-
       {/* =========================
           상단
       ========================= */}
@@ -55,9 +47,8 @@ function AccountDetail({
           ‹
         </button>
 
-
         <h2>
-          입출금통장
+          입출금통장 상세
         </h2>
 
       </div>
@@ -69,19 +60,107 @@ function AccountDetail({
 
       <div className="account-detail-card">
 
-        <p className="account-detail-label">
-          계좌번호
-        </p>
+        <div className="account-detail-account">
+
+          {/* 은행명 */}
+
+          <div className="account-detail-bank">
+            MG 새마을금고
+          </div>
 
 
-        <p className="account-detail-number">
-          900-331-1862131
-        </p>
+          {/* 관리 */}
+
+          <button
+            type="button"
+            className="account-detail-manage"
+          >
+            관리
+          </button>
 
 
-        <p className="account-detail-balance">
+          {/* 계좌 아이콘 */}
+
+          <div className="account-detail-icon">
+            MG
+          </div>
+
+
+          {/* 계좌명 */}
+
+          <h3 className="account-detail-name">
+            계좌번호
+          </h3>
+
+
+          {/* 계좌번호 */}
+
+          <div className="account-detail-number">
+
+            <span>
+              900-331-1862131
+            </span>
+
+            <button
+              type="button"
+              className="account-detail-copy"
+              aria-label="계좌번호 복사"
+            >
+              □
+            </button>
+
+          </div>
+
+        </div>
+
+
+        {/* =========================
+            잔액
+        ========================= */}
+
+        <div className="account-detail-balance">
           {formatMoney(balance)}원
-        </p>
+        </div>
+
+
+        {/* =========================
+            가져오기 / 이체
+        ========================= */}
+
+        <div className="account-detail-actions">
+
+          <button
+            type="button"
+            className="account-detail-action"
+          >
+
+            <span className="account-detail-action-icon">
+              
+            </span>
+
+            <span>
+              가져오기
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            className="account-detail-action"
+          >
+
+            <span className="account-detail-action-icon">
+              
+            </span>
+
+            <span>
+              이체
+            </span>
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -90,102 +169,126 @@ function AccountDetail({
           거래내역
       ========================= */}
 
-      <div className="account-detail-section">
+      <div className="account-detail-history">
 
-        <h3>
-          거래내역
-        </h3>
 
+        {/* =========================
+            검색 / 필터
+        ========================= */}
+
+        <div className="account-detail-history-top">
+
+          <button
+            type="button"
+            className="account-detail-search"
+            aria-label="거래내역 검색"
+          >
+            ⌕
+          </button>
+
+
+          <button
+            type="button"
+            className="account-detail-filter"
+          >
+
+            <span>
+              입출금 · 최신순
+            </span>
+
+            <span className="account-detail-filter-arrow">
+              ﹀
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div className="account-detail-history-divider" />
+
+
+        {/* =========================
+            거래내역
+        ========================= */}
 
         {accountTransactions.length === 0 ? (
 
           <div className="account-detail-empty">
 
-            거래내역이 없습니다.
+            <div className="account-detail-empty-icon">
+              ▤
+            </div>
+
+            <p>
+              기간 내 거래내역이 없어요.
+            </p>
 
           </div>
 
         ) : (
 
-          <div className="account-detail-list">
+          <div className="account-detail-transactions">
 
             {accountTransactions
               .slice()
               .reverse()
               .map((item, index) => {
 
-
                 const amount =
-                  Number(
-                    item.amount || 0
-                  );
+                  Number(item.amount || 0);
 
 
                 /* =========================
                    거래 종류
                 ========================= */
 
-                let transactionType =
-                  "거래";
+                let transactionType = "거래";
 
 
-                /*
-                  예금 가입
-                  입출금통장에서 돈이 빠져나가
-                  예금으로 들어간 거래
-                */
+                /* 예금 가입 */
 
                 if (
                   item.type === "예치" ||
                   item.title === "예금 가입"
                 ) {
 
-                  transactionType =
-                    "출금";
+                  transactionType = "출금";
 
                 }
 
 
-                /*
-                  일반 출금
-                */
+                /* 일반 출금 */
 
                 else if (
                   item.type === "출금" ||
                   amount < 0
                 ) {
 
-                  transactionType =
-                    "출금";
+                  transactionType = "출금";
 
                 }
 
 
-                /*
-                  일반 입금
-                */
+                /* 일반 입금 */
 
                 else if (
                   item.type === "입금" ||
                   amount > 0
                 ) {
 
-                  transactionType =
-                    "입금";
+                  transactionType = "입금";
 
                 }
 
 
-                /*
-                  이체
-                */
+                /* 이체 */
 
                 else if (
                   item.type === "이체"
                 ) {
 
-                  transactionType =
-                    "이체";
+                  transactionType = "이체";
 
                 }
 
@@ -198,48 +301,42 @@ function AccountDetail({
                 return (
 
                   <div
-                    className="account-detail-item"
+                    className="account-detail-transaction"
                     key={
                       item.id || index
                     }
                   >
 
+                    {/* 왼쪽 */}
 
-                    {/* =========================
-                        왼쪽
-                    ========================= */}
+                    <div className="account-detail-transaction-info">
 
-                    <div className="account-detail-item-left">
+                      <span className="account-detail-transaction-date">
+                        {item.date || ""}
+                      </span>
 
-                      <strong>
+                      <strong className="account-detail-transaction-name">
                         {transactionType}
                       </strong>
 
-
-                      <span>
-                        {item.date || ""}
-                      </span>
+                      {item.title && (
+                        <span className="account-detail-transaction-title">
+                          {item.title}
+                        </span>
+                      )}
 
                     </div>
 
 
-                    {/* =========================
-                        오른쪽
-                    ========================= */}
+                    {/* 오른쪽 */}
 
-                    <div className="account-detail-item-right">
+                    <div className="account-detail-transaction-right">
 
                       <strong
-                        className={
-                          isDeposit
-                            ? "account-income"
-                            : "account-expense"
-                        }
+                        className="account-detail-transaction-amount"
                       >
 
-                        {isDeposit
-                          ? "+"
-                          : "-"}
+                        {isDeposit ? "+" : "-"}
 
                         {formatMoney(
                           Math.abs(amount)
@@ -253,7 +350,7 @@ function AccountDetail({
                       {item.afterBalance !==
                         undefined && (
 
-                        <span>
+                        <span className="account-detail-transaction-balance">
 
                           잔액{" "}
 
@@ -269,7 +366,6 @@ function AccountDetail({
 
                     </div>
 
-
                   </div>
 
                 );
@@ -280,14 +376,30 @@ function AccountDetail({
 
         )}
 
-      </div>
 
+        {/* =========================
+            하단 안내
+        ========================= */}
+
+        <div className="account-detail-notice">
+
+          <div className="account-detail-notice-icon">
+            i
+          </div>
+
+          <p>
+            거래내역은 최근 1개월까지 조회할 수 있습니다.
+            <br />
+            더 많은 내역이 필요하시면 기간을 변경해 주세요.
+          </p>
+
+        </div>
+
+      </div>
 
     </div>
 
   );
-
 }
-
 
 export default AccountDetail;

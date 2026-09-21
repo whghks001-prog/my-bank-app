@@ -4,11 +4,18 @@
 
 .account-detail-page {
   width: 100%;
+  max-width: 520px;
   min-height: 100vh;
+
+  margin: 0 auto;
   padding: 20px 18px 100px;
+
   box-sizing: border-box;
-  background: #151c24;
+
+  background: #161617;
+  color: #edf1f5;
 }
+
 
 /* =========================
    상단
@@ -16,52 +23,797 @@
 
 .account-detail-header {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   height: 52px;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
 }
 
 .account-detail-header h2 {
   margin: 0;
+
   font-size: 20px;
   font-weight: 700;
+
   color: #f3f6fa;
 }
+
+
+/* 뒤로가기 */
 
 .account-detail-back {
   position: absolute;
+
   left: 0;
   top: 50%;
+
   transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 14px;
-  background: #202936;
-  color: #f3f6fa;
-  font-size: 32px;
-  line-height: 1;
-  cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #202936;
+
+  color: #f3f6fa;
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
 }
+
 
 /* =========================
    계좌 카드
+   이미지처럼 카드 외곽을
+   크게 잡지 않고 배경과 통합
 ========================= */
 
 .account-detail-card {
   width: 100%;
+
   box-sizing: border-box;
-  padding: 26px 22px;
-  border-radius: 22px;
-  background: #202936;
-  border: 1px solid #2d3947;
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.20);
+
+  padding: 10px 4px 0;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  box-shadow: none;
 }
 
-.ac
+
+/* =========================
+   계좌 정보 상단
+========================= */
+
+.account-detail-account {
+  position: relative;
+}
+
+
+/* 은행명 */
+
+.account-detail-bank {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 18px;
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background: #161617;
+
+  color: #161617;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* 계좌 아이콘 */
+
+.account-detail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 0px;
+  height: 0px;
+
+  margin-bottom: 13px;
+
+  border-radius: 50%;
+
+  background: #161617;
+
+  color: #161617;
+
+  font-size: 24px;
+}
+
+
+/* 계좌명 */
+
+.account-detail-name {
+  margin: 0;
+
+  font-size: 13px;
+  font-weight: 70;
+  line-height: 1.3;
+
+  color: #edf1f5;
+}
+
+
+/* 계좌번호 */
+
+.account-detail-number {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 7px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  color: #aeb8c4;
+}
+
+
+/* 복사 버튼 */
+
+.account-detail-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #8d98a8;
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+
+/* 관리 */
+
+.account-detail-manage {
+  position: absolute;
+
+  right: 0;
+  top: 4px;
+
+  padding: 0;
+
+  border: none;
+  border-bottom: 1px solid #8d98a8;
+
+  background: transparent;
+
+  color: #cbd3dc;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   잔액
+========================= */
+
+.account-detail-balance {
+  margin-top: 52px;
+
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  color: #f3f6fa;
+}
+
+
+/* =========================
+   가져오기 / 이체
+========================= */
+
+.account-detail-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+
+  margin-top: 48px;
+}
+
+
+.account-detail-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  height: 50px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #202936;
+
+  color: #5f8fbd;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+
+.account-detail-action:hover {
+  background: #2a3442;
+}
+
+
+.account-detail-action:active {
+  transform: scale(0.98);
+}
+
+
+.account-detail-action-icon {
+  font-size: 22px;
+}
+
+
+/* =========================
+   거래내역 영역
+========================= */
+
+.account-detail-history {
+  width: calc(100% + 36px);
+
+  margin-left: -18px;
+  margin-top: 64px;
+
+  padding: 28px 18px 60px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #303a47;
+
+  background: #161617;
+}
+
+
+/* =========================
+   검색 / 필터
+========================= */
+
+.account-detail-history-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+
+.account-detail-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #edf1f5;
+
+  font-size: 27px;
+
+  cursor: pointer;
+}
+
+
+.account-detail-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #cbd3dc;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+
+.account-detail-filter-arrow {
+  font-size: 20px;
+  color: #8d98a8;
+}
+
+
+/* =========================
+   거래내역 구분선
+========================= */
+
+.account-detail-history-divider {
+  width: 120%;
+  height: px;
+
+  background: #303a47;
+}
+
+
+/* =========================
+   거래내역
+========================= */
+
+.account-detail-transactions {
+  width: 100%;
+}
+
+
+/* 거래내역 한 줄 */
+
+.account-detail-transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 82px;
+
+  padding: 16px 0;
+
+  box-sizing: border-box;
+
+  border-bottom: 0px solid #303a47;
+}
+
+
+/* 왼쪽 */
+
+.account-detail-transaction-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 0;
+}
+
+
+.account-detail-transaction-date {
+  font-size: 12px;
+  color: #8d98a8;
+}
+
+
+.account-detail-transaction-name {
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #edf1f5;
+}
+
+
+/* 오른쪽 */
+
+.account-detail-transaction-right {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 4px;
+}
+
+
+.account-detail-transaction-amount {
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #5f8fbd;
+}
+
+
+.account-detail-transaction-balance {
+  font-size: 12px;
+
+  color: #8d98a8;
+}
+
+
+/* =========================
+   거래내역 없음
+========================= */
+
+.account-detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 430px;
+
+  text-align: center;
+}
+
+
+/* 빈 상태 아이콘 */
+
+.account-detail-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 28px;
+
+  border-radius: 18px;
+
+  background: #202936;
+
+  color: #687586;
+
+  font-size: 40px;
+}
+
+
+/* 빈 상태 문구 */
+
+.account-detail-empty p {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  color: #cbd3dc;
+}
+
+
+/* =========================
+   하단 안내
+========================= */
+
+.account-detail-notice {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+
+  margin-top: 55px;
+  padding: 20px 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  background: #202936;
+}
+
+
+/* 안내 아이콘 */
+
+.account-detail-notice-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #315a8a;
+
+  color: #edf1f5;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* 안내 문구 */
+
+.account-detail-notice p {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.65;
+
+  color: #aeb8c4;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 480px) {
+
+  .account-detail-page {
+    padding: 16px 18px 80px;
+  }
+
+
+  /* 상단 */
+
+  .account-detail-header {
+    height: 52px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .account-detail-header h2 {
+    font-size: 20px;
+  }
+
+
+  /* 카드 */
+
+  .account-detail-card {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+
+  /* 은행명 */
+
+  .account-detail-bank {
+    font-size: 13px;
+
+    margin-bottom: 17px;
+  }
+
+
+  /* 아이콘 */
+
+  .account-detail-icon {
+    width: 54px;
+    height: 54px;
+
+    font-size: 22px;
+  }
+
+
+  /* 계좌명 */
+
+  .account-detail-name {
+    font-size: 19px;
+  }
+
+
+  /* 계좌번호 */
+
+  .account-detail-number {
+    font-size: 15px;
+  }
+
+
+  /* 잔액 */
+
+  .account-detail-balance {
+    margin-top: 50px;
+
+    font-size: 45px;
+  }
+
+
+  /* 버튼 */
+
+  .account-detail-actions {
+    gap: 14px;
+
+    margin-top: 45px;
+  }
+
+
+  .account-detail-action {
+    height: 60px;
+
+    border-radius: 15px;
+
+    font-size: 17px;
+  }
+
+
+  /* 거래내역 */
+
+  .account-detail-history {
+    width: calc(100% + 36px);
+
+    margin-left: -18px;
+
+    margin-top: 63px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  /* 빈 화면 */
+
+  .account-detail-empty {
+    min-height: 400px;
+  }
+
+
+  .account-detail-empty-icon {
+    width: 66px;
+    height: 66px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .account-detail-empty p {
+    font-size: 16px;
+  }
+
+
+  /* 안내 */
+
+  .account-detail-notice {
+    margin-top: 45px;
+
+    padding: 18px 16px;
+
+    gap: 13px;
+  }
+
+
+  .account-detail-notice-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .account-detail-notice p {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================
+   다크모드
+========================= */
+
+.dark-mode .account-detail-page {
+  background: #151c24;
+  color: #edf1f5;
+}
+
+
+.dark-mode .account-detail-header h2 {
+  color: #f3f6fa;
+}
+
+
+.dark-mode .account-detail-back {
+  background: #202936;
+  color: #f3f6fa;
+}
+
+
+.dark-mode .account-detail-bank {
+  background: #202936;
+  color: #cbd3dc;
+}
+
+
+.dark-mode .account-detail-name {
+  color: #edf1f5;
+}
+
+
+.dark-mode .account-detail-number {
+  color: #aeb8c4;
+}
+
+
+.dark-mode .account-detail-balance {
+  color: #f3f6fa;
+}
+
+
+.dark-mode .account-detail-action {
+  background: #202936;
+  color: #5f8fbd;
+}
+
+
+.dark-mode .account-detail-history {
+  background: #151c24;
+  border-top-color: #202936;
+}
+
+
+.dark-mode .account-detail-history-divider {
+  background: #303a47;
+}
+
+
+.dark-mode .account-detail-transaction {
+  border-bottom-color: #303a47;
+}
+
+
+.dark-mode .account-detail-transaction-name {
+  color: #edf1f5;
+}
+
+
+.dark-mode .account-detail-empty-icon {
+  background: #202936;
+  color: #687586;
+}
+
+
+.dark-mode .account-detail-empty p {
+  color: #cbd3dc;
+}
+
+
+.dark-mode .account-detail-notice {
+  background: #202936;
+}
+
+
+.dark-mode .account-detail-notice-icon {
+  background: #315a8a;
+}
+
+
+.dark-mode .account-detail-notice p {
+  color: #aeb8c4;
+}

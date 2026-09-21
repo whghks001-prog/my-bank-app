@@ -4,23 +4,14 @@
 ======================================== */
 
 .deposit-detail-page {
-
   width: 100%;
-
   max-width: 520px;
-
   min-height: 100vh;
-
   margin: 0 auto;
-
-  padding: 0 20px 40px;
-
+  padding: 0 20px 50px;
   box-sizing: border-box;
-
-  background: #151c24;
-
+  background: #161617;
   color: #edf1f5;
-
 }
 
 
@@ -29,119 +20,104 @@
 ======================================== */
 
 .deposit-detail-top {
-
+  position: relative;
   display: flex;
-
   align-items: center;
-
-  gap: 10px;
-
-  height: 64px;
-
+  justify-content: center;
+  width: 100%;
+  height: 72px;
 }
-
 
 .deposit-detail-top h2 {
-
   margin: 0;
-
   font-size: 20px;
-
   font-weight: 700;
-
   color: #f3f6fa;
-
+  letter-spacing: -0.5px;
 }
 
-
 .deposit-back {
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   width: 40px;
-
   height: 40px;
-
   padding: 0;
 
   border: none;
-
   border-radius: 50%;
-
   background: transparent;
 
   color: #edf1f5;
-
   font-size: 27px;
-
   line-height: 1;
 
   cursor: pointer;
-
 }
 
 
 /* ========================================
-   예금 메인 카드
+   예금 메인 영역
+   기존 카드 느낌 제거
 ======================================== */
 
 .deposit-detail-card {
-
   width: 100%;
-
   box-sizing: border-box;
 
-  padding: 27px 24px 25px;
+  padding: 95px 0 0;
 
-  background: #202936;
-
-  border-radius: 22px;
-
-  box-shadow:
-
-    0 4px 18px rgba(0, 0, 0, 0.20);
-
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 
-/* 계좌번호 */
+/* ========================================
+   계좌번호
+======================================== */
 
 .deposit-detail-account-label {
-
   margin-bottom: 7px;
 
   font-size: 13px;
-
   color: #8d98a8;
-
 }
-
 
 .deposit-detail-account-number {
+  display: inline-block;
 
-  font-size: 16px;
+  padding-bottom: 7px;
 
-  font-weight: 600;
+  border-bottom: 1px solid #687586;
 
-  letter-spacing: 0.3px;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 
   color: #cbd3dc;
-
 }
 
 
-/* 금액 */
+/* ========================================
+   금액
+======================================== */
 
 .deposit-detail-amount {
+  margin-top: 31px;
 
-  margin-top: 25px;
-
-  font-size: 31px;
-
+  font-size: 43px;
   font-weight: 800;
-
-  letter-spacing: -1px;
+  line-height: 1.15;
+  letter-spacing: -2px;
 
   color: #f3f6fa;
-
 }
 
 
@@ -150,28 +126,20 @@
 ======================================== */
 
 .deposit-detail-summary {
-
   display: flex;
-
   align-items: center;
+  gap: 9px;
 
-  gap: 8px;
-
-  margin-top: 10px;
+  margin-top: 20px;
 
   font-size: 15px;
-
   font-weight: 600;
 
   color: #cbd3dc;
-
 }
 
-
 .deposit-detail-dot {
-
   color: #687586;
-
 }
 
 
@@ -180,35 +148,27 @@
 ======================================== */
 
 .deposit-detail-progress-area {
-
-  margin-top: 30px;
-
+  margin-top: 55px;
 }
 
-
 .deposit-detail-progress-date {
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   margin-bottom: 9px;
 
-  font-size: 12px;
-
+  font-size: 13px;
   color: #8d98a8;
-
 }
 
 
-.deposit-detail-progress-bar {
+/* 진행바 */
 
+.deposit-detail-progress-bar {
   position: relative;
 
   width: 100%;
-
   height: 9px;
 
   overflow: hidden;
@@ -216,14 +176,10 @@
   border-radius: 999px;
 
   background: #303a47;
-
 }
 
-
 .deposit-detail-progress-fill {
-
   height: 100%;
-
   min-width: 0;
 
   border-radius: 999px;
@@ -231,87 +187,85 @@
   background: #315a8a;
 
   transition: width 0.5s ease;
-
 }
 
-
 .deposit-detail-progress-percent {
-
   margin-top: 7px;
 
   text-align: right;
 
   font-size: 11px;
-
   color: #8d98a8;
-
 }
 
 
 /* ========================================
    입금내역
+   이미지처럼 별도 영역으로 분리
 ======================================== */
 
 .deposit-detail-history {
+  margin-top: 0px;
 
-  margin-top: 25px;
+  padding-top: 23px;
 
+  border-top: 0px solid #202936;
 }
 
 
-.deposit-detail-history h3 {
+/* 입금내역 제목 */
 
-  margin: 0 0 13px;
+.deposit-detail-history h3 {
+  margin: 0 0 18px;
 
   font-size: 18px;
-
   font-weight: 700;
 
   color: #e9edf2;
-
 }
 
 
+/* ========================================
+   입금내역 카드
+   기존 카드형 → 리스트형
+======================================== */
+
 .deposit-history-card {
-
   display: flex;
-
   align-items: center;
 
   width: 100%;
+  min-height: 92px;
 
-  min-height: 76px;
-
-  padding: 15px 16px;
+  padding: 18px 0;
 
   box-sizing: border-box;
 
-  background: #202936;
+  background: transparent;
 
-  border-radius: 18px;
+  border-radius: 0;
 
-  box-shadow:
+  border-top: 1px solid #303a47;
 
-    0 3px 14px rgba(0, 0, 0, 0.18);
-
+  box-shadow: none;
 }
 
 
+/* ========================================
+   입금내역 아이콘
+======================================== */
+
 .deposit-history-icon {
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   flex-shrink: 0;
 
   width: 42px;
-
   height: 42px;
 
-  margin-right: 12px;
+  margin-right: 13px;
 
   border-radius: 14px;
 
@@ -320,57 +274,49 @@
   color: #5f8fbd;
 
   font-size: 20px;
-
 }
 
+
+/* ========================================
+   입금내역 정보
+======================================== */
 
 .deposit-history-info {
-
   display: flex;
-
   flex-direction: column;
-
-  gap: 4px;
+  gap: 5px;
 
   min-width: 0;
-
 }
 
-
 .deposit-history-info strong {
-
-  font-size: 14px;
-
+  font-size: 15px;
   font-weight: 700;
 
   color: #edf1f5;
-
 }
-
 
 .deposit-history-info span {
-
-  font-size: 12px;
+  font-size: 13px;
 
   color: #8d98a8;
-
 }
 
 
+/* ========================================
+   입금 금액
+======================================== */
+
 .deposit-history-amount {
-
   margin-left: auto;
-
   padding-left: 12px;
 
-  font-size: 14px;
-
+  font-size: 17px;
   font-weight: 700;
 
   color: #5f8fbd;
 
   white-space: nowrap;
-
 }
 
 
@@ -379,15 +325,11 @@
 ======================================== */
 
 .deposit-detail-info {
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 9px;
 
-  margin-top: 18px;
-
+  margin-top: 25px;
   padding: 15px 16px;
 
   box-sizing: border-box;
@@ -395,29 +337,21 @@
   border-radius: 15px;
 
   background: rgba(49, 90, 138, 0.14);
-
 }
 
-
 .deposit-detail-info span {
-
   flex-shrink: 0;
 
   font-size: 15px;
-
 }
 
-
 .deposit-detail-info p {
-
   margin: 0;
 
   font-size: 12px;
-
   line-height: 1.55;
 
   color: #aeb8c4;
-
 }
 
 
@@ -426,15 +360,12 @@
 ======================================== */
 
 .deposit-detail-button {
-
   width: 100%;
-
   height: 52px;
 
   margin-top: 18px;
 
   border: none;
-
   border-radius: 15px;
 
   background: #2a323d;
@@ -442,7 +373,6 @@
   color: #cbd3dc;
 
   font-size: 15px;
-
   font-weight: 700;
 
   cursor: pointer;
@@ -450,21 +380,14 @@
   transition:
     background 0.2s ease,
     transform 0.1s ease;
-
 }
-
 
 .deposit-detail-button:hover {
-
   background: #343e4b;
-
 }
 
-
 .deposit-detail-button:active {
-
   transform: scale(0.98);
-
 }
 
 
@@ -475,36 +398,97 @@
 @media (max-width: 480px) {
 
   .deposit-detail-page {
-
-    padding-left: 16px;
-
-    padding-right: 16px;
-
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
   }
 
+
+  /* 상단 */
+
+  .deposit-detail-top {
+    height: 64px;
+  }
+
+  .deposit-detail-top h2 {
+    font-size: 20px;
+  }
+
+
+  /* 메인 */
 
   .deposit-detail-card {
-
-    padding: 24px 20px;
-
-    border-radius: 20px;
-
+    padding-top: 88px;
   }
 
+
+  /* 계좌번호 */
+
+  .deposit-detail-account-number {
+    font-size: 16px;
+  }
+
+
+  /* 금액 */
 
   .deposit-detail-amount {
+    margin-top: 29px;
 
-    font-size: 28px;
-
+    font-size: 39px;
+    letter-spacing: -2px;
   }
 
+
+  /* 금리 / 기간 */
 
   .deposit-detail-summary {
+    margin-top: 18px;
 
     font-size: 14px;
-
   }
 
+
+  /* 진행바 */
+
+  .deposit-detail-progress-area {
+    margin-top: 92px;
+  }
+
+  .deposit-detail-progress-date {
+    font-size: 12px;
+  }
+
+
+  /* 거래내역 */
+
+  .deposit-detail-history {
+    margin-top: 72px;
+    padding-top: 26px;
+  }
+
+  .deposit-detail-history h3 {
+    font-size: 17px;
+  }
+
+
+  /* 거래내역 */
+
+  .deposit-history-card {
+    min-height: 86px;
+    padding: 16px 0;
+  }
+
+  .deposit-history-info strong {
+    font-size: 14px;
+  }
+
+  .deposit-history-info span {
+    font-size: 12px;
+  }
+
+  .deposit-history-amount {
+    font-size: 16px;
+  }
 }
 
 
@@ -513,86 +497,58 @@
 ======================================== */
 
 .dark-mode .deposit-detail-page {
-
   background: #151c24;
-
   color: #edf1f5;
-
 }
 
 
 .dark-mode .deposit-detail-card,
-
 .dark-mode .deposit-history-card {
-
-  background: #202936;
-
+  background: transparent;
   box-shadow: none;
-
 }
 
 
 .dark-mode .deposit-detail-top h2,
-
 .dark-mode .deposit-detail-amount,
-
 .dark-mode .deposit-detail-history h3,
-
 .dark-mode .deposit-history-info strong {
-
   color: #edf1f5;
-
 }
 
 
 .dark-mode .deposit-detail-account-number {
-
   color: #cbd3dc;
-
 }
 
 
 .dark-mode .deposit-detail-summary {
-
   color: #cbd3dc;
-
 }
 
 
 .dark-mode .deposit-detail-progress-bar {
-
   background: #303a47;
-
 }
 
 
 .dark-mode .deposit-detail-info {
-
   background: rgba(49, 90, 138, 0.14);
-
 }
 
 
 .dark-mode .deposit-detail-info p {
-
   color: #aeb8c4;
-
 }
 
 
 .dark-mode .deposit-detail-button {
-
   background: #2a323d;
-
   color: #cbd3dc;
-
 }
 
 
 .dark-mode .deposit-history-icon {
-
   background: rgba(49, 90, 138, 0.18);
-
   color: #5f8fbd;
-
 }
