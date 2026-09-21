@@ -38,6 +38,23 @@ function Deposit({
 
 
   /* =========================
+     날짜 표시용 함수
+  ========================= */
+
+  function formatDate(dateString) {
+
+    if (!dateString) {
+      return "";
+    }
+
+    const [year, month, day] =
+      dateString.split("-");
+
+    return `${year}. ${month}. ${day}`;
+  }
+
+
+  /* =========================
      예금 가입
   ========================= */
 
@@ -82,7 +99,7 @@ function Deposit({
     const currentBalance =
       savedBalance !== null
         ? Number(savedBalance)
-        : 3000000;
+        : 30000000;
 
 
     if (money > currentBalance) {
@@ -157,6 +174,13 @@ function Deposit({
 
     /* =========================
        거래내역 생성
+
+       예금 가입일 = 입출금통장
+       출금 거래일
+
+       예:
+       2026-06-25에 가입
+       → 2026-06-25 출금
     ========================= */
 
     const newTransaction = {
@@ -169,10 +193,7 @@ function Deposit({
 
       amount: -money,
 
-      date:
-        new Date().toLocaleDateString(
-          "ko-KR"
-        ),
+      date: formatDate(date),
 
       afterBalance: newBalance
 
@@ -203,6 +224,8 @@ function Deposit({
 
     /* =========================
        알림 생성
+
+       가입 날짜를 사용
     ========================= */
 
     const newNotification = {
@@ -216,10 +239,7 @@ function Deposit({
       message:
         `${money.toLocaleString()}원이 예금으로 등록되었습니다.`,
 
-      date:
-        new Date().toLocaleDateString(
-          "ko-KR"
-        ),
+      date: formatDate(date),
 
       read: false
 
@@ -378,6 +398,9 @@ function Deposit({
 
     /* =========================
        해지 거래내역 생성
+
+       해지 날짜는 실제 해지한
+       현재 날짜 사용
     ========================= */
 
     const newTransaction = {

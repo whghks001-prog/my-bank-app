@@ -473,7 +473,7 @@ function Settings({
             </span>
 
             <strong>
-              연습용 금융 앱
+              금융 앱
             </strong>
           </div>
 

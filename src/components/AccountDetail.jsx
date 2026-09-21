@@ -16,17 +16,135 @@ function AccountDetail({
 
 
   /* =========================
+     날짜 변환
+     
+     지원:
+     2026. 6. 25.
+     2026. 06. 25.
+     2026-06-25
+  ========================= */
+
+  const parseTransactionDate = (dateValue) => {
+
+    if (!dateValue) {
+      return null;
+    }
+
+    const text =
+      String(dateValue).trim();
+
+
+    /* =========================
+       YYYY-MM-DD
+    ========================= */
+
+    const isoMatch =
+      text.match(
+        /^(\d{4})-(\d{1,2})-(\d{1,2})/
+      );
+
+
+    if (isoMatch) {
+
+      return new Date(
+        Number(isoMatch[1]),
+        Number(isoMatch[2]) - 1,
+        Number(isoMatch[3])
+      );
+
+    }
+
+
+    /* =========================
+       YYYY. M. D.
+       YYYY. MM. DD.
+    ========================= */
+
+    const koreanDateMatch =
+      text.match(
+        /(\d{4})\D+(\d{1,2})\D+(\d{1,2})/
+      );
+
+
+    if (koreanDateMatch) {
+
+      return new Date(
+        Number(koreanDateMatch[1]),
+        Number(koreanDateMatch[2]) - 1,
+        Number(koreanDateMatch[3])
+      );
+
+    }
+
+
+    /* =========================
+       그 외 형식
+    ========================= */
+
+    const parsed =
+      new Date(text);
+
+
+    if (!Number.isNaN(parsed.getTime())) {
+      return parsed;
+    }
+
+
+    return null;
+
+  };
+
+
+  /* =========================
      입출금통장 거래내역
   ========================= */
 
   const accountTransactions =
-    transactions.filter(
-      (item) =>
-        item.type === "입금" ||
-        item.type === "출금" ||
-        item.type === "이체" ||
-        item.type === "예치"
-    );
+    transactions
+      .filter(
+        (item) =>
+          item.type === "입금" ||
+          item.type === "출금" ||
+          item.type === "이체" ||
+          item.type === "예치"
+      )
+      .slice()
+      .sort((a, b) => {
+
+        const dateA =
+          parseTransactionDate(a.date);
+
+        const dateB =
+          parseTransactionDate(b.date);
+
+
+        /* 날짜가 정상적으로 있으면
+           최신 날짜부터 표시 */
+
+        if (dateA && dateB) {
+
+          return (
+            dateB.getTime() -
+            dateA.getTime()
+          );
+
+        }
+
+
+        /* 날짜가 없는 거래는 아래쪽 */
+
+        if (dateB) {
+          return 1;
+        }
+
+        if (dateA) {
+          return -1;
+        }
+
+
+        return 0;
+
+      });
 
 
   return (
@@ -65,7 +183,6 @@ function AccountDetail({
           {/* 은행명 */}
 
           <div className="account-detail-bank">
-           
           </div>
 
 
@@ -75,14 +192,12 @@ function AccountDetail({
             type="button"
             className="account-detail-manage"
           >
-            
           </button>
 
 
           {/* 계좌 아이콘 */}
 
           <div className="account-detail-icon">
-           
           </div>
 
 
@@ -106,7 +221,6 @@ function AccountDetail({
               className="account-detail-copy"
               aria-label="계좌번호 복사"
             >
-              
             </button>
 
           </div>
@@ -135,7 +249,6 @@ function AccountDetail({
           >
 
             <span className="account-detail-action-icon">
-              
             </span>
 
             <span>
@@ -151,7 +264,6 @@ function AccountDetail({
           >
 
             <span className="account-detail-action-icon">
-              
             </span>
 
             <span>
@@ -230,10 +342,8 @@ function AccountDetail({
 
           <div className="account-detail-transactions">
 
-            {accountTransactions
-              .slice()
-              .reverse()
-              .map((item, index) => {
+            {accountTransactions.map(
+              (item, index) => {
 
                 const amount =
                   Number(item.amount || 0);
@@ -243,52 +353,69 @@ function AccountDetail({
                    거래 종류
                 ========================= */
 
-                let transactionType = "거래";
+                let transactionType =
+                  "거래";
 
 
-                /* 예금 가입 */
+                /* =========================
+                   예금 가입
+                   
+                   입출금통장에서는
+                   돈이 빠져나간 거래이므로
+                   "출금"으로 표시
+                ========================= */
 
                 if (
                   item.type === "예치" ||
                   item.title === "예금 가입"
                 ) {
 
-                  transactionType = "출금";
+                  transactionType =
+                    "출금";
 
                 }
 
 
-                /* 일반 출금 */
+                /* =========================
+                   일반 출금
+                ========================= */
 
                 else if (
                   item.type === "출금" ||
                   amount < 0
                 ) {
 
-                  transactionType = "출금";
+                  transactionType =
+                    "출금";
 
                 }
 
 
-                /* 일반 입금 */
+                /* =========================
+                   일반 입금
+                ========================= */
 
                 else if (
                   item.type === "입금" ||
                   amount > 0
                 ) {
 
-                  transactionType = "입금";
+                  transactionType =
+                    "입금";
 
                 }
 
 
-                /* 이체 */
+                /* =========================
+                   이체
+                ========================= */
 
                 else if (
                   item.type === "이체"
                 ) {
 
-                  transactionType = "이체";
+                  transactionType =
+                    "이체";
 
                 }
 
@@ -307,7 +434,9 @@ function AccountDetail({
                     }
                   >
 
-                    {/* 왼쪽 */}
+                    {/* =========================
+                        왼쪽
+                    ========================= */}
 
                     <div className="account-detail-transaction-info">
 
@@ -328,7 +457,9 @@ function AccountDetail({
                     </div>
 
 
-                    {/* 오른쪽 */}
+                    {/* =========================
+                        오른쪽
+                    ========================= */}
 
                     <div className="account-detail-transaction-right">
 
@@ -336,7 +467,9 @@ function AccountDetail({
                         className="account-detail-transaction-amount"
                       >
 
-                        {isDeposit ? "+" : "-"}
+                        {isDeposit
+                          ? "+"
+                          : "-"}
 
                         {formatMoney(
                           Math.abs(amount)
@@ -370,7 +503,8 @@ function AccountDetail({
 
                 );
 
-              })}
+              }
+            )}
 
           </div>
 
@@ -384,11 +518,9 @@ function AccountDetail({
         <div className="account-detail-notice">
 
           <div className="account-detail-notice-icon">
-            
           </div>
 
           <p>
-           
           </p>
 
         </div>
@@ -398,6 +530,7 @@ function AccountDetail({
     </div>
 
   );
+
 }
 
 export default AccountDetail;
