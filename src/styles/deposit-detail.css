@@ -1,5 +1,6 @@
 /* ========================================
    MG 스마트뱅크
+
    예금 상세
 ======================================== */
 
@@ -10,7 +11,6 @@
   margin: 0 auto;
   padding: 0 20px 50px;
   box-sizing: border-box;
-
   background: #161617;
   color: #edf1f5;
 }
@@ -22,22 +22,18 @@
 
 .deposit-detail-top {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 72px;
 }
 
 .deposit-detail-top h2 {
   margin: 0;
-
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.5px;
-
   color: #f3f6fa;
 }
 
@@ -49,24 +45,18 @@
   left: -4px;
   top: 50%;
   transform: translateY(-50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 40px;
   height: 40px;
   padding: 0;
-
   border: none;
   border-radius: 50%;
-
   background: transparent;
   color: #edf1f5;
-
   font-size: 27px;
   line-height: 1;
-
   cursor: pointer;
 }
 
@@ -79,7 +69,6 @@
   width: 100%;
   padding-top: 50px;
   box-sizing: border-box;
-
   background: transparent;
 }
 
@@ -90,20 +79,16 @@
 
 .deposit-detail-account-label {
   margin-bottom: 7px;
-
   font-size: 13px;
   color: #8d98a8;
 }
 
 .deposit-detail-account-number {
   display: inline-block;
-
   padding-bottom: 7px;
-
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 0.2px;
-
   color: #cbd3dc;
 }
 
@@ -114,12 +99,10 @@
 
 .deposit-detail-amount {
   margin-top: 31px;
-
   font-size: 43px;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -2px;
-
   color: #f3f6fa;
 }
 
@@ -132,12 +115,9 @@
   display: flex;
   align-items: center;
   gap: 9px;
-
   margin-top: 20px;
-
   font-size: 15px;
   font-weight: 600;
-
   color: #cbd3dc;
 }
 
@@ -158,9 +138,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 9px;
-
   font-size: 13px;
   color: #8d98a8;
 }
@@ -170,33 +148,24 @@
 
 .deposit-detail-progress-bar {
   position: relative;
-
   width: 100%;
   height: 9px;
-
   overflow: hidden;
-
   border-radius: 999px;
-
   background: #303a47;
 }
 
 .deposit-detail-progress-fill {
   height: 100%;
   min-width: 0;
-
   border-radius: 999px;
-
   background: #315a8a;
-
   transition: width 0.5s ease;
 }
 
 .deposit-detail-progress-percent {
   margin-top: 7px;
-
   text-align: right;
-
   font-size: 11px;
   color: #8d98a8;
 }
@@ -216,10 +185,8 @@
 
 .deposit-detail-history h3 {
   margin: 0 0 18px;
-
   font-size: 18px;
   font-weight: 700;
-
   color: #e9edf2;
 }
 
@@ -232,15 +199,11 @@
 .deposit-history-card {
   display: flex;
   align-items: center;
-
   width: 100%;
   min-height: 92px;
   padding: 18px 0;
-
   box-sizing: border-box;
-
   background: transparent;
-
   border-top: 1px solid #303a47;
 }
 
@@ -254,16 +217,12 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-
   width: 42px;
   height: 42px;
   margin-right: 13px;
-
   border-radius: 14px;
-
   background: rgba(49, 90, 138, 0.18);
   color: #5f8fbd;
-
   font-size: 20px;
 }
 
@@ -276,20 +235,17 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-
   min-width: 0;
 }
 
 .deposit-history-info strong {
   font-size: 15px;
   font-weight: 700;
-
   color: #edf1f5;
 }
 
 .deposit-history-info span {
   font-size: 13px;
-
   color: #8d98a8;
 }
 
@@ -301,12 +257,9 @@
 .deposit-history-amount {
   margin-left: auto;
   padding-left: 12px;
-
   font-size: 17px;
   font-weight: 700;
-
   color: #5f8fbd;
-
   white-space: nowrap;
 }
 
@@ -319,29 +272,22 @@
   display: flex;
   align-items: flex-start;
   gap: 9px;
-
   margin-top: 25px;
   padding: 15px 16px;
-
   box-sizing: border-box;
-
   border-radius: 15px;
-
   background: rgba(49, 90, 138, 0.14);
 }
 
 .deposit-detail-info span {
   flex-shrink: 0;
-
   font-size: 15px;
 }
 
 .deposit-detail-info p {
   margin: 0;
-
   font-size: 12px;
   line-height: 1.55;
-
   color: #aeb8c4;
 }
 
@@ -353,20 +299,14 @@
 .deposit-detail-button {
   width: 100%;
   height: 52px;
-
   margin-top: 18px;
-
   border: none;
   border-radius: 15px;
-
   background: #2a323d;
   color: #cbd3dc;
-
   font-size: 15px;
   font-weight: 700;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     transform 0.1s ease;
@@ -400,7 +340,6 @@
     height: 64px;
   }
 
-
   .deposit-detail-top h2 {
     font-size: 20px;
   }
@@ -424,7 +363,6 @@
 
   .deposit-detail-amount {
     margin-top: 29px;
-
     font-size: 39px;
     letter-spacing: -2px;
   }
@@ -434,7 +372,6 @@
 
   .deposit-detail-summary {
     margin-top: 18px;
-
     font-size: 14px;
   }
 
@@ -442,7 +379,7 @@
   /* 진행바 */
 
   .deposit-detail-progress-area {
-    margin-top: 92px;
+    margin-top: 28px;
   }
 
   .deposit-detail-progress-date {
@@ -453,8 +390,8 @@
   /* 거래내역 */
 
   .deposit-detail-history {
-    margin-top: 72px;
-    padding-top: 26px;
+    margin-top: 32px;
+    padding-top: 20px;
   }
 
   .deposit-detail-history h3 {
