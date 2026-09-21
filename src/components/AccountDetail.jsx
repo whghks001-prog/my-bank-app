@@ -65,7 +65,7 @@ function AccountDetail({
           {/* 은행명 */}
 
           <div className="account-detail-bank">
-            MG 새마을금고
+           
           </div>
 
 
@@ -75,14 +75,14 @@ function AccountDetail({
             type="button"
             className="account-detail-manage"
           >
-            관리
+            
           </button>
 
 
           {/* 계좌 아이콘 */}
 
           <div className="account-detail-icon">
-            MG
+           
           </div>
 
 
@@ -106,7 +106,7 @@ function AccountDetail({
               className="account-detail-copy"
               aria-label="계좌번호 복사"
             >
-              □
+              
             </button>
 
           </div>
@@ -384,13 +384,11 @@ function AccountDetail({
         <div className="account-detail-notice">
 
           <div className="account-detail-notice-icon">
-            i
+            
           </div>
 
           <p>
-            거래내역은 최근 1개월까지 조회할 수 있습니다.
-            <br />
-            더 많은 내역이 필요하시면 기간을 변경해 주세요.
+           
           </p>
 
         </div>

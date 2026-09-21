@@ -86,7 +86,7 @@
 
   box-sizing: border-box;
 
-  padding: 10px 4px 0;
+  padding: 30px 4px 0;
 
   background: transparent;
 
@@ -103,48 +103,6 @@
 
 .account-detail-account {
   position: relative;
-}
-
-
-/* 은행명 */
-
-.account-detail-bank {
-  display: inline-flex;
-  align-items: center;
-
-  margin-bottom: 18px;
-  padding: 7px 13px;
-
-  border-radius: 999px;
-
-  background: #161617;
-
-  color: #161617;
-
-  font-size: 14px;
-  font-weight: 600;
-}
-
-
-/* 계좌 아이콘 */
-
-.account-detail-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 0px;
-  height: 0px;
-
-  margin-bottom: 13px;
-
-  border-radius: 50%;
-
-  background: #161617;
-
-  color: #161617;
-
-  font-size: 24px;
 }
 
 
@@ -167,6 +125,11 @@
   display: flex;
   align-items: center;
   gap: 7px;
+  display: inline-block;
+
+  padding-bottom: 7px;
+
+ 
 
   margin-top: 7px;
 
@@ -229,12 +192,11 @@
 ========================= */
 
 .account-detail-balance {
-  margin-top: 52px;
+  margin-top: 31px;
 
-  font-size: 48px;
+  font-size: 43px;
   font-weight: 800;
-  line-height: 1;
-
+  line-height: 1.15;
   letter-spacing: -2px;
 
   color: #f3f6fa;
@@ -516,62 +478,6 @@
   color: #cbd3dc;
 }
 
-
-/* =========================
-   하단 안내
-========================= */
-
-.account-detail-notice {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  width: 100%;
-
-  margin-top: 55px;
-  padding: 20px 18px;
-
-  box-sizing: border-box;
-
-  border-radius: 18px;
-
-  background: #202936;
-}
-
-
-/* 안내 아이콘 */
-
-.account-detail-notice-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  width: 42px;
-  height: 42px;
-
-  border-radius: 50%;
-
-  background: #315a8a;
-
-  color: #edf1f5;
-
-  font-size: 20px;
-  font-weight: 700;
-}
-
-
-/* 안내 문구 */
-
-.account-detail-notice p {
-  margin: 0;
-
-  font-size: 13px;
-  line-height: 1.65;
-
-  color: #aeb8c4;
-}
 
 
 /* =========================
